@@ -1,0 +1,24 @@
+Version 1.0, problems:
+
+* Silk screen messed up - acidentally turned on the part names on the silk layer
+    Fix: turn them off before next build
+* Swapped PGC and PGD on ICSP connector
+    Fix: swap them back for v1.1
+* No LED orentation markers on silk screen
+    Fix: add them to v1.1
+* Crystal is really, really big
+    Fix: Find smaller one for v1.1
+* For 3.3V regulator, change to one with fixed voltage (3.3V), and smaller if possible
+* 250mA poly fuse is too small
+    Fix: Switch to 500mA polyfuse for v1.1
+* VUSB needs to be tied to +3.3V
+* Update MX440 symbol to have all pin functions listed
+* MCLR should not have a pin number - can't use it as an I/O pin
+* Should we have a pin 0? (rather than starting at 1)
+
+Version 1.1, problems:
+
+* Forgot to remove the PTC - should be removed for v1.2
+* Possible change - make all silk screen pin names read same way?
+* Silk screen next to green LED is wrong. It should read 21.
+* Reverse green LED so it goes to GND rather than 3.3V.
