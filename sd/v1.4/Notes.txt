@@ -1,0 +1,40 @@
+These are internal developer change notes created during the development process of the Fubarino SD board.
+Written by Brian Schmalz of Schmalz Haus LLC (www.schmalzhaus.com)
+2012
+
+Version 1.0, problems:
+
+* Silk screen messed up - acidentally turned on the part names on the silk layer
+    Fix: turn them off before next build
+* Swapped PGC and PGD on ICSP connector
+    Fix: swap them back for v1.1
+* No LED orentation markers on silk screen
+    Fix: add them to v1.1
+* Crystal is really, really big
+    Fix: Find smaller one for v1.1
+* For 3.3V regulator, change to one with fixed voltage (3.3V), and smaller if possible
+* 250mA poly fuse is too small
+    Fix: Switch to 500mA polyfuse for v1.1
+* VUSB needs to be tied to +3.3V
+* Update MX440 symbol to have all pin functions listed
+* MCLR should not have a pin number - can't use it as an I/O pin
+* Should we have a pin 0? (rather than starting at 1)
+
+Version 1.1 problems - fix for v1.2:
+
+* Forgot to remove the PTC - should be removed for v1.2 (done)
+* Possible change - make all silk screen pin names read same way? (done)
+* Silk screen next to green LED is wrong. It should read 21. (done)
+* Reverse green LED so it goes to GND rather than 3.3V. (done)
+* Check cap values for both crystals (done)
+* Move reset and program switches further apart (done)
+
+Version 1.2 - changes for v1.3:
+
+* Add two diodes to allow power from USB or VIN input pin
+* Separate out 5V in from post-diode power net, bring to pins
+* Swap GND and 5V_OUT/VIN so 5V_OUT/VIN are on end
+
+Version 1.3 - changes for v1.4:
+
+* C13 changed from 1uF to 10uF, and from 0603 ro 0805, to help reduce VCC drop on microSD insert
