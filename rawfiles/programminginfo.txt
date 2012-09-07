@@ -1,0 +1,61 @@
+Power Fubarino from USB
+
+Unzip Fubarino.zip into variants folder
+
+I have a ICD3 (at the top of the picture) with my custom made RJ-11 to 6-pin .100" header. On that cable (from the ReadlIce) (from left to right)
+
+Direct Connect
+
+ICD3 : value
+Blue: unused
+Yellow: PGC
+Green: PGD
+Red: GND
+Black: 3.3V
+White: MCLR/RESET
+
+
+
+Bread Board Example
+
+
+R:B: value
+Blue: White : unused
+Yellow: Black : PGC
+Green: Red : PGD
+Red: Green : GND
+Black: Yellow : 3.3V
+White: Blue : MCLR/RESET
+
+Then I have five jumpers that connect that ICD3 cable to the Fubarino, again, from left to right
+
+ICD3 : Color : Fubarino
+PGC :: Red : A9
+PGD :: Yellow : A8
+GND :: Green : GND
+3.3V :: Black : 3.3
+MCLR/RESET : : RST
+
+The important thing is that the cable from the ICD3 goes into the Fubarino 1:1 except for PGC and PGD which need to be reversed.
+
+Hopefully this will help you when you start to program yours on Friday.
+
+
+ICD3: FubarinoSD
+1: PGM 
+2: PGC : A9
+3: PGD : A8
+4: Ground : GND
+5: Vdd : 3.3
+6: MCLR/Vpp, reset : RST
+
+ICD3: Fubarino Mini end of board left to right
+White: Reset
+Black: 3.3V
+Red: GND
+Green: PGD
+Yellow: PGC
+
+Note: no blue, unusued
+
+
