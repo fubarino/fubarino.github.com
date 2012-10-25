@@ -25,16 +25,6 @@ Availability:
 These boards are Open Hardware and all the files are management in this project, and are licensed as OpenSource and under the Apache 2.0 license.
 They can be created from the Eagle files right away.
 
-Hopefull, in September this boards wiil be availab via Seeed Studio.
-
-
-The FubarinoSD
-===========
-
-
-The FubarinoMini
-==========
-
 
 
 
