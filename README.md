@@ -1,10 +1,9 @@
 fubarino: Social Hardware and Software
 ========
 Main Project Pages are:
-htp://fubarino.com
+http://fubarino.org
 
-The Fubarino is a small form factor breadable version of the ChipKit. It is MPIDE compatible, and uses the Arduino API for programming.
-
+The Fubarino SD board brings affordable, breadboard compatible high speed computing power to the Arduino-compatible chipKIT/MPIDE platform. It is able to run almost all Arduino sketches right out of the box at a great price, and includes more memory, speed, and I/O pins than a typical Arduino or clone. And it includes a microSD card slot for easy sketch access to huge file storage.
 FubarinoSD
 ======
 Class on a stick. Course materials can fit on the SD card. The device mounts as a USB device. Unfortunatley, at 1.0 speeds. But 
@@ -16,28 +15,18 @@ The goal with the project is two have two boards that are excellent for small, a
 
 Social Hardware:
 =====
-Open Source
-Open Hardware
-Sharable
+* Open Source
+* Open Hardware
+* Sharable
+
+
+Licensing
+====
+The Fubarino SD hardware is licenced under the Solderpad Hardware License v0.5. All MPIDE source code is licenced under GPL or other open source software licenses.
 
 Availability:
 ========
-These boards are Open Hardware and all the files are management in this project, and are licensed as OpenSource and under the Apache 2.0 license.
-They can be created from the Eagle files right away.
-
-Hopefull, in September this boards wiil be availab via Seeed Studio.
-
-
-The FubarinoSD
-===========
-
-
-The FubarinoMini
-==========
-
-
-
-
-
+These boards are Open Hardware and all the files are management in this project, and are licensed as OpenSource.
+They can be created from the Eagle files right away or purchased at [Seeed Studio](http://www.seeedstudio.com/depot/fubarino-sd-p-1265.html?cPath=132_133).
 
 
