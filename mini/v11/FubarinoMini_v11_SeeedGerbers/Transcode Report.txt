@@ -1,0 +1,72 @@
+
+
+   ---- Transcoding 'D:\Projects\UBW32\EE\FubarinoMini\v11\FubarinoMini_v11_SeeedGerbers\FubarinoMini_v11.GTP' ----   Sun Jun 03 15:17:01 2012
+
+D11   --> D100
+D12   --> D101
+D13   --> D102
+D14   --> D103
+D15   --> D104
+D16   --> D105
+D17   --> D106
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'D:\Projects\UBW32\EE\FubarinoMini\v11\FubarinoMini_v11_SeeedGerbers\FubarinoMini_v11.GTS' ----   Sun Jun 03 15:17:01 2012
+
+D11   --> D107
+D12   --> D108
+D13   --> D109
+D14   --> D110
+D15   --> D111
+D16   --> D112
+D17   --> D113
+D18   --> D114
+D19   --> D115
+D21   --> D116
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'D:\Projects\UBW32\EE\FubarinoMini\v11\FubarinoMini_v11_SeeedGerbers\FubarinoMini_v11.GTL' ----   Sun Jun 03 15:17:01 2012
+
+D11   --> D117
+D12   --> D118
+D13   --> D119
+D14   --> D120
+D15   --> D121
+D16   --> D122
+D17   --> D123
+D18   --> D124
+D19   --> D125
+D20   --> D126
+D21   --> D127
+D22   --> D128
+D25   --> D129
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'D:\Projects\UBW32\EE\FubarinoMini\v11\FubarinoMini_v11_SeeedGerbers\FubarinoMini_v11.GBL' ----   Sun Jun 03 15:17:01 2012
+
+D11   --> D130
+D12   --> D131
+D13   --> D132
+D14   --> D133
+D15   --> D134
+D16   --> D135
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'D:\Projects\UBW32\EE\FubarinoMini\v11\FubarinoMini_v11_SeeedGerbers\FubarinoMini_v11.GBS' ----   Sun Jun 03 15:17:01 2012
+
+D11   --> D136
+D12   --> D137
+D13   --> D138
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'D:\Projects\UBW32\EE\FubarinoMini\v11\FubarinoMini_v11_SeeedGerbers\FubarinoMini_v11.GBO' ----   Sun Jun 03 15:17:01 2012
+
+D11   --> D139
+D12   --> D140
+D13   --> D141
+-----------------------------------------------------------------

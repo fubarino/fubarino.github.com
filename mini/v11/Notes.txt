@@ -1,0 +1,1 @@
+Fubarino Mini v1.0 board - 04/04/2012* For v1.1, move 32KHz crystal so it lies flat. Rotate 90 degrees to right. (done)* Add some silk screen on some pins so you know where to start counting. (done)* Calculate correct crystal cap values and update BOM (done)* Make 32KHz crystal a do not populate on schematic and in BOM (done)* Move PRG and RESET switches futher apart (done)
