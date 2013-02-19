@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.2">
+<eagle version="6.4">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -29552,9 +29552,9 @@ Source: http://ww1.microchip.com/downloads/en/DeviceDoc/22049b.pdf</description>
 <part name="C3" library="SparkFun" deviceset="CAP" device="0603-CAP" value="1uF"/>
 <part name="GND23" library="SparkFun02-20-08" deviceset="GND" device=""/>
 <part name="P+5" library="SparkFun02-20-08" deviceset="3.3V" device=""/>
-<part name="U$12" library="SparkFun02-20-08" deviceset="5V" device=""/>
+<part name="U$12" library="SparkFun02-20-08" deviceset="5V" device="" value="Vout"/>
 <part name="P+12" library="SparkFun02-20-08" deviceset="3.3V" device=""/>
-<part name="U$16" library="SparkFun02-20-08" deviceset="5V" device=""/>
+<part name="U$16" library="SparkFun02-20-08" deviceset="5V" device="" value="Vout"/>
 <part name="GND24" library="SparkFun02-20-08" deviceset="GND" device=""/>
 <part name="Q1" library="SchmalzHaus" deviceset="CRYSTAL" device="NX5032" value="8MHz"/>
 <part name="C14" library="SparkFun" deviceset="CAP" device="0603-CAP" value="12pF"/>
@@ -29594,14 +29594,14 @@ Source: http://ww1.microchip.com/downloads/en/DeviceDoc/22049b.pdf</description>
 <plain>
 <text x="137.16" y="27.94" size="1.778" layer="98" rot="R90">Power ON LED</text>
 <text x="40.64" y="91.44" size="1.778" layer="98">USB Function (Mini B)</text>
-<text x="10.16" y="248.92" size="6.4516" layer="98" ratio="15">Fubarino SD</text>
-<text x="10.16" y="243.84" size="3.81" layer="98" ratio="15">www.fubarino.com/SD</text>
-<text x="10.16" y="238.76" size="1.778" layer="98">Designed by : Brian Schmalz and Rick Anderson</text>
+<text x="5.08" y="248.92" size="6.4516" layer="98" ratio="15">Fubarino SD</text>
+<text x="5.08" y="243.84" size="3.81" layer="98" ratio="15">www.fubarino.com/SD</text>
+<text x="5.08" y="238.76" size="1.778" layer="98">Designed by : Brian Schmalz and Rick Anderson</text>
 <text x="58.42" y="81.28" size="1.778" layer="98">J8</text>
-<text x="10.16" y="231.14" size="1.778" layer="98">If you like the Fubarino SD, please consider that</text>
-<text x="10.16" y="228.6" size="1.778" layer="98">SchmalzHaus can design a customized version</text>
-<text x="10.16" y="226.06" size="1.778" layer="98">for your specific needs.</text>
-<text x="10.16" y="223.52" size="1.778" layer="98">Contact brian@schmalzhaus.com for more information.</text>
+<text x="5.08" y="231.14" size="1.778" layer="98">If you like the Fubarino SD, please consider that</text>
+<text x="5.08" y="228.6" size="1.778" layer="98">SchmalzHaus can design a customized version</text>
+<text x="5.08" y="226.06" size="1.778" layer="98">for your specific needs.</text>
+<text x="5.08" y="223.52" size="1.778" layer="98">Contact brian@schmalzhaus.com for more information.</text>
 <text x="291.592" y="207.518" size="1.778" layer="98">PIN 0</text>
 <text x="291.592" y="204.978" size="1.778" layer="98">PIN 1</text>
 <text x="291.592" y="202.438" size="1.778" layer="98">PIN 2</text>
@@ -29658,39 +29658,39 @@ Source: http://ww1.microchip.com/downloads/en/DeviceDoc/22049b.pdf</description>
 <text x="291.592" y="210.058" size="1.778" layer="98">3.3V</text>
 <text x="291.592" y="215.138" size="1.778" layer="98">Vout</text>
 <text x="291.592" y="212.598" size="1.778" layer="98">GND</text>
-<text x="10.16" y="218.44" size="1.778" layer="98">03/06/2012 - v1.0</text>
-<text x="12.7" y="215.9" size="1.778" layer="98">First prototype version</text>
-<text x="10.16" y="213.36" size="1.778" layer="98">03/09/2012 - v1.1</text>
-<text x="12.7" y="210.82" size="1.778" layer="98">Fixed swapped PGC/PGD</text>
-<text x="12.7" y="208.28" size="1.778" layer="98">Fixed missing VUSB connection</text>
-<text x="12.7" y="205.74" size="1.778" layer="98">Corrected pin numbering - start at 0</text>
-<text x="12.7" y="203.2" size="1.778" layer="98">RESET no longer a digital I/O pin</text>
-<text x="12.7" y="200.66" size="1.778" layer="98">Used 500mA polyfuse</text>
-<text x="12.7" y="198.12" size="1.778" layer="98">Changed voltage regulator</text>
-<text x="12.7" y="195.58" size="1.778" layer="98">Changed C5 footprint</text>
-<text x="12.7" y="193.04" size="1.778" layer="98">Changed to a smaller 8MHz crystal</text>
+<text x="5.08" y="218.44" size="1.778" layer="98">03/06/2012 - v1.0</text>
+<text x="7.62" y="215.9" size="1.778" layer="98">First prototype version</text>
+<text x="5.08" y="213.36" size="1.778" layer="98">03/09/2012 - v1.1</text>
+<text x="7.62" y="210.82" size="1.778" layer="98">Fixed swapped PGC/PGD</text>
+<text x="7.62" y="208.28" size="1.778" layer="98">Fixed missing VUSB connection</text>
+<text x="7.62" y="205.74" size="1.778" layer="98">Corrected pin numbering - start at 0</text>
+<text x="7.62" y="203.2" size="1.778" layer="98">RESET no longer a digital I/O pin</text>
+<text x="7.62" y="200.66" size="1.778" layer="98">Used 500mA polyfuse</text>
+<text x="7.62" y="198.12" size="1.778" layer="98">Changed voltage regulator</text>
+<text x="7.62" y="195.58" size="1.778" layer="98">Changed C5 footprint</text>
+<text x="7.62" y="193.04" size="1.778" layer="98">Changed to a smaller 8MHz crystal</text>
 <text x="265.684" y="110.998" size="1.778" layer="98">J1</text>
 <text x="265.176" y="72.39" size="1.778" layer="98">microSD</text>
-<text x="10.16" y="190.5" size="1.778" layer="98">04/04/2012 - v1.2</text>
-<text x="12.7" y="187.96" size="1.778" layer="98">GREEN LED goes to ground now not 3.3V</text>
-<text x="12.7" y="185.42" size="1.778" layer="98">Removed polyfuse</text>
-<text x="12.7" y="182.88" size="1.778" layer="98">Fixed silk on green LED to say 21</text>
-<text x="12.7" y="180.34" size="1.778" layer="98">All pin name silk reads the same way</text>
-<text x="10.16" y="241.3" size="1.778" layer="98" ratio="15">A chipKIT compatible board</text>
-<text x="12.7" y="177.8" size="1.778" layer="98">Took 32kHz crystal and caps off BOM</text>
+<text x="5.08" y="190.5" size="1.778" layer="98">04/04/2012 - v1.2</text>
+<text x="7.62" y="187.96" size="1.778" layer="98">GREEN LED goes to ground now not 3.3V</text>
+<text x="7.62" y="185.42" size="1.778" layer="98">Removed polyfuse</text>
+<text x="7.62" y="182.88" size="1.778" layer="98">Fixed silk on green LED to say 21</text>
+<text x="7.62" y="180.34" size="1.778" layer="98">All pin name silk reads the same way</text>
+<text x="5.08" y="241.3" size="1.778" layer="98" ratio="15">A chipKIT compatible board</text>
+<text x="7.62" y="177.8" size="1.778" layer="98">Took 32kHz crystal and caps off BOM</text>
 <wire x1="193.04" y1="182.88" x2="238.76" y2="182.88" width="0.1524" layer="98" style="longdash"/>
 <wire x1="238.76" y1="182.88" x2="238.76" y2="154.94" width="0.1524" layer="98" style="longdash"/>
 <wire x1="238.76" y1="154.94" x2="193.04" y2="154.94" width="0.1524" layer="98" style="longdash"/>
 <wire x1="193.04" y1="154.94" x2="193.04" y2="182.88" width="0.1524" layer="98" style="longdash"/>
 <text x="195.072" y="156.718" size="1.778" layer="98">Do Not Populate</text>
-<text x="10.16" y="175.26" size="1.778" layer="98">6/8/2012 - v1.3</text>
-<text x="12.7" y="172.72" size="1.778" layer="98">Added power input diodes</text>
+<text x="5.08" y="175.26" size="1.778" layer="98">6/8/2012 - v1.3</text>
+<text x="7.62" y="172.72" size="1.778" layer="98">Added power input diodes</text>
 <text x="237.744" y="59.944" size="1.778" layer="98">Board will run on Vin from 2.8V (will supply 2.3V Vcc) to 13.2V</text>
 <text x="237.744" y="57.404" size="1.778" layer="98">IC2 will get quite hot at higher Vin voltages</text>
 <text x="237.744" y="54.864" size="1.778" layer="98">Board normally consumes about 70mA @3.3V</text>
 <text x="237.744" y="52.324" size="1.778" layer="98">So about 180mA of 3.3V is available on 3.3V pins</text>
-<text x="10.16" y="170.18" size="1.778" layer="98">7/16/2012 - v1.4</text>
-<text x="12.7" y="167.64" size="1.778" layer="98">Changed C13 from 1uF to 10uF</text>
+<text x="5.08" y="170.18" size="1.778" layer="98">7/16/2012 - v1.4</text>
+<text x="7.62" y="167.64" size="1.778" layer="98">Changed C13 from 1uF to 10uF</text>
 <wire x1="329.946" y1="184.15" x2="347.98" y2="184.15" width="0.1524" layer="98"/>
 <wire x1="347.98" y1="171.45" x2="330.2" y2="171.45" width="0.1524" layer="98"/>
 <text x="349.504" y="179.578" size="1.778" layer="98">ICSP</text>
@@ -29751,6 +29751,9 @@ Source: http://ww1.microchip.com/downloads/en/DeviceDoc/22049b.pdf</description>
 <text x="5.08" y="10.16" size="1.778" layer="98">you may not use this file except in compliance with the License. You may obtain a copy of the License at http://solderpad.org/licenses/SHL-0.51. Unless required by applicable law or agreed to in writing,</text>
 <text x="5.08" y="7.62" size="1.778" layer="98"> software, hardware and materials distributed under this License is distributed on an “AS IS” BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. </text>
 <text x="5.08" y="5.08" size="1.778" layer="98"> See the License for the specific language governing permissions and limitations under the License.</text>
+<text x="5.08" y="165.1" size="1.778" layer="98">2/18/2013 - v1.4.1</text>
+<text x="7.62" y="162.56" size="1.778" layer="98">Renamed 5V net to Vout net</text>
+<text x="7.62" y="160.02" size="1.778" layer="98">(schematic change only)</text>
 </plain>
 <instances>
 <instance part="GND14" gate="1" x="198.12" y="149.86" rot="R90"/>
@@ -29798,7 +29801,7 @@ Source: http://ww1.microchip.com/downloads/en/DeviceDoc/22049b.pdf</description>
 <attribute name="VALUE" x="268.986" y="210.058" size="1.778" layer="96"/>
 </instance>
 <instance part="U$16" gate="G$1" x="276.86" y="215.9" smashed="yes" rot="R90">
-<attribute name="VALUE" x="270.764" y="215.138" size="1.778" layer="96"/>
+<attribute name="VALUE" x="268.986" y="215.138" size="1.778" layer="96"/>
 </instance>
 <instance part="GND24" gate="1" x="266.7" y="213.36" smashed="yes" rot="R270">
 <attribute name="VALUE" x="260.604" y="212.598" size="1.778" layer="96"/>
@@ -30231,7 +30234,7 @@ Source: http://ww1.microchip.com/downloads/en/DeviceDoc/22049b.pdf</description>
 <pinref part="LED1" gate="G$1" pin="A"/>
 </segment>
 </net>
-<net name="5V" class="0">
+<net name="VOUT" class="0">
 <segment>
 <wire x1="78.74" y1="53.34" x2="78.74" y2="58.42" width="0.1524" layer="91"/>
 <wire x1="83.82" y1="53.34" x2="78.74" y2="53.34" width="0.1524" layer="91"/>

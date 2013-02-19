@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.2">
+<eagle version="6.4">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -4079,7 +4079,7 @@ Source: http://focus.ti.com/lit/ds/symlink/ua78l05.pdf</description>
 <class number="0" name="default" width="0" drill="0">
 </class>
 </classes>
-<designrules>
+<designrules name="default">
 <description language="de">&lt;b&gt;EAGLE Design Rules&lt;/b&gt;
 &lt;p&gt;
 Die Standard-Design-Rules sind so gewählt, dass sie für 
@@ -4628,7 +4628,7 @@ design rules under a new name.</description>
 <wire x1="25.92" y1="8.89" x2="25.92" y2="10.06" width="0.2032" layer="1"/>
 <wire x1="25.92" y1="10.06" x2="25.82" y2="10.16" width="0.2032" layer="1"/>
 </signal>
-<signal name="5V">
+<signal name="VOUT">
 <contactref element="IC2" pad="2@1"/>
 <contactref element="IC2" pad="2"/>
 <contactref element="C3" pad="1"/>
