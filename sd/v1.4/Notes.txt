@@ -38,3 +38,7 @@ Version 1.2 - changes for v1.3:
 Version 1.3 - changes for v1.4:
 
 * C13 changed from 1uF to 10uF, and from 0603 ro 0805, to help reduce VCC drop on microSD insert
+
+Version 1.4 to Version 1.4.1: (02/18/2013)
+
+* Changed name of 5V net on schematic to Vout as per Jacob Christ's suggestion. No board change made.
