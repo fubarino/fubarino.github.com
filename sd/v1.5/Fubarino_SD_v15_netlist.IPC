@@ -1,0 +1,263 @@
+Netlist
+
+Exported from Fubarino_SD_v15.brd at 2/27/2013 5:05:54 PM
+
+EAGLE Version 6.4.0 Copyright (c) 1988-2013 CadSoft
+
+Net      Part     Pad
+
+!MCLR!   IC1      7
+         J3       11
+         R10      2
+         RESET    3
+         RESET    4
+
+3.3V     C10      1
+         C13      1
+         C8       1
+         C9       1
+         IC1      10
+         IC1      19
+         IC1      26
+         IC1      35
+         IC1      38
+         IC1      57
+         IC2      3
+         J1       4
+         J2       3
+         J3       12
+         J3       26
+         R1       1
+         R10      1
+         R11      2
+         R3       1
+         R9       2
+
+5V       C3       1
+         D1       1
+         D2       1
+         IC2      2
+         IC2      2@1
+         J2       1
+
+D+       IC1      37
+         J8       D+
+
+D-       IC1      36
+         J8       D-
+
+GND      C1       1
+         C10      2
+         C13      2
+         C14      1
+         C15      1
+         C2       1
+         C3       2
+         C4       2
+         C5       2
+         C8       2
+         C9       2
+         IC1      20
+         IC1      25
+         IC1      41
+         IC1      9
+         IC2      1
+         J1       6
+         J1       GND1
+         J1       GND2
+         J1       GND3
+         J1       GND4
+         J2       2
+         J2       28
+         J3       1
+         J3       13
+         J3       27
+         J8       GND
+         J8       MTN1
+         J8       MTN2
+         J8       MTN3
+         J8       MTN4
+         LED1     C
+         PROGRAM  1
+         PROGRAM  2
+         R8       2
+         RESET    1
+         RESET    2
+
+N$6      LED1     A
+         R11      1
+
+N$20     LED2     C
+         R8       1
+
+N$110    C4       1
+         C5       1
+         IC1      56
+
+OSC1     C14      2
+         IC1      39
+         Q1       1
+
+OSC2     C15      2
+         IC1      40
+         Q1       2
+
+RB0      IC1      16
+         J3       10
+
+RB1      IC1      15
+         J3       9
+
+RB2      IC1      14
+         J3       8
+
+RB3      IC1      13
+         J3       7
+
+RB4      IC1      12
+         J3       6
+
+RB6      IC1      17
+         J3       15
+
+RB7      IC1      18
+         J3       14
+
+RB8      IC1      21
+         J3       16
+
+RB9      IC1      22
+         J3       17
+
+RB10     IC1      23
+         J3       18
+
+RB11     IC1      24
+         J3       19
+
+RB12     IC1      27
+         J3       20
+
+RB13     IC1      28
+         J3       21
+
+RB14     IC1      29
+         J3       22
+
+RB15     IC1      30
+         J3       23
+
+RC13     C1       2
+         IC1      47
+         J2       9
+         Q2       1
+
+RC14     C2       2
+         IC1      48
+         J2       10
+         Q2       2
+
+RD0      IC1      46
+         J2       8
+
+RD1      IC1      49
+         J2       11
+
+RD2      IC1      50
+         J2       12
+
+RD3      IC1      51
+         J2       13
+
+RD4      IC1      52
+         J2       14
+
+RD5      IC1      53
+         J2       15
+
+RD6      IC1      54
+         J2       16
+
+RD7      IC1      55
+         J2       17
+
+RD8      IC1      42
+         J2       4
+
+RD9      IC1      43
+         J2       5
+
+RD10     IC1      44
+         J2       6
+
+RD11     IC1      45
+         J2       7
+
+RE0      IC1      60
+         J2       20
+
+RE1      IC1      61
+         J2       21
+
+RE2      IC1      62
+         J2       22
+
+RE3      IC1      63
+         J2       23
+
+RE4      IC1      64
+         J2       24
+
+RE5      IC1      1
+         J2       25
+         LED2     A
+
+RE6      IC1      2
+         J2       26
+
+RE7      IC1      3
+         J2       27
+         PROGRAM  3
+         PROGRAM  4
+         R3       2
+
+RF0      IC1      58
+         J2       18
+
+RF1      IC1      59
+         J2       19
+
+RF4      IC1      31
+         J3       24
+
+RF5      IC1      32
+         J3       25
+
+RG6      IC1      4
+         J1       5
+         J3       2
+
+RG7      IC1      5
+         J1       7
+         J3       3
+
+RG8      IC1      6
+         J1       3
+         J3       4
+
+RG9      IC1      8
+         J1       2
+         J3       5
+         R1       2
+
+USBID    IC1      33
+         J8       ID
+         R9       1
+
+VBUS     D1       2
+         IC1      34
+         J8       VBUS
+
+VIN      D2       2
+         J3       28
+

@@ -211,10 +211,10 @@
 <wire x1="68.58" y1="22.86" x2="70.993" y2="22.86" width="0.254" layer="21"/>
 <wire x1="70.993" y1="22.86" x2="70.993" y2="25.273" width="0.254" layer="21"/>
 <wire x1="70.993" y1="25.273" x2="68.58" y2="25.273" width="0.254" layer="21"/>
-<text x="0" y="-40.64" size="0.6096" layer="51">Copyright 2012 Brian Schmalz Copyright and related rights are licensed under the Solderpad Hardware License, Version 0.51 (the “License”); </text>
-<text x="0" y="-41.91" size="0.6096" layer="51">you may not use this file except in compliance with the License. You may obtain a copy of the License at http://solderpad.org/licenses/SHL-0.51. Unless required by applicable law or agreed to in writing,</text>
-<text x="0" y="-43.18" size="0.6096" layer="51"> software, hardware and materials distributed under this License is distributed on an “AS IS” BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. </text>
-<text x="0" y="-44.45" size="0.6096" layer="51"> See the License for the specific language governing permissions and limitations under the License.</text>
+<text x="0" y="-40.64" size="0.6096" layer="103">Copyright 2012 Brian Schmalz Copyright and related rights are licensed under the Solderpad Hardware License, Version 0.51 (the “License”); </text>
+<text x="0" y="-41.91" size="0.6096" layer="103">you may not use this file except in compliance with the License. You may obtain a copy of the License at http://solderpad.org/licenses/SHL-0.51. Unless required by applicable law or agreed to in writing,</text>
+<text x="0" y="-43.18" size="0.6096" layer="103"> software, hardware and materials distributed under this License is distributed on an “AS IS” BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. </text>
+<text x="0" y="-44.45" size="0.6096" layer="103"> See the License for the specific language governing permissions and limitations under the License.</text>
 <text x="41.4528" y="21.6916" size="1.016" layer="21" font="vector" ratio="17" rot="SR270">RX</text>
 <text x="39.1414" y="21.717" size="1.016" layer="21" font="vector" ratio="15" rot="SR270">TX</text>
 <text x="82.6879" y="40.132" size="1.778" layer="144">LAYER-STACK</text>
@@ -648,7 +648,7 @@
 9. FINISHED BOARD SHALL BE FREE FO ALL RESIDUES</text>
 <text x="0" y="-36.83" size="1.5" layer="51">TITLE: FUBARINO SD
 VERSION: 1.5
-DATE: 2/26/2013
+DATE: 2/27/2013
 PCB DESIGNER: BRIAN SCHMALZ
 ENGINEER: BRIAN SCHMALZ</text>
 <text x="81.28" y="-36.83" size="1.5" layer="199">Notes:
@@ -673,7 +673,7 @@ Soldermask: Dynachem EPIC 200 LPI or equivalent.
 Soldermask Color: Green
 Silkscreen Color: White
 
-Artwork Set No. 04-10064 Rev 1
+Artwork Set No. 05-10133 Rev 1.5
 
 All holes to be located by the NC Drill File.
 Indicate Country where PCB was fabricated on the 
@@ -681,6 +681,8 @@ side indicated.
 Any devication from the above specs must be approved
 by Schmalz Haus LLC.</text>
 <text x="46.99" y="11.43" size="2.54" layer="22" ratio="20" rot="MR0">Fubarino SD</text>
+<dimension x1="0" y1="0" x2="0" y2="25.4" x3="-7.62" y3="12.7" textsize="1.778" layer="103" extoffset="1" unit="mil" visible="yes"/>
+<dimension x1="0" y1="25.4" x2="71.12" y2="25.4" x3="35.56" y3="31.75" textsize="1.778" layer="103" extoffset="1" unit="mil" visible="yes"/>
 </plain>
 <libraries>
 <library name="SparkFun02-20-08">
