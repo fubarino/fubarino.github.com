@@ -278,7 +278,7 @@
 9. FINISHED BOARD SHALL BE FREE FO ALL RESIDUES</text>
 <text x="1.27" y="-46.99" size="1.5" layer="51">TITLE: FUBARINO MINI
 VERSION: 1.5
-DATE: 2/24/2013
+DATE: 2/27/2013
 PCB DESIGNER: BRIAN SCHMALZ
 ENGINEER: BRIAN SCHMALZ</text>
 <wire x1="34.3408" y1="9.906" x2="32.4612" y2="9.906" width="0.1" layer="25"/>
@@ -337,7 +337,7 @@ Soldermask: Dynachem EPIC 200 LPI or equivalent.
 Soldermask Color: Green
 Silkscreen Color: White
 
-Artwork Set No. 04-10064 Rev 1
+Artwork Set No. 04-10134 Rev 1.5
 
 All holes to be located by the NC Drill File.
 Indicate Country where PCB was fabricated on the 
@@ -679,10 +679,10 @@ by Schmalz Haus LLC.</text>
 <wire x1="46.228" y1="10.132" x2="45.212" y2="10.132" width="0.1016" layer="146"/>
 <wire x1="45.212" y1="10.132" x2="45.212" y2="10.582" width="0.1016" layer="146"/>
 <wire x1="45.212" y1="11.148" x2="45.72" y2="11.148" width="0.1016" layer="146"/>
-<text x="1.27" y="-50.8" size="0.6096" layer="51">Copyright 2012 Brian Schmalz Copyright and related rights are licensed under the Solderpad Hardware License, Version 0.51 (the “License”); </text>
-<text x="1.27" y="-52.07" size="0.6096" layer="51">you may not use this file except in compliance with the License. You may obtain a copy of the License at http://solderpad.org/licenses/SHL-0.51. Unless required by applicable law or agreed to in writing,</text>
-<text x="1.27" y="-53.34" size="0.6096" layer="51"> software, hardware and materials distributed under this License is distributed on an “AS IS” BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. </text>
-<text x="1.27" y="-54.61" size="0.6096" layer="51"> See the License for the specific language governing permissions and limitations under the License.</text>
+<text x="1.27" y="-50.8" size="0.6096" layer="103">Copyright 2012 Brian Schmalz Copyright and related rights are licensed under the Solderpad Hardware License, Version 0.51 (the “License”); </text>
+<text x="1.27" y="-52.07" size="0.6096" layer="103">you may not use this file except in compliance with the License. You may obtain a copy of the License at http://solderpad.org/licenses/SHL-0.51. Unless required by applicable law or agreed to in writing,</text>
+<text x="1.27" y="-53.34" size="0.6096" layer="103"> software, hardware and materials distributed under this License is distributed on an “AS IS” BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. </text>
+<text x="1.27" y="-54.61" size="0.6096" layer="103"> See the License for the specific language governing permissions and limitations under the License.</text>
 </plain>
 <libraries>
 <library name="SparkFun02-20-08">

@@ -1,0 +1,34 @@
+Screaming Circuits SMD component position file.
+Created by Centroid_ScreamingCircuits_smd.ulp 1.2.0.
+
+Centroid Data for pc board: "FubarinoMini_v15.brd" as of: 2/27/2013 4:25:20 PM
+Measurements are in inches. Comma delimited
+Only surface mount components included
+
+RefDes,Layer,LocationX,LocationY,Rotation
+C1,Top,0.292,0.278,0
+C2,Top,0.292,0.140,0
+C3,Top,1.548,0.300,270
+C4,Top,1.176,0.192,180
+C5,Top,1.264,0.234,90
+C8,Top,0.760,0.197,90
+C9,Top,0.594,0.530,180
+C10,Top,1.254,0.348,0
+C13,Top,1.354,0.298,270
+C14,Top,0.456,0.344,0
+C15,Top,0.590,0.344,0
+D1,Top,1.600,0.320,270
+D2,Top,1.552,0.190,0
+IC1,Top,1.476,0.462,270
+J8,Top,1.800,0.350,90
+LED1,Top,1.384,0.214,90
+LED2,Top,1.288,0.504,180
+PROGRAM,Top,0.568,0.198,180
+Q1,Top,0.544,0.430,0
+R1,Top,0.310,0.350,0
+R8,Top,1.236,0.438,270
+R9,Top,1.466,0.300,90
+R10,Top,0.182,0.350,180
+R11,Top,1.412,0.300,90
+RESET,Top,0.250,0.500,0
+U1,Top,0.950,0.350,135

@@ -1,0 +1,203 @@
+Netlist
+
+Exported from FubarinoMini_v15.sch at 2/27/2013 4:23:38 PM
+
+EAGLE Version 6.4.0 Copyright (c) 1988-2013 CadSoft
+
+Net      Part     Pad      Pin        Sheet
+
+!MCLR!   ICSP     1        1          1
+         R10      2        2          1
+         RESET    3        3          1
+         RESET    4        4          1
+         U1       18       !MCLR!     1
+
+3.3V     C10      1        1          1
+         C13      1        1          1
+         C8       1        1          1
+         C9       1        1          1
+         IC1      3        VO         1
+         ICSP     2        2          1
+         J1       3        3          1
+         J2       18       18         1
+         R1       1        1          1
+         R10      1        1          1
+         R11      2        2          1
+         R9       2        2          1
+         U1       10       VUSB3V3    1
+         U1       17       AVDD       1
+         U1       28       VDD        1
+         U1       40       VDD        1
+
+5V       C3       1        1          1
+         D1       1        C          1
+         D2       1        C          1
+         IC1      2        VI         1
+         IC1      2@1      VI1        1
+         J1       1        1          1
+         U1       42       VBUS       1
+
+D+/RB10  J2       15       15         1
+         J8       D+       D+         1
+         U1       8        PGED2/RPB10/D+/CTED11/RB10 1
+
+D-/RB11  J2       16       16         1
+         J8       D-       D-         1
+         U1       9        PGEC2/RPB11/D-/RB11 1
+
+GND      C1       1        1          1
+         C10      2        2          1
+         C13      2        2          1
+         C14      1        1          1
+         C15      1        1          1
+         C2       1        1          1
+         C3       2        2          1
+         C4       2        2          1
+         C5       2        2          1
+         C8       2        2          1
+         C9       2        2          1
+         IC1      1        GND        1
+         ICSP     3        3          1
+         J1       2        2          1
+         J2       17       17         1
+         J2       19       19         1
+         J8       GND      GND        1
+         J8       MTN1     MTN1       1
+         J8       MTN2     MTN2       1
+         J8       MTN3     MTN3       1
+         J8       MTN4     MTN4       1
+         LED1     C        C          1
+         PROGRAM  1        1          1
+         PROGRAM  2        2          1
+         R8       2        2          1
+         RESET    1        1          1
+         RESET    2        2          1
+         U1       16       AVSS       1
+         U1       29       VSS        1
+         U1       39       VSS        1
+         U1       6        VSS        1
+
+N$6      LED1     A        A          1
+         R11      1        1          1
+
+N$20     LED2     C        C          1
+         R8       1        1          1
+
+RA0      J1       9        9          1
+         U1       19       PGED3/VREF+/CVREF+/AN0/C3INC/RPA0/CTED1/PMD7/RA0 1
+
+RA1      J1       10       10         1
+         U1       20       PGEC3/VREF-/CVREF-/AN1/RPA1/CTED2/PMD6/RA1 1
+
+RA2      C14      2        2          1
+         J1       18       18         1
+         Q1       1        1          1
+         U1       30       OSC1/CLKI/PRA2/RA2 1
+
+RA3      C15      2        2          1
+         J1       19       19         1
+         Q1       2        2          1
+         U1       31       OSC2/CLKO/RPA3/RA3 1
+
+RA4      C2       2        2          1
+         J2       2        2          1
+         Q2       1        1          1
+         U1       34       SOSCO/RPA4/T1CK/CTED9/RA4 1
+
+RA7      J1       6        6          1
+         U1       13       PGEC/TCK/CTED8/PMA7/RA7 1
+
+RA8      J1       20       20         1
+         PROGRAM  3        3          1
+         R1       2        2          1
+         U1       32       TDO/RPA8/PMA8/RA8 1
+
+RA9      J2       3        3          1
+         U1       35       TDI/RPA9/PMA9/RA9 1
+
+RA10     J1       5        5          1
+         LED2     A        A          1
+         U1       12       PGED/TMS/PMA10/RA10 1
+
+RB0      ICSP     4        4          1
+         J1       11       11         1
+         U1       21       PGED1/AN2/C1IND/C2INB/C3IND/RPB0/PMD0/RB0 1
+
+RB1      ICSP     5        5          1
+         J1       12       12         1
+         U1       22       PGEC1/AN3/C1INC/C2INA/RPB1/CTED12/PMD1/RB1 1
+
+RB2      J1       13       13         1
+         U1       23       AN4/C1INB/C2IND/RPB2/SDA2/CTED13/PMD2/CNB2/RB2 1
+
+RB3      J1       14       14         1
+         U1       24       AN5/C1INA/C2INC/RTCC/RPB3/SCL2/PMWR/CNB3/RB3 1
+
+RB4      C1       2        2          1
+         J2       1        1          1
+         Q2       2        2          1
+         U1       33       SOSCI/PRB4/RB4 1
+
+RB7      J2       8        8          1
+         U1       43       RPB7/CTED3/PMD5/INT0/RB7 1
+
+RB8      J2       9        9          1
+         U1       44       RPB8/SCL1/CTED10/PMD4/RB8 1
+
+RB9      J2       10       10         1
+         U1       1        RPB9/SDA1/CTED4/PMD3/RB9 1
+
+RB13     J1       4        4          1
+         U1       11       AN11/RPB13/CTPLS/PMRD/RB13 1
+
+RB14     J1       7        7          1
+         U1       14       CVREF/AN10/C3INB/RPB14/VBUSON/SCK1/CTED5/RB14 1
+
+RB15     J1       8        8          1
+         U1       15       AN9/C3INA/RPB15/SCK2/CTED6/PMCS1/RB15 1
+
+RC0      J1       15       15         1
+         U1       25       AN6/RPC0/RC0 1
+
+RC1      J1       16       16         1
+         U1       26       AN7/RPC1/RC1 1
+
+RC2      J1       17       17         1
+         U1       27       AN8/RPC2/PMA2/RC2 1
+
+RC3      J2       4        4          1
+         U1       36       AN12/RPC3/RC3 1
+
+RC4      J2       5        5          1
+         U1       37       RPC4/PMA4/RC4 1
+
+RC5      J2       6        6          1
+         U1       38       RPC5/PMA3/RC5 1
+
+RC6      J2       11       11         1
+         U1       2        RPC6/PMA1/RC6 1
+
+RC7      J2       12       12         1
+         U1       3        RPC7/PMA0/RC7 1
+
+RC8      J2       13       13         1
+         U1       4        RPC8/PMA5/RC8 1
+
+RC9      J2       14       14         1
+         U1       5        RPC9/CTED7/PMA6/RC9 1
+
+USBID/RB5 J2       7        7          1
+         J8       ID       ID         1
+         R9       1        1          1
+         U1       41       PRB5/USBID/RB5 1
+
+VBUS     D1       2        A          1
+         J8       VBUS     VBUS       1
+
+VCAP     C4       1        1          1
+         C5       1        1          1
+         U1       7        VCAP       1
+
+VIN      D2       2        A          1
+         J2       20       20         1
+
