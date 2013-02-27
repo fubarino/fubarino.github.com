@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.3">
+<eagle version="6.4">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -83,8 +83,12 @@
 <layer number="121" name="_tsilk" color="7" fill="1" visible="no" active="no"/>
 <layer number="122" name="_bsilk" color="7" fill="1" visible="no" active="no"/>
 <layer number="125" name="_tNames" color="7" fill="1" visible="no" active="yes"/>
+<layer number="128" name="128bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="129" name="129bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="130" name="130bmp" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="144" name="Drill_legend" color="7" fill="1" visible="no" active="yes"/>
 <layer number="151" name="HeatSink" color="7" fill="1" visible="no" active="no"/>
+<layer number="199" name="Contour" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="200" name="200bmp" color="1" fill="10" visible="no" active="no"/>
 <layer number="201" name="201bmp" color="2" fill="1" visible="no" active="no"/>
 <layer number="202" name="202bmp" color="3" fill="1" visible="no" active="no"/>
@@ -235,26 +239,6 @@ chip</description>
 <pad name="P$2" x="3.81" y="2.54" drill="1" shape="square"/>
 <pad name="P$3" x="-3.81" y="-2.54" drill="1" shape="square"/>
 <pad name="P$4" x="3.81" y="-2.54" drill="1" shape="square"/>
-</package>
-<package name="USB-MINIB">
-<description>&lt;b&gt;USB Series Mini-B Surface Mounted&lt;/b&gt;</description>
-<wire x1="-1.5" y1="3.8" x2="0.9" y2="3.8" width="0.127" layer="21"/>
-<wire x1="3.3" y1="3.3" x2="3.3" y2="2.1" width="0.127" layer="21"/>
-<wire x1="3.3" y1="-2.1" x2="3.3" y2="-3.1" width="0.127" layer="21"/>
-<wire x1="1" y1="-3.8" x2="-1.5" y2="-3.8" width="0.127" layer="21"/>
-<smd name="D+" x="2.5" y="0" dx="2.5" dy="0.5" layer="1"/>
-<smd name="D-" x="2.5" y="0.8" dx="2.5" dy="0.5" layer="1"/>
-<smd name="GND" x="2.5" y="-1.6" dx="2.5" dy="0.5" layer="1"/>
-<smd name="ID" x="2.5" y="-0.8" dx="2.5" dy="0.5" layer="1"/>
-<smd name="G3" x="-3" y="-4.5" dx="2.5" dy="2" layer="1"/>
-<smd name="G1" x="-3" y="4.5" dx="2.5" dy="2" layer="1"/>
-<smd name="G4" x="2.5" y="-4.4" dx="2.5" dy="2" layer="1"/>
-<smd name="G2" x="2.5" y="4.5" dx="2.5" dy="2" layer="1"/>
-<smd name="VBUS" x="2.5" y="1.6" dx="2.5" dy="0.5" layer="1"/>
-<text x="-3.81" y="1.27" size="0.4064" layer="25">&gt;NAME</text>
-<text x="-3.81" y="0" size="0.4064" layer="27">&gt;VALUE</text>
-<hole x="0" y="2.2" drill="0.9"/>
-<hole x="0" y="-2.2" drill="0.9"/>
 </package>
 </packages>
 <symbols>
@@ -426,37 +410,6 @@ chip</description>
 <text x="309.88" y="19.558" size="2.54" layer="94">Title:</text>
 <text x="310.134" y="14.478" size="2.54" layer="94">Version:</text>
 </symbol>
-<symbol name="USB_5PIN">
-<wire x1="5.08" y1="6.35" x2="-2.54" y2="6.35" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="6.35" x2="-2.54" y2="-6.604" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="-6.604" x2="5.08" y2="-6.604" width="0.254" layer="94"/>
-<wire x1="0.762" y1="7.62" x2="-0.762" y2="7.62" width="0.254" layer="94"/>
-<wire x1="-1.778" y1="7.62" x2="-3.302" y2="7.62" width="0.254" layer="94"/>
-<wire x1="-4.318" y1="7.62" x2="-4.318" y2="7.112" width="0.254" layer="94"/>
-<wire x1="-4.318" y1="6.096" x2="-4.318" y2="4.318" width="0.254" layer="94"/>
-<wire x1="-4.318" y1="3.302" x2="-4.318" y2="1.778" width="0.254" layer="94"/>
-<wire x1="-4.318" y1="0.762" x2="-4.318" y2="-0.762" width="0.254" layer="94"/>
-<wire x1="-4.318" y1="-1.778" x2="-4.318" y2="-3.302" width="0.254" layer="94"/>
-<wire x1="-4.318" y1="-4.318" x2="-4.318" y2="-5.842" width="0.254" layer="94"/>
-<wire x1="-4.318" y1="-6.858" x2="-4.318" y2="-7.62" width="0.254" layer="94"/>
-<wire x1="-3.81" y1="-7.62" x2="-1.778" y2="-7.62" width="0.254" layer="94"/>
-<wire x1="-1.016" y1="-7.62" x2="1.016" y2="-7.62" width="0.254" layer="94"/>
-<wire x1="1.778" y1="7.62" x2="3.302" y2="7.62" width="0.254" layer="94"/>
-<wire x1="5.08" y1="7.62" x2="4.318" y2="7.62" width="0.254" layer="94"/>
-<wire x1="5.08" y1="-7.62" x2="4.318" y2="-7.62" width="0.254" layer="94"/>
-<wire x1="3.048" y1="-7.62" x2="2.794" y2="-7.62" width="0.254" layer="94"/>
-<wire x1="1.778" y1="-7.62" x2="3.302" y2="-7.62" width="0.254" layer="94"/>
-<text x="1.27" y="-3.81" size="2.54" layer="94" rot="R90">USB</text>
-<pin name="D+" x="-7.62" y="5.08" visible="pad" length="middle"/>
-<pin name="D-" x="-7.62" y="2.54" visible="pad" length="middle"/>
-<pin name="VBUS" x="-7.62" y="0" visible="pad" length="middle"/>
-<pin name="GND" x="-7.62" y="-5.08" visible="pad" length="middle"/>
-<pin name="USB_ID" x="-7.62" y="-2.54" visible="pad" length="middle"/>
-<pin name="SHIELD" x="-2.54" y="-10.16" visible="pad" length="short" rot="R90"/>
-<pin name="P$1" x="0" y="-10.16" visible="pad" length="short" rot="R90"/>
-<pin name="P$2" x="2.54" y="-10.16" visible="pad" length="short" rot="R90"/>
-<pin name="P$3" x="5.08" y="-10.16" visible="pad" length="short" rot="R90"/>
-</symbol>
 <symbol name="5V">
 <wire x1="0.762" y1="1.27" x2="0" y2="2.54" width="0.254" layer="94"/>
 <wire x1="0" y1="2.54" x2="-0.762" y2="1.27" width="0.254" layer="94"/>
@@ -607,29 +560,6 @@ A3 Larger Frame</description>
 </gates>
 <devices>
 <device name="">
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="USB_5PIN" uservalue="yes">
-<gates>
-<gate name="G$1" symbol="USB_5PIN" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="USB-MINIB">
-<connects>
-<connect gate="G$1" pin="D+" pad="D+"/>
-<connect gate="G$1" pin="D-" pad="D-"/>
-<connect gate="G$1" pin="GND" pad="GND"/>
-<connect gate="G$1" pin="P$1" pad="G1"/>
-<connect gate="G$1" pin="P$2" pad="G2"/>
-<connect gate="G$1" pin="P$3" pad="G3"/>
-<connect gate="G$1" pin="SHIELD" pad="G4"/>
-<connect gate="G$1" pin="USB_ID" pad="ID"/>
-<connect gate="G$1" pin="VBUS" pad="VBUS"/>
-</connects>
 <technologies>
 <technology name=""/>
 </technologies>
@@ -2555,6 +2485,32 @@ grid 5 mm, outline 3.5 x 7.5 mm</description>
 <rectangle x1="-0.7112" y1="1.016" x2="-0.3048" y2="1.6002" layer="51"/>
 <rectangle x1="-1.778" y1="0.762" x2="1.778" y2="8.382" layer="43"/>
 </package>
+<package name="USB-MINIB-5PIN-HIROSE-UX60-MB-5ST">
+<description>Footprint for USB MINI B SMT connector&lt;p&gt;
+
+Hirose UX60-MB-5ST&lt;/p&gt;
+&lt;a href="http://www.digikey.com/product-detail/en/UX60-MB-5ST/H2959CT-ND/597538"&gt;http://www.digikey.com/product-detail/en/UX60-MB-5ST/H2959CT-ND/597538&lt;/a&gt;</description>
+<wire x1="-3.85" y1="-1.8" x2="-3.85" y2="0.5" width="0.2032" layer="21"/>
+<wire x1="-3.85" y1="3.5" x2="-2.2" y2="3.5" width="0.2032" layer="21"/>
+<wire x1="2.2" y1="3.5" x2="3.85" y2="3.5" width="0.2032" layer="21"/>
+<wire x1="3.85" y1="0.5" x2="3.85" y2="-1.8" width="0.2032" layer="21"/>
+<wire x1="-3.85" y1="-5.5" x2="3.85" y2="-5.5" width="0.2032" layer="51"/>
+<wire x1="3.85" y1="-5.5" x2="3.85" y2="-4.7" width="0.2032" layer="51"/>
+<wire x1="-3.85" y1="-5.5" x2="-3.85" y2="-4.7" width="0.2032" layer="51"/>
+<smd name="D+" x="0" y="2.5" dx="2" dy="0.5" layer="1" rot="R90"/>
+<smd name="D-" x="-0.8" y="2.5" dx="2" dy="0.5" layer="1" rot="R90"/>
+<smd name="GND" x="1.6" y="2.5" dx="2" dy="0.5" layer="1" rot="R90"/>
+<smd name="ID" x="0.8" y="2.5" dx="2" dy="0.5" layer="1" rot="R90"/>
+<smd name="MTN3" x="4.2" y="-3.3" dx="2.2" dy="2.5" layer="1" rot="R90"/>
+<smd name="MTN1" x="-4.2" y="-3.3" dx="2.2" dy="2.5" layer="1" rot="R90"/>
+<smd name="MTN4" x="4.2" y="2" dx="2.2" dy="2.5" layer="1" rot="R90"/>
+<smd name="MTN2" x="-4.2" y="2" dx="2.2" dy="2.5" layer="1" rot="R90"/>
+<smd name="VBUS" x="-1.6" y="2.5" dx="2" dy="0.5" layer="1" rot="R90"/>
+<text x="-1.25" y="-3.78" size="0.4064" layer="25" rot="R90">&gt;NAME</text>
+<text x="0.02" y="-3.78" size="0.4064" layer="27" rot="R90">&gt;VALUE</text>
+<hole x="-1.75" y="0" drill="0.9"/>
+<hole x="1.75" y="0" drill="0.9"/>
+</package>
 </packages>
 <symbols>
 <symbol name="MICRO_SD_CARD">
@@ -2740,6 +2696,23 @@ grid 5 mm, outline 3.5 x 7.5 mm</description>
 <text x="1.016" y="-4.191" size="1.778" layer="96">&gt;VALUE</text>
 <pin name="1" x="0" y="2.54" visible="off" length="short" direction="pas" swaplevel="1" rot="R270"/>
 <pin name="2" x="0" y="-5.08" visible="off" length="short" direction="pas" swaplevel="1" rot="R90"/>
+</symbol>
+<symbol name="USB-5PIN">
+<wire x1="5.08" y1="7.62" x2="-2.54" y2="7.62" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="7.62" x2="-2.54" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-7.62" x2="5.08" y2="-7.62" width="0.254" layer="94"/>
+<text x="2.794" y="-3.302" size="2.54" layer="94" rot="R90">USB</text>
+<pin name="D+" x="-5.08" y="0" visible="pad" length="short"/>
+<pin name="D-" x="-5.08" y="2.54" visible="pad" length="short"/>
+<pin name="VBUS" x="-5.08" y="5.08" visible="pad" length="short"/>
+<pin name="GND" x="-5.08" y="-5.08" visible="pad" length="short"/>
+<pin name="ID" x="-5.08" y="-2.54" visible="pad" length="short"/>
+<pin name="MTN1" x="0" y="10.16" visible="pad" length="short" rot="R270"/>
+<pin name="MTN2" x="2.54" y="10.16" visible="pad" length="short" rot="R270"/>
+<pin name="MTN3" x="0" y="-10.16" visible="pad" length="short" rot="R90"/>
+<pin name="MTN4" x="2.54" y="-10.16" visible="pad" length="short" rot="R90"/>
+<text x="7.62" y="5.08" size="1.27" layer="95">&gt;NAME</text>
+<text x="7.62" y="2.54" size="1.27" layer="96">&gt;VALUE</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -3081,6 +3054,29 @@ Various standard crystals. Proven footprints. Spark Fun Electronics SKU : COM-00
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="USB-5PIN">
+<gates>
+<gate name="G$1" symbol="USB-5PIN" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="USB-MINIB-5PIN-HIROSE-UX60-MB-5ST">
+<connects>
+<connect gate="G$1" pin="D+" pad="D+"/>
+<connect gate="G$1" pin="D-" pad="D-"/>
+<connect gate="G$1" pin="GND" pad="GND"/>
+<connect gate="G$1" pin="ID" pad="ID"/>
+<connect gate="G$1" pin="MTN1" pad="MTN1"/>
+<connect gate="G$1" pin="MTN2" pad="MTN2"/>
+<connect gate="G$1" pin="MTN3" pad="MTN3"/>
+<connect gate="G$1" pin="MTN4" pad="MTN4"/>
+<connect gate="G$1" pin="VBUS" pad="VBUS"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -29546,7 +29542,6 @@ Source: http://ww1.microchip.com/downloads/en/DeviceDoc/22049b.pdf</description>
 <part name="P+18" library="SparkFun02-20-08" deviceset="3.3V" device=""/>
 <part name="GND8" library="SparkFun02-20-08" deviceset="GND" device=""/>
 <part name="FRAME2" library="SparkFun02-20-08" deviceset="FRAME-A3" device=""/>
-<part name="J8" library="SparkFun02-20-08" deviceset="USB_5PIN" device="" value="UX60A-MB-5ST"/>
 <part name="GND20" library="SparkFun02-20-08" deviceset="GND" device=""/>
 <part name="C13" library="SparkFun02-20-08" deviceset="CAP" device="0805" value="10uF"/>
 <part name="C3" library="SparkFun" deviceset="CAP" device="0603-CAP" value="1uF"/>
@@ -29588,16 +29583,16 @@ Source: http://ww1.microchip.com/downloads/en/DeviceDoc/22049b.pdf</description>
 <part name="GND13" library="SparkFun02-20-08" deviceset="GND" device=""/>
 <part name="D1" library="SparkFun" deviceset="DIODE" device="SOD" value="B0540WS-7"/>
 <part name="D2" library="SparkFun" deviceset="DIODE" device="SOD" value="B0540WS-7"/>
+<part name="J8" library="SchmalzHaus" deviceset="USB-5PIN" device=""/>
 </parts>
 <sheets>
 <sheet>
 <plain>
 <text x="137.16" y="27.94" size="1.778" layer="98" rot="R90">Power ON LED</text>
-<text x="40.64" y="91.44" size="1.778" layer="98">USB Function (Mini B)</text>
+<text x="40.64" y="99.06" size="1.778" layer="98">USB Function (Mini B)</text>
 <text x="10.16" y="248.92" size="6.4516" layer="98" ratio="15">Fubarino SD</text>
 <text x="10.16" y="243.84" size="3.81" layer="98" ratio="15">www.fubarino.com/SD</text>
 <text x="10.16" y="238.76" size="1.778" layer="98">Designed by : Brian Schmalz and Rick Anderson</text>
-<text x="58.42" y="81.28" size="1.778" layer="98">J8</text>
 <text x="10.16" y="231.14" size="1.778" layer="98">If you like the Fubarino SD, please consider that</text>
 <text x="10.16" y="228.6" size="1.778" layer="98">SchmalzHaus can design a customized version</text>
 <text x="10.16" y="226.06" size="1.778" layer="98">for your specific needs.</text>
@@ -29751,9 +29746,10 @@ Source: http://ww1.microchip.com/downloads/en/DeviceDoc/22049b.pdf</description>
 <text x="5.08" y="10.16" size="1.778" layer="98">you may not use this file except in compliance with the License. You may obtain a copy of the License at http://solderpad.org/licenses/SHL-0.51. Unless required by applicable law or agreed to in writing,</text>
 <text x="5.08" y="7.62" size="1.778" layer="98"> software, hardware and materials distributed under this License is distributed on an “AS IS” BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. </text>
 <text x="5.08" y="5.08" size="1.778" layer="98"> See the License for the specific language governing permissions and limitations under the License.</text>
-<text x="10.16" y="165.1" size="1.778" layer="98">1/10/2013 - v1.5</text>
-<text x="12.7" y="160.02" size="1.778" layer="98">Added chipKIT to silk
-Added RX (pin 8) and TX (pin 9) to slik</text>
+<text x="10.16" y="165.1" size="1.778" layer="98">1/10/2013 - v1.5 (Microchip version)</text>
+<text x="12.7" y="157.48" size="1.778" layer="98">Added chipKIT to silk
+Added RX (pin 8) and TX (pin 9) to slik
+Chaned USB connector to Hirose</text>
 </plain>
 <instances>
 <instance part="GND14" gate="1" x="198.12" y="149.86" rot="R90"/>
@@ -29786,7 +29782,6 @@ Added RX (pin 8) and TX (pin 9) to slik</text>
 <instance part="P+18" gate="G$1" x="129.54" y="55.88"/>
 <instance part="GND8" gate="1" x="111.76" y="25.4"/>
 <instance part="FRAME2" gate="G$1" x="0" y="0"/>
-<instance part="J8" gate="G$1" x="53.34" y="81.28" smashed="yes"/>
 <instance part="GND20" gate="1" x="48.26" y="25.4"/>
 <instance part="C13" gate="G$1" x="111.76" y="33.02"/>
 <instance part="C3" gate="G$1" x="48.26" y="43.18"/>
@@ -29850,6 +29845,7 @@ Added RX (pin 8) and TX (pin 9) to slik</text>
 <instance part="GND13" gate="1" x="175.26" y="96.52"/>
 <instance part="D1" gate="G$1" x="30.48" y="58.42"/>
 <instance part="D2" gate="G$1" x="30.48" y="48.26"/>
+<instance part="J8" gate="G$1" x="60.96" y="81.28"/>
 </instances>
 <busses>
 </busses>
@@ -29902,26 +29898,28 @@ Added RX (pin 8) and TX (pin 9) to slik</text>
 <pinref part="C3" gate="G$1" pin="2"/>
 </segment>
 <segment>
-<wire x1="43.18" y1="76.2" x2="45.72" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="43.18" y1="76.2" x2="55.88" y2="76.2" width="0.1524" layer="91"/>
 <wire x1="43.18" y1="76.2" x2="43.18" y2="66.04" width="0.1524" layer="91"/>
 <wire x1="43.18" y1="66.04" x2="50.8" y2="66.04" width="0.1524" layer="91"/>
-<wire x1="50.8" y1="66.04" x2="50.8" y2="71.12" width="0.1524" layer="91"/>
-<wire x1="50.8" y1="66.04" x2="53.34" y2="66.04" width="0.1524" layer="91"/>
-<wire x1="53.34" y1="66.04" x2="53.34" y2="71.12" width="0.1524" layer="91"/>
-<wire x1="53.34" y1="66.04" x2="55.88" y2="66.04" width="0.1524" layer="91"/>
-<wire x1="55.88" y1="66.04" x2="55.88" y2="71.12" width="0.1524" layer="91"/>
-<wire x1="55.88" y1="66.04" x2="58.42" y2="66.04" width="0.1524" layer="91"/>
-<wire x1="58.42" y1="66.04" x2="58.42" y2="71.12" width="0.1524" layer="91"/>
 <wire x1="50.8" y1="66.04" x2="50.8" y2="63.5" width="0.1524" layer="91"/>
-<junction x="50.8" y="66.04"/>
-<junction x="53.34" y="66.04"/>
-<junction x="55.88" y="66.04"/>
-<pinref part="J8" gate="G$1" pin="SHIELD"/>
-<pinref part="J8" gate="G$1" pin="P$1"/>
-<pinref part="J8" gate="G$1" pin="P$2"/>
-<pinref part="J8" gate="G$1" pin="P$3"/>
-<pinref part="J8" gate="G$1" pin="GND"/>
 <pinref part="GND2" gate="1" pin="GND"/>
+<pinref part="J8" gate="G$1" pin="GND"/>
+<pinref part="J8" gate="G$1" pin="MTN3"/>
+<wire x1="50.8" y1="66.04" x2="60.96" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="66.04" x2="60.96" y2="71.12" width="0.1524" layer="91"/>
+<junction x="50.8" y="66.04"/>
+<pinref part="J8" gate="G$1" pin="MTN4"/>
+<wire x1="60.96" y1="66.04" x2="63.5" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="66.04" x2="63.5" y2="71.12" width="0.1524" layer="91"/>
+<junction x="60.96" y="66.04"/>
+<wire x1="50.8" y1="66.04" x2="50.8" y2="96.52" width="0.1524" layer="91"/>
+<pinref part="J8" gate="G$1" pin="MTN1"/>
+<wire x1="50.8" y1="96.52" x2="60.96" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="96.52" x2="60.96" y2="91.44" width="0.1524" layer="91"/>
+<pinref part="J8" gate="G$1" pin="MTN2"/>
+<wire x1="60.96" y1="96.52" x2="63.5" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="96.52" x2="63.5" y2="91.44" width="0.1524" layer="91"/>
+<junction x="60.96" y="96.52"/>
 </segment>
 <segment>
 <wire x1="215.9" y1="134.62" x2="220.98" y2="134.62" width="0.1524" layer="91"/>
@@ -30180,8 +30178,8 @@ Added RX (pin 8) and TX (pin 9) to slik</text>
 <pinref part="IC1" gate="G$1" pin="D+/RG2"/>
 </segment>
 <segment>
-<wire x1="45.72" y1="86.36" x2="30.48" y2="86.36" width="0.1524" layer="91"/>
-<label x="30.48" y="86.614" size="1.778" layer="95"/>
+<wire x1="55.88" y1="81.28" x2="30.48" y2="81.28" width="0.1524" layer="91"/>
+<label x="30.48" y="81.534" size="1.778" layer="95"/>
 <pinref part="J8" gate="G$1" pin="D+"/>
 </segment>
 </net>
@@ -30192,15 +30190,15 @@ Added RX (pin 8) and TX (pin 9) to slik</text>
 <pinref part="IC1" gate="G$1" pin="D-/RG3"/>
 </segment>
 <segment>
-<wire x1="45.72" y1="83.82" x2="30.48" y2="83.82" width="0.1524" layer="91"/>
 <label x="30.48" y="84.074" size="1.778" layer="95"/>
 <pinref part="J8" gate="G$1" pin="D-"/>
+<wire x1="30.48" y1="83.82" x2="55.88" y2="83.82" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="VBUS" class="0">
 <segment>
-<wire x1="45.72" y1="81.28" x2="30.48" y2="81.28" width="0.1524" layer="91"/>
-<label x="30.48" y="81.534" size="1.778" layer="95"/>
+<label x="30.48" y="86.614" size="1.778" layer="95"/>
+<wire x1="30.48" y1="86.36" x2="55.88" y2="86.36" width="0.1524" layer="91"/>
 <pinref part="J8" gate="G$1" pin="VBUS"/>
 </segment>
 <segment>
@@ -30222,9 +30220,9 @@ Added RX (pin 8) and TX (pin 9) to slik</text>
 <pinref part="IC1" gate="G$1" pin="USBID/RF3"/>
 </segment>
 <segment>
-<wire x1="45.72" y1="78.74" x2="30.48" y2="78.74" width="0.1524" layer="91"/>
 <label x="30.48" y="78.994" size="1.778" layer="95"/>
-<pinref part="J8" gate="G$1" pin="USB_ID"/>
+<pinref part="J8" gate="G$1" pin="ID"/>
+<wire x1="30.48" y1="78.74" x2="55.88" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$6" class="0">
