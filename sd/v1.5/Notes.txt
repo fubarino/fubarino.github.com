@@ -39,6 +39,8 @@ Version 1.3 - changes for v1.4:
 
 * C13 changed from 1uF to 10uF, and from 0603 ro 0805, to help reduce VCC drop on microSD insert
 
-Version 1.3 - changes for v1.5:
+Version 1.4 - changes for v1.5 (for Microchip):
 
-* Changed silk screen only - updated board name to chipKIT FubarinoSD, and added RX silk to pin 8 and TX silk to pin 9
+* Added chipKIT, CE mark, and RoHS mark to bottom silk screen and chipKIT to top silk screen
+* added RX silk to pin 8 and TX silk to pin 9
+* changed USB connector to Microchip's preferred Hirose UX60-MB-5ST
