@@ -35052,6 +35052,10 @@ Source: http://ww1.microchip.com/downloads/en/DeviceDoc/22049b.pdf</description>
 <text x="10.668" y="175.514" size="1.778" layer="98">Changed USB connector to Microchip standard</text>
 <text x="10.668" y="172.974" size="1.778" layer="98">Added CE, RoSH, and chipKIT graphics to silk on back</text>
 <text x="8.89" y="242.062" size="2.54" layer="98" ratio="15">A DIP form factor chipKIT® compatible board</text>
+<text x="5.08" y="12.7" size="1.778" layer="98">Copyright 2012 Brian Schmalz Copyright and related rights are licensed under the Solderpad Hardware License, Version 0.51 (the “License”); </text>
+<text x="5.08" y="10.16" size="1.778" layer="98">you may not use this file except in compliance with the License. You may obtain a copy of the License at http://solderpad.org/licenses/SHL-0.51. Unless required by applicable law or agreed to in writing,</text>
+<text x="5.08" y="7.62" size="1.778" layer="98"> software, hardware and materials distributed under this License is distributed on an “AS IS” BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. </text>
+<text x="5.08" y="5.08" size="1.778" layer="98"> See the License for the specific language governing permissions and limitations under the License.</text>
 </plain>
 <instances>
 <instance part="GND14" gate="1" x="228.6" y="142.24" rot="R90"/>
