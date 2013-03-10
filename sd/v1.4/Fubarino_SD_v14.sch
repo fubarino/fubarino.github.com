@@ -29754,6 +29754,35 @@ Source: http://ww1.microchip.com/downloads/en/DeviceDoc/22049b.pdf</description>
 <text x="5.08" y="165.1" size="1.778" layer="98">2/18/2013 - v1.4.1</text>
 <text x="7.62" y="162.56" size="1.778" layer="98">Renamed 5V net to Vout net</text>
 <text x="7.62" y="160.02" size="1.778" layer="98">(schematic change only)</text>
+<text x="287.02" y="153.67" size="1.778" layer="98">*</text>
+<text x="287.02" y="151.13" size="1.778" layer="98">*</text>
+<text x="287.02" y="148.59" size="1.778" layer="98">*</text>
+<text x="287.02" y="156.21" size="1.778" layer="98">*</text>
+<text x="286.766" y="158.75" size="1.778" layer="98">*</text>
+<text x="286.766" y="161.29" size="1.778" layer="98">*</text>
+<text x="286.766" y="163.83" size="1.778" layer="98">*</text>
+<text x="286.766" y="166.37" size="1.778" layer="98">*</text>
+<text x="286.766" y="168.91" size="1.778" layer="98">*</text>
+<text x="286.766" y="171.45" size="1.778" layer="98">*</text>
+<text x="287.02" y="173.99" size="1.778" layer="98">*</text>
+<text x="287.02" y="176.53" size="1.778" layer="98">*</text>
+<text x="287.02" y="178.816" size="1.778" layer="98">*</text>
+<text x="286.766" y="181.61" size="1.778" layer="98">*</text>
+<text x="287.02" y="184.404" size="1.778" layer="98">*</text>
+<text x="286.766" y="187.198" size="1.778" layer="98">*</text>
+<text x="287.02" y="189.484" size="1.778" layer="98">*</text>
+<text x="287.02" y="197.104" size="1.778" layer="98">*</text>
+<text x="287.02" y="199.39" size="1.778" layer="98">*</text>
+<text x="287.02" y="201.676" size="1.778" layer="98">*</text>
+<text x="287.02" y="204.47" size="1.778" layer="98">*</text>
+<text x="287.02" y="206.756" size="1.778" layer="98">*</text>
+<text x="319.024" y="207.01" size="1.778" layer="98">*</text>
+<text x="319.024" y="204.47" size="1.778" layer="98">*</text>
+<text x="319.024" y="156.21" size="1.778" layer="98">*</text>
+<text x="319.024" y="153.67" size="1.778" layer="98">*</text>
+<text x="319.024" y="151.13" size="1.778" layer="98">*</text>
+<text x="319.024" y="148.59" size="1.778" layer="98">*</text>
+<text x="261.62" y="229.616" size="1.778" layer="98">* = 5V tollerant</text>
 </plain>
 <instances>
 <instance part="GND14" gate="1" x="198.12" y="149.86" rot="R90"/>
