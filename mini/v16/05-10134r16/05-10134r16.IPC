@@ -1,0 +1,203 @@
+Netlist
+
+Exported from FubarinoMini_v16.brd at 3/14/2013 8:03:56 PM
+
+EAGLE Version 6.4.0 Copyright (c) 1988-2013 CadSoft
+
+Net      Part     Pad
+
+!MCLR!   ICSP     1
+         J2       17
+         R10      2
+         RESET    3
+         RESET    4
+         U1       18
+
+3.3V     C10      1
+         C13      1
+         C8       1
+         C9       1
+         IC1      3
+         ICSP     2
+         J1       3
+         J2       18
+         R1       1
+         R10      1
+         R11      2
+         R9       2
+         U1       10
+         U1       17
+         U1       28
+         U1       40
+
+5V       C3       1
+         D1       1
+         D2       1
+         IC1      2
+         IC1      2@1
+         J1       1
+         U1       42
+
+D+/RB10  J2       15
+         J8       D+
+         U1       8
+
+D-/RB11  J2       16
+         J8       D-
+         U1       9
+
+GND      C1       1
+         C10      2
+         C13      2
+         C14      1
+         C15      1
+         C2       1
+         C3       2
+         C4       2
+         C5       2
+         C8       2
+         C9       2
+         IC1      1
+         ICSP     3
+         J1       2
+         J2       19
+         J8       GND
+         J8       MTN1
+         J8       MTN2
+         J8       MTN3
+         J8       MTN4
+         LED1     C
+         PROGRAM  1
+         PROGRAM  2
+         R8       2
+         RESET    1
+         RESET    2
+         U1       16
+         U1       29
+         U1       39
+         U1       6
+
+N$6      LED1     A
+         R11      1
+
+N$20     LED2     C
+         R8       1
+
+RA0      J1       9
+         U1       19
+
+RA1      J1       10
+         U1       20
+
+RA2      C14      2
+         J1       18
+         Q1       1
+         U1       30
+
+RA3      C15      2
+         J1       19
+         Q1       2
+         U1       31
+
+RA4      C2       2
+         J2       2
+         Q2       1
+         U1       34
+
+RA7      J1       6
+         U1       13
+
+RA8      J1       20
+         PROGRAM  3
+         R1       2
+         U1       32
+
+RA9      J2       3
+         U1       35
+
+RA10     J1       5
+         LED2     A
+         U1       12
+
+RB0      ICSP     4
+         J1       11
+         U1       21
+
+RB1      ICSP     5
+         J1       12
+         U1       22
+
+RB2      J1       13
+         U1       23
+
+RB3      J1       14
+         U1       24
+
+RB4      C1       2
+         J2       1
+         Q2       2
+         U1       33
+
+RB7      J2       8
+         U1       43
+
+RB8      J2       9
+         U1       44
+
+RB9      J2       10
+         U1       1
+
+RB13     J1       4
+         U1       11
+
+RB14     J1       7
+         U1       14
+
+RB15     J1       8
+         U1       15
+
+RC0      J1       15
+         U1       25
+
+RC1      J1       16
+         U1       26
+
+RC2      J1       17
+         U1       27
+
+RC3      J2       4
+         U1       36
+
+RC4      J2       5
+         U1       37
+
+RC5      J2       6
+         U1       38
+
+RC6      J2       11
+         U1       2
+
+RC7      J2       12
+         U1       3
+
+RC8      J2       13
+         U1       4
+
+RC9      J2       14
+         U1       5
+
+USBID/RB5 J2       7
+         J8       ID
+         R9       1
+         U1       41
+
+VBUS     D1       2
+         J8       VBUS
+
+VCAP     C4       1
+         C5       1
+         U1       7
+
+VIN      D2       2
+         J2       20
+
