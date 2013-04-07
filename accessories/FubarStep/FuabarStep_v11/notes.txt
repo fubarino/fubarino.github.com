@@ -9,4 +9,4 @@ Problems to fix for v1.1:
 * Need to use 5-pin screw terminals for motors so we can accomodate uni-polar motors
 * Make sure to check voltage regulator part number for vertial, not horizontal, part
 * Give power jack a touch more room - it's squashed agsint header
-* 
+* Re-order motor outputs so that motor 1 is at top and motor 4 is at bottom
