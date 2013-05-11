@@ -11,3 +11,7 @@ Problems to fix for v1.1:
 * Give power jack a touch more room - it's squashed agsint header
 * Re-order motor outputs so that motor 1 is at top and motor 4 is at bottom
 * Fix silk screen label for center pin on top I/O row - should be +3V3 not +5V
+
+Problems to fix for v1.2:
+
+* FTDI TX and RX are backwards (Make sure to check with SD and Mini to be sure)
