@@ -1,0 +1,17 @@
+FUBARStep v1.0
+
+First board soldered up on 4/1/2013 at Schmalz Haus.
+
+Problems to fix for v1.1:
+
+* 100uF caps are too wide. Either find skinnier caps, or move footprints around for more space
+* 3-pin power header is really hard to get to. Could there be a better place? Or more room?
+* Need to use 5-pin screw terminals for motors so we can accomodate uni-polar motors
+* Make sure to check voltage regulator part number for vertial, not horizontal, part
+* Give power jack a touch more room - it's squashed agsint header
+* Re-order motor outputs so that motor 1 is at top and motor 4 is at bottom
+* Fix silk screen label for center pin on top I/O row - should be +3V3 not +5V
+
+Problems to fix for v1.2:
+
+* FTDI TX and RX are backwards (Make sure to check with SD and Mini to be sure)
