@@ -1,10 +1,14 @@
-#include "FubarStep."
+#include "FubarStep.h"
 #include <AccelStepper.h>
 #include <SoftPWMServo.h> 
 
+// Define some steppers and the pins the will use
+AccelStepper stepper1(forwardstep1, backwardstep1); 
+AccelStepper stepper2(forwardstep2, backwardstep2); 
 
+static int state1, state2;
 
-void begin()
+void FubarStepInit()
 {  
     // Set up enable pins to be output, high
     pinMode(M1EN12, OUTPUT);
@@ -25,16 +29,6 @@ void begin()
     pinMode(M2A2, OUTPUT);
     pinMode(M2A3, OUTPUT);
     pinMode(M2A4,OUTPUT);
-    
-    stepper1.setMaxSpeed(1000.0);
-    stepper1.setAcceleration(500.0);
-    stepper1.moveTo(200);
-    
-    stepper2.setMaxSpeed(300.0);
-    stepper2.setAcceleration(100.0);
-    stepper2.moveTo(762);
-    
-    TimeForServoChange = 25;
 }
 
 void motor1output(int state)
@@ -145,13 +139,3 @@ void backwardstep2()
   }
   motor2output(state2);  
 }
-
-// Define some steppers and the pins the will use
-AccelStepper stepper1(forwardstep1, backwardstep1); 
-AccelStepper stepper2(forwardstep2, backwardstep2); 
-
-int TimeForServoChange;
-unsigned long LastMillis = 0;
-
-
-

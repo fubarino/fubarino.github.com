@@ -11,6 +11,11 @@
 */
 
 #include <SoftPWMServo.h> 
+#include <AccelStepper.h>
+
+extern AccelStepper stepper1; 
+extern AccelStepper stepper2; 
+
 
 // For Fubarino SD
 #if defined(_BOARD_FUBARINO_SD_)
@@ -62,26 +67,30 @@
 #define M2A3    25
 #define M2A4    28
 // Mini only has 10 servos hooked up
-#define SRV1    1
-#define SRV2    2
+#define SRV1    1   // "Pin12"     // NOTE: this is the same as the Fubar Mini's green LED
+#define SRV2    2   // "Pin13"
 // Note pin 14 and pin 15 are not available if using a crystal (default)
-#define SRV3    14
-#define SRV4    15
-#define SRV5    16
-#define SRV6    24
-#define SRV7    23
-#define SRV8    22
-#define SRV9    21
-#define SRV10   19
+#define SRV3    14  // "Pin 14"
+#define SRV4    15  // "Pin 15"
+#define SRV5    16  // "Pin 16"
+#define SRV6    24  // "Pin 17"
+#define SRV7    23  // "Pin 18"
+#define SRV8    22  // "Pin 19"
+#define SRV9    21  // "Pin 20"
+#define SRV10   19  // "Pin 21"
 #endif
 
-void begin();
+void FubarStepInit();
 void motor1output(int state);
 void motor2output(int state);
 void forwardstep1();
 void backwardstep1();
 void forwardstep2();
 void backwardstep2();
+
+extern AccelStepper stepper1; 
+extern AccelStepper stepper2; 
+
 
 #endif
 
