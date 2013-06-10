@@ -27,6 +27,8 @@ The Fubarino SD hardware is licenced under the Solderpad Hardware License v0.5. 
 Availability:
 ========
 These boards are Open Hardware and all the files are management in this project, and are licensed as OpenSource.
-They can be created from the Eagle files right away or purchased at [Seeed Studio](http://www.seeedstudio.com/depot/fubarino-sd-p-1265.html?cPath=132_133).
+They can be created from the Eagle files right away.
+Purchase version 1.5 at [MicroChip Direct](http://www.microchipdirect.com/ProductSearch.aspx?Keywords=TCHIP010)
+Purchased version 1.4 at [Seeed Studio](http://www.seeedstudio.com/depot/fubarino-sd-p-1265.html?cPath=132_133).
 
 
