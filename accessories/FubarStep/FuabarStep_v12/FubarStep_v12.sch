@@ -8189,6 +8189,27 @@ A3 Larger Frame</description>
 <part name="JP38" library="SparkFun-Connectors" deviceset="M03" device="SCREW"/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="GND23" library="supply1" deviceset="GND" device=""/>
+<part name="JP1" library="SparkFun-Connectors" deviceset="M03" device="PTH"/>
+<part name="JP2" library="SparkFun-Connectors" deviceset="M03" device="PTH"/>
+<part name="JP39" library="SparkFun-Connectors" deviceset="M03" device="PTH"/>
+<part name="JP40" library="SparkFun-Connectors" deviceset="M03" device="PTH"/>
+<part name="JP41" library="SparkFun-Connectors" deviceset="M03" device="PTH"/>
+<part name="JP42" library="SparkFun-Connectors" deviceset="M03" device="PTH"/>
+<part name="JP43" library="SparkFun-Connectors" deviceset="M03" device="PTH"/>
+<part name="JP44" library="SparkFun-Connectors" deviceset="M03" device="PTH"/>
+<part name="JP45" library="SparkFun-Connectors" deviceset="M03" device="PTH"/>
+<part name="JP46" library="SparkFun-Connectors" deviceset="M03" device="PTH"/>
+<part name="JP47" library="SparkFun-Connectors" deviceset="M03" device="PTH"/>
+<part name="JP48" library="SparkFun-Connectors" deviceset="M03" device="PTH"/>
+<part name="JP49" library="SparkFun-Connectors" deviceset="M03" device="PTH"/>
+<part name="JP50" library="SparkFun-Connectors" deviceset="M03" device="PTH"/>
+<part name="JP51" library="SparkFun-Connectors" deviceset="M03" device="PTH"/>
+<part name="JP52" library="SparkFun-Connectors" deviceset="M03" device="PTH"/>
+<part name="JP53" library="SparkFun-Connectors" deviceset="M03" device="PTH"/>
+<part name="JP54" library="SparkFun-Connectors" deviceset="M03" device="PTH"/>
+<part name="JP55" library="SparkFun-Connectors" deviceset="M03" device="PTH"/>
+<part name="JP56" library="SparkFun-Connectors" deviceset="M03" device="PTH"/>
+<part name="JP57" library="SparkFun-Connectors" deviceset="M03" device="PTH"/>
 </parts>
 <sheets>
 <sheet>
@@ -8395,6 +8416,27 @@ A3 Larger Frame</description>
 <instance part="JP38" gate="G$1" x="355.6" y="177.8" rot="R180"/>
 <instance part="GND10" gate="1" x="342.9" y="213.36"/>
 <instance part="GND23" gate="1" x="342.9" y="170.18"/>
+<instance part="JP1" gate="G$1" x="142.24" y="152.4" rot="R180"/>
+<instance part="JP2" gate="G$1" x="142.24" y="137.16" rot="R180"/>
+<instance part="JP39" gate="G$1" x="142.24" y="119.38" rot="R180"/>
+<instance part="JP40" gate="G$1" x="142.24" y="104.14" rot="R180"/>
+<instance part="JP41" gate="G$1" x="127" y="119.38" rot="R180"/>
+<instance part="JP42" gate="G$1" x="129.54" y="104.14" rot="R180"/>
+<instance part="JP43" gate="G$1" x="127" y="152.4" rot="R180"/>
+<instance part="JP44" gate="G$1" x="124.46" y="134.62" rot="R180"/>
+<instance part="JP45" gate="G$1" x="106.68" y="132.08" rot="R180"/>
+<instance part="JP46" gate="G$1" x="111.76" y="-17.78" rot="R180"/>
+<instance part="JP47" gate="G$1" x="127" y="-17.78" rot="R180"/>
+<instance part="JP48" gate="G$1" x="142.24" y="-17.78" rot="R180"/>
+<instance part="JP49" gate="G$1" x="154.94" y="-17.78" rot="R180"/>
+<instance part="JP50" gate="G$1" x="170.18" y="-17.78" rot="R180"/>
+<instance part="JP51" gate="G$1" x="182.88" y="-17.78" rot="R180"/>
+<instance part="JP52" gate="G$1" x="195.58" y="-17.78" rot="R180"/>
+<instance part="JP53" gate="G$1" x="208.28" y="-17.78" rot="R180"/>
+<instance part="JP54" gate="G$1" x="223.52" y="-17.78" rot="R180"/>
+<instance part="JP55" gate="G$1" x="236.22" y="-17.78" rot="R180"/>
+<instance part="JP56" gate="G$1" x="246.38" y="-17.78" rot="R180"/>
+<instance part="JP57" gate="G$1" x="259.08" y="-17.78" rot="R180"/>
 </instances>
 <busses>
 </busses>
