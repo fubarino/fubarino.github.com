@@ -21,3 +21,11 @@ Problems to fix for v1.3:
 * Silk screen is too thin for Seeed's process : make bigger/thicker
 * Swap placement for power selector header and 5V regulator - in v1.2, regulator may interfere with USB connector
 * Copy silk screen for motor outputs to bottom of board
+* Add pull-down resistors to all 4 enable lines
+* Add pull-down resistors to all 8 motor control lines
+* Change text of PWRSEL to REG/UNREG or something similar - 5V/6-12V is too confusing
+* Separate 3-pin servo headers so that you can stack them full of servos
+* Move PWRSEL to right in front of USB connection
+* Move voltage regulator away from USB connection a bit.
+* Make silk text thicker
+* Update BOM so it's accurate
