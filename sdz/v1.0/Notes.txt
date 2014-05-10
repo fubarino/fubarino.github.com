@@ -1,0 +1,7 @@
+These are internal developer change notes created during the development process of the Fubarino SDZ board.
+Written by Brian Schmalz of Schmalz Haus LLC (www.schmalzhaus.com)
+2014
+
+Version 1.0 ToDo:
+* For primary oscillator, find cheap TTL osc rather than crystal, and replace footprint
+* 
