@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.4">
+<eagle version="6.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -8,34 +8,34 @@
 </settings>
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
-<layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
-<layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
-<layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
-<layer number="5" name="Route5" color="4" fill="4" visible="no" active="no"/>
-<layer number="6" name="Route6" color="1" fill="8" visible="no" active="no"/>
-<layer number="7" name="Route7" color="4" fill="8" visible="no" active="no"/>
-<layer number="8" name="Route8" color="1" fill="2" visible="no" active="no"/>
-<layer number="9" name="Route9" color="4" fill="2" visible="no" active="no"/>
-<layer number="10" name="Route10" color="1" fill="7" visible="no" active="no"/>
-<layer number="11" name="Route11" color="4" fill="7" visible="no" active="no"/>
-<layer number="12" name="Route12" color="1" fill="5" visible="no" active="no"/>
-<layer number="13" name="Route13" color="4" fill="5" visible="no" active="no"/>
-<layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
-<layer number="15" name="Route15" color="4" fill="6" visible="no" active="no"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
-<layer number="17" name="Pads" color="2" fill="1" visible="no" active="no"/>
-<layer number="18" name="Vias" color="2" fill="1" visible="no" active="no"/>
-<layer number="19" name="Unrouted" color="14" fill="1" visible="no" active="no"/>
-<layer number="20" name="Dimension" color="15" fill="1" visible="no" active="no"/>
-<layer number="21" name="tPlace" color="16" fill="1" visible="no" active="no"/>
-<layer number="22" name="bPlace" color="14" fill="1" visible="no" active="no"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="no"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="no"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="no" active="no"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="no" active="no"/>
-<layer number="27" name="tValues" color="7" fill="1" visible="no" active="no"/>
-<layer number="28" name="bValues" color="7" fill="1" visible="no" active="no"/>
+<layer number="1" name="Top" color="4" fill="1" visible="yes" active="no"/>
+<layer number="2" name="Route2" color="1" fill="3" visible="yes" active="no"/>
+<layer number="3" name="Route3" color="4" fill="3" visible="yes" active="no"/>
+<layer number="4" name="Route4" color="1" fill="4" visible="yes" active="no"/>
+<layer number="5" name="Route5" color="4" fill="4" visible="yes" active="no"/>
+<layer number="6" name="Route6" color="1" fill="8" visible="yes" active="no"/>
+<layer number="7" name="Route7" color="4" fill="8" visible="yes" active="no"/>
+<layer number="8" name="Route8" color="1" fill="2" visible="yes" active="no"/>
+<layer number="9" name="Route9" color="4" fill="2" visible="yes" active="no"/>
+<layer number="10" name="Route10" color="1" fill="7" visible="yes" active="no"/>
+<layer number="11" name="Route11" color="4" fill="7" visible="yes" active="no"/>
+<layer number="12" name="Route12" color="1" fill="5" visible="yes" active="no"/>
+<layer number="13" name="Route13" color="4" fill="5" visible="yes" active="no"/>
+<layer number="14" name="Route14" color="1" fill="6" visible="yes" active="no"/>
+<layer number="15" name="Route15" color="4" fill="6" visible="yes" active="no"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="no"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="no"/>
+<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="no"/>
+<layer number="19" name="Unrouted" color="14" fill="1" visible="yes" active="no"/>
+<layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="no"/>
+<layer number="21" name="tPlace" color="16" fill="1" visible="yes" active="no"/>
+<layer number="22" name="bPlace" color="9" fill="1" visible="yes" active="no"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="no"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="no"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="no"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="no"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="no"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="no"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="no" active="no"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="no"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="no"/>
@@ -44,8 +44,8 @@
 <layer number="34" name="bFinish" color="6" fill="6" visible="no" active="no"/>
 <layer number="35" name="tGlue" color="7" fill="4" visible="no" active="no"/>
 <layer number="36" name="bGlue" color="7" fill="5" visible="no" active="no"/>
-<layer number="37" name="tTest" color="7" fill="1" visible="no" active="no"/>
-<layer number="38" name="bTest" color="7" fill="1" visible="no" active="no"/>
+<layer number="37" name="tTest" color="7" fill="1" visible="yes" active="no"/>
+<layer number="38" name="bTest" color="7" fill="1" visible="yes" active="no"/>
 <layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="no"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="no" active="no"/>
 <layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="no"/>
@@ -53,16 +53,16 @@
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="no"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="no"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="no" active="no"/>
-<layer number="46" name="Milling" color="3" fill="1" visible="no" active="no"/>
-<layer number="47" name="Measures" color="7" fill="1" visible="no" active="no"/>
-<layer number="48" name="Document" color="7" fill="1" visible="no" active="no"/>
-<layer number="49" name="Reference" color="7" fill="1" visible="no" active="no"/>
-<layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
-<layer number="51" name="tDocu" color="6" fill="1" visible="no" active="no"/>
-<layer number="52" name="bDocu" color="7" fill="1" visible="no" active="no"/>
-<layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
-<layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
-<layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="yes" active="no"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="yes" active="no"/>
+<layer number="48" name="Document" color="7" fill="1" visible="yes" active="no"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="no"/>
+<layer number="50" name="dxf" color="7" fill="1" visible="yes" active="no"/>
+<layer number="51" name="tDocu" color="6" fill="1" visible="yes" active="no"/>
+<layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="no"/>
+<layer number="53" name="tGND_GNDA" color="7" fill="9" visible="yes" active="no"/>
+<layer number="54" name="bGND_GNDA" color="1" fill="9" visible="yes" active="no"/>
+<layer number="56" name="wert" color="7" fill="1" visible="yes" active="no"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="93" name="Pins" color="2" fill="1" visible="no" active="yes"/>
@@ -1151,7 +1151,9 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <rectangle x1="-0.7112" y1="1.016" x2="-0.3048" y2="1.6002" layer="51"/>
 <rectangle x1="-1.778" y1="0.762" x2="1.778" y2="8.382" layer="43"/>
 </package>
-<package name="TQFP64-10X10-SOLDERDAMS">
+<package name="TQFP64-10X10">
+<description>&lt;b&gt;Thin Quad Flat Pack&lt;/b&gt;&lt;p&gt;
+package type TQ</description>
 <wire x1="-4.8" y1="4.4" x2="-4.4" y2="4.8" width="0.2032" layer="21"/>
 <wire x1="-4.4" y1="4.8" x2="4.4" y2="4.8" width="0.2032" layer="21"/>
 <wire x1="4.4" y1="4.8" x2="4.8" y2="4.4" width="0.2032" layer="21"/>
@@ -1161,70 +1163,70 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <wire x1="-4.4" y1="-4.8" x2="-4.8" y2="-4.4" width="0.2032" layer="21"/>
 <wire x1="-4.8" y1="-4.4" x2="-4.8" y2="4.4" width="0.2032" layer="21"/>
 <circle x="-4" y="4" radius="0.2827" width="0.254" layer="21"/>
-<smd name="1" x="-5.7" y="3.75" dx="1.2" dy="0.3" layer="1" stop="no"/>
-<smd name="2" x="-5.7" y="3.25" dx="1.2" dy="0.3" layer="1" stop="no"/>
-<smd name="3" x="-5.7" y="2.75" dx="1.2" dy="0.3" layer="1" stop="no"/>
-<smd name="4" x="-5.7" y="2.25" dx="1.2" dy="0.3" layer="1" stop="no"/>
-<smd name="5" x="-5.7" y="1.75" dx="1.2" dy="0.3" layer="1" stop="no"/>
-<smd name="6" x="-5.7" y="1.25" dx="1.2" dy="0.3" layer="1" stop="no"/>
-<smd name="7" x="-5.7" y="0.75" dx="1.2" dy="0.3" layer="1" stop="no"/>
-<smd name="8" x="-5.7" y="0.25" dx="1.2" dy="0.3" layer="1" stop="no"/>
-<smd name="9" x="-5.7" y="-0.25" dx="1.2" dy="0.3" layer="1" stop="no"/>
-<smd name="10" x="-5.7" y="-0.75" dx="1.2" dy="0.3" layer="1" stop="no"/>
-<smd name="11" x="-5.7" y="-1.25" dx="1.2" dy="0.3" layer="1" stop="no"/>
-<smd name="12" x="-5.7" y="-1.75" dx="1.2" dy="0.3" layer="1" stop="no"/>
-<smd name="13" x="-5.7" y="-2.25" dx="1.2" dy="0.3" layer="1" stop="no"/>
-<smd name="14" x="-5.7" y="-2.75" dx="1.2" dy="0.3" layer="1" stop="no"/>
-<smd name="15" x="-5.7" y="-3.25" dx="1.2" dy="0.3" layer="1" stop="no"/>
-<smd name="16" x="-5.7" y="-3.75" dx="1.2" dy="0.3" layer="1" stop="no"/>
-<smd name="17" x="-3.75" y="-5.7" dx="0.3" dy="1.2" layer="1" stop="no"/>
-<smd name="18" x="-3.25" y="-5.7" dx="0.3" dy="1.2" layer="1" stop="no"/>
-<smd name="19" x="-2.75" y="-5.7" dx="0.3" dy="1.2" layer="1" stop="no"/>
-<smd name="20" x="-2.25" y="-5.7" dx="0.3" dy="1.2" layer="1" stop="no"/>
-<smd name="21" x="-1.75" y="-5.7" dx="0.3" dy="1.2" layer="1" stop="no"/>
-<smd name="22" x="-1.25" y="-5.7" dx="0.3" dy="1.2" layer="1" stop="no"/>
-<smd name="23" x="-0.75" y="-5.7" dx="0.3" dy="1.2" layer="1" stop="no"/>
-<smd name="24" x="-0.25" y="-5.7" dx="0.3" dy="1.2" layer="1" stop="no"/>
-<smd name="25" x="0.25" y="-5.7" dx="0.3" dy="1.2" layer="1" stop="no"/>
-<smd name="26" x="0.75" y="-5.7" dx="0.3" dy="1.2" layer="1" stop="no"/>
-<smd name="27" x="1.25" y="-5.7" dx="0.3" dy="1.2" layer="1" stop="no"/>
-<smd name="28" x="1.75" y="-5.7" dx="0.3" dy="1.2" layer="1" stop="no"/>
-<smd name="29" x="2.25" y="-5.7" dx="0.3" dy="1.2" layer="1" stop="no"/>
-<smd name="30" x="2.75" y="-5.7" dx="0.3" dy="1.2" layer="1" stop="no"/>
-<smd name="31" x="3.25" y="-5.7" dx="0.3" dy="1.2" layer="1" stop="no"/>
-<smd name="32" x="3.75" y="-5.7" dx="0.3" dy="1.2" layer="1" stop="no"/>
-<smd name="33" x="5.7" y="-3.75" dx="1.2" dy="0.3" layer="1" stop="no"/>
-<smd name="34" x="5.7" y="-3.25" dx="1.2" dy="0.3" layer="1" stop="no"/>
-<smd name="35" x="5.7" y="-2.75" dx="1.2" dy="0.3" layer="1" stop="no"/>
-<smd name="36" x="5.7" y="-2.25" dx="1.2" dy="0.3" layer="1" stop="no"/>
-<smd name="37" x="5.7" y="-1.75" dx="1.2" dy="0.3" layer="1" stop="no"/>
-<smd name="38" x="5.7" y="-1.25" dx="1.2" dy="0.3" layer="1" stop="no"/>
-<smd name="39" x="5.7" y="-0.75" dx="1.2" dy="0.3" layer="1" stop="no"/>
-<smd name="40" x="5.7" y="-0.25" dx="1.2" dy="0.3" layer="1" stop="no"/>
-<smd name="41" x="5.7" y="0.25" dx="1.2" dy="0.3" layer="1" stop="no"/>
-<smd name="42" x="5.7" y="0.75" dx="1.2" dy="0.3" layer="1" stop="no"/>
-<smd name="43" x="5.7" y="1.25" dx="1.2" dy="0.3" layer="1" stop="no"/>
-<smd name="44" x="5.7" y="1.75" dx="1.2" dy="0.3" layer="1" stop="no"/>
-<smd name="45" x="5.7" y="2.25" dx="1.2" dy="0.3" layer="1" stop="no"/>
-<smd name="46" x="5.7" y="2.75" dx="1.2" dy="0.3" layer="1" stop="no"/>
-<smd name="47" x="5.7" y="3.25" dx="1.2" dy="0.3" layer="1" stop="no"/>
-<smd name="48" x="5.7" y="3.75" dx="1.2" dy="0.3" layer="1" stop="no"/>
-<smd name="49" x="3.75" y="5.7" dx="0.3" dy="1.2" layer="1" stop="no"/>
-<smd name="50" x="3.25" y="5.7" dx="0.3" dy="1.2" layer="1" stop="no"/>
-<smd name="51" x="2.75" y="5.7" dx="0.3" dy="1.2" layer="1" stop="no"/>
-<smd name="52" x="2.25" y="5.7" dx="0.3" dy="1.2" layer="1" stop="no"/>
-<smd name="53" x="1.75" y="5.7" dx="0.3" dy="1.2" layer="1" stop="no"/>
-<smd name="54" x="1.25" y="5.7" dx="0.3" dy="1.2" layer="1" stop="no"/>
-<smd name="55" x="0.75" y="5.7" dx="0.3" dy="1.2" layer="1" stop="no"/>
-<smd name="56" x="0.25" y="5.7" dx="0.3" dy="1.2" layer="1" stop="no"/>
-<smd name="57" x="-0.25" y="5.7" dx="0.3" dy="1.2" layer="1" stop="no"/>
-<smd name="58" x="-0.75" y="5.7" dx="0.3" dy="1.2" layer="1" stop="no"/>
-<smd name="59" x="-1.25" y="5.7" dx="0.3" dy="1.2" layer="1" stop="no"/>
-<smd name="60" x="-1.75" y="5.7" dx="0.3" dy="1.2" layer="1" stop="no"/>
-<smd name="61" x="-2.25" y="5.7" dx="0.3" dy="1.2" layer="1" stop="no"/>
-<smd name="62" x="-2.75" y="5.7" dx="0.3" dy="1.2" layer="1" stop="no"/>
-<smd name="63" x="-3.25" y="5.7" dx="0.3" dy="1.2" layer="1" stop="no"/>
-<smd name="64" x="-3.75" y="5.7" dx="0.3" dy="1.2" layer="1" stop="no"/>
+<smd name="1" x="-5.7" y="3.75" dx="1.2" dy="0.3" layer="1"/>
+<smd name="2" x="-5.7" y="3.25" dx="1.2" dy="0.3" layer="1"/>
+<smd name="3" x="-5.7" y="2.75" dx="1.2" dy="0.3" layer="1"/>
+<smd name="4" x="-5.7" y="2.25" dx="1.2" dy="0.3" layer="1"/>
+<smd name="5" x="-5.7" y="1.75" dx="1.2" dy="0.3" layer="1"/>
+<smd name="6" x="-5.7" y="1.25" dx="1.2" dy="0.3" layer="1"/>
+<smd name="7" x="-5.7" y="0.75" dx="1.2" dy="0.3" layer="1"/>
+<smd name="8" x="-5.7" y="0.25" dx="1.2" dy="0.3" layer="1"/>
+<smd name="9" x="-5.7" y="-0.25" dx="1.2" dy="0.3" layer="1"/>
+<smd name="10" x="-5.7" y="-0.75" dx="1.2" dy="0.3" layer="1"/>
+<smd name="11" x="-5.7" y="-1.25" dx="1.2" dy="0.3" layer="1"/>
+<smd name="12" x="-5.7" y="-1.75" dx="1.2" dy="0.3" layer="1"/>
+<smd name="13" x="-5.7" y="-2.25" dx="1.2" dy="0.3" layer="1"/>
+<smd name="14" x="-5.7" y="-2.75" dx="1.2" dy="0.3" layer="1"/>
+<smd name="15" x="-5.7" y="-3.25" dx="1.2" dy="0.3" layer="1"/>
+<smd name="16" x="-5.7" y="-3.75" dx="1.2" dy="0.3" layer="1"/>
+<smd name="17" x="-3.75" y="-5.7" dx="0.3" dy="1.2" layer="1"/>
+<smd name="18" x="-3.25" y="-5.7" dx="0.3" dy="1.2" layer="1"/>
+<smd name="19" x="-2.75" y="-5.7" dx="0.3" dy="1.2" layer="1"/>
+<smd name="20" x="-2.25" y="-5.7" dx="0.3" dy="1.2" layer="1"/>
+<smd name="21" x="-1.75" y="-5.7" dx="0.3" dy="1.2" layer="1"/>
+<smd name="22" x="-1.25" y="-5.7" dx="0.3" dy="1.2" layer="1"/>
+<smd name="23" x="-0.75" y="-5.7" dx="0.3" dy="1.2" layer="1"/>
+<smd name="24" x="-0.25" y="-5.7" dx="0.3" dy="1.2" layer="1"/>
+<smd name="25" x="0.25" y="-5.7" dx="0.3" dy="1.2" layer="1"/>
+<smd name="26" x="0.75" y="-5.7" dx="0.3" dy="1.2" layer="1"/>
+<smd name="27" x="1.25" y="-5.7" dx="0.3" dy="1.2" layer="1"/>
+<smd name="28" x="1.75" y="-5.7" dx="0.3" dy="1.2" layer="1"/>
+<smd name="29" x="2.25" y="-5.7" dx="0.3" dy="1.2" layer="1"/>
+<smd name="30" x="2.75" y="-5.7" dx="0.3" dy="1.2" layer="1"/>
+<smd name="31" x="3.25" y="-5.7" dx="0.3" dy="1.2" layer="1"/>
+<smd name="32" x="3.75" y="-5.7" dx="0.3" dy="1.2" layer="1"/>
+<smd name="33" x="5.7" y="-3.75" dx="1.2" dy="0.3" layer="1"/>
+<smd name="34" x="5.7" y="-3.25" dx="1.2" dy="0.3" layer="1"/>
+<smd name="35" x="5.7" y="-2.75" dx="1.2" dy="0.3" layer="1"/>
+<smd name="36" x="5.7" y="-2.25" dx="1.2" dy="0.3" layer="1"/>
+<smd name="37" x="5.7" y="-1.75" dx="1.2" dy="0.3" layer="1"/>
+<smd name="38" x="5.7" y="-1.25" dx="1.2" dy="0.3" layer="1"/>
+<smd name="39" x="5.7" y="-0.75" dx="1.2" dy="0.3" layer="1"/>
+<smd name="40" x="5.7" y="-0.25" dx="1.2" dy="0.3" layer="1"/>
+<smd name="41" x="5.7" y="0.25" dx="1.2" dy="0.3" layer="1"/>
+<smd name="42" x="5.7" y="0.75" dx="1.2" dy="0.3" layer="1"/>
+<smd name="43" x="5.7" y="1.25" dx="1.2" dy="0.3" layer="1"/>
+<smd name="44" x="5.7" y="1.75" dx="1.2" dy="0.3" layer="1"/>
+<smd name="45" x="5.7" y="2.25" dx="1.2" dy="0.3" layer="1"/>
+<smd name="46" x="5.7" y="2.75" dx="1.2" dy="0.3" layer="1"/>
+<smd name="47" x="5.7" y="3.25" dx="1.2" dy="0.3" layer="1"/>
+<smd name="48" x="5.7" y="3.75" dx="1.2" dy="0.3" layer="1"/>
+<smd name="49" x="3.75" y="5.7" dx="0.3" dy="1.2" layer="1"/>
+<smd name="50" x="3.25" y="5.7" dx="0.3" dy="1.2" layer="1"/>
+<smd name="51" x="2.75" y="5.7" dx="0.3" dy="1.2" layer="1"/>
+<smd name="52" x="2.25" y="5.7" dx="0.3" dy="1.2" layer="1"/>
+<smd name="53" x="1.75" y="5.7" dx="0.3" dy="1.2" layer="1"/>
+<smd name="54" x="1.25" y="5.7" dx="0.3" dy="1.2" layer="1"/>
+<smd name="55" x="0.75" y="5.7" dx="0.3" dy="1.2" layer="1"/>
+<smd name="56" x="0.25" y="5.7" dx="0.3" dy="1.2" layer="1"/>
+<smd name="57" x="-0.25" y="5.7" dx="0.3" dy="1.2" layer="1"/>
+<smd name="58" x="-0.75" y="5.7" dx="0.3" dy="1.2" layer="1"/>
+<smd name="59" x="-1.25" y="5.7" dx="0.3" dy="1.2" layer="1"/>
+<smd name="60" x="-1.75" y="5.7" dx="0.3" dy="1.2" layer="1"/>
+<smd name="61" x="-2.25" y="5.7" dx="0.3" dy="1.2" layer="1"/>
+<smd name="62" x="-2.75" y="5.7" dx="0.3" dy="1.2" layer="1"/>
+<smd name="63" x="-3.25" y="5.7" dx="0.3" dy="1.2" layer="1"/>
+<smd name="64" x="-3.75" y="5.7" dx="0.3" dy="1.2" layer="1"/>
 <text x="-3.81" y="6.604" size="1.778" layer="25">&gt;NAME</text>
 <text x="-4.064" y="-1.7701" size="1.778" layer="27">&gt;VALUE</text>
 <rectangle x1="-6" y1="3.65" x2="-4.8" y2="3.85" layer="21"/>
@@ -1820,7 +1822,7 @@ http://ww1.microchip.com/downloads/en/DeviceDoc/60001191B.pdf</description>
 <gate name="G$1" symbol="PIC32MZXXXXECX064" x="0" y="0"/>
 </gates>
 <devices>
-<device name="TQFP-10X10" package="TQFP64-10X10-SOLDERDAMS">
+<device name="" package="TQFP64-10X10">
 <connects>
 <connect gate="G$1" pin="!MCLR!" pad="9"/>
 <connect gate="G$1" pin="!SQICS0!/RPD4/PMWR/RD4" pad="52"/>
@@ -1847,8 +1849,8 @@ http://ww1.microchip.com/downloads/en/DeviceDoc/60001191B.pdf</description>
 <connect gate="G$1" pin="AN9/RPB14/SCK3/PMA1/RB14" pad="29"/>
 <connect gate="G$1" pin="AVDD" pad="19"/>
 <connect gate="G$1" pin="AVSS" pad="20"/>
-<connect gate="G$1" pin="D+" pad="36"/>
-<connect gate="G$1" pin="D-" pad="37"/>
+<connect gate="G$1" pin="D+" pad="37"/>
+<connect gate="G$1" pin="D-" pad="36"/>
 <connect gate="G$1" pin="ECOL/RPD10/SCL1/SCK4/RD10" pad="44"/>
 <connect gate="G$1" pin="EMDIO/AEMDIO/RPD1/SCK1/RD1" pad="49"/>
 <connect gate="G$1" pin="ERXD3/AETXD1/RPF0/RF0" pad="56"/>
@@ -34042,7 +34044,7 @@ Basic 0.1" spaced jumper. Use with breakaway headers.</description>
 <part name="U$3" library="SchmalzHausPublic" deviceset="ROHS_GARBAGE" device=""/>
 <part name="U$4" library="SchmalzHausPublic" deviceset="CHIPKIT" device="2MM"/>
 <part name="U$5" library="SchmalzHausPublic" deviceset="CHIPKIT" device="2MM"/>
-<part name="IC1" library="SchmalzHaus" deviceset="PIC32MZXXXXECX064" device="TQFP-10X10"/>
+<part name="IC1" library="SchmalzHaus" deviceset="PIC32MZXXXXECX064" device=""/>
 <part name="GND15" library="SparkFun02-20-08" deviceset="GND" device=""/>
 <part name="P+13" library="SparkFun02-20-08" deviceset="3.3V" device=""/>
 <part name="GND21" library="SparkFun02-20-08" deviceset="GND" device=""/>
@@ -34211,6 +34213,11 @@ Blinks when in bootloader mode</text>
 <text x="139.7" y="86.36" size="1.778" layer="98">Apply 5V to VIN or 
 VOUT and connect 
 JP1 for USB host</text>
+<wire x1="195.58" y1="147.32" x2="195.58" y2="132.08" width="0.1524" layer="98" style="longdash"/>
+<wire x1="195.58" y1="132.08" x2="223.52" y2="132.08" width="0.1524" layer="98" style="longdash"/>
+<wire x1="223.52" y1="132.08" x2="223.52" y2="147.32" width="0.1524" layer="98" style="longdash"/>
+<wire x1="223.52" y1="147.32" x2="195.58" y2="147.32" width="0.1524" layer="98" style="longdash"/>
+<text x="197.612" y="133.858" size="1.778" layer="98">Do Not Populate</text>
 </plain>
 <instances>
 <instance part="GND14" gate="1" x="198.12" y="165.1" smashed="yes" rot="R90">
@@ -34413,7 +34420,10 @@ JP1 for USB host</text>
 <attribute name="NAME" x="354.584" y="65.024" size="1.27" layer="95" font="vector" ratio="10"/>
 <attribute name="VALUE" x="354.076" y="60.706" size="1.27" layer="96" font="vector" ratio="10"/>
 </instance>
-<instance part="J5" gate="J" x="264.16" y="78.74"/>
+<instance part="J5" gate="J" x="264.16" y="78.74" smashed="yes">
+<attribute name="NAME" x="261.366" y="93.218" size="1.27" layer="95" ratio="10"/>
+<attribute name="VALUE" x="246.634" y="65.278" size="1.27" layer="96" ratio="10"/>
+</instance>
 <instance part="GND26" gate="1" x="274.32" y="55.88"/>
 </instances>
 <busses>
