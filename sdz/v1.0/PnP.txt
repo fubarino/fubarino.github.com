@@ -1,0 +1,28 @@
+Number  Size    Part                    Package
+0       Tray    PIC32 CPU               ICs and chips
+1       8mm     free                    -
+2       8mm     1uF cap                 0603
+3       8mm     10uF cap                0805
+4       8mm     .1uF cap                0603
+5       8mm     RED LED                 0603
+6       8mm     GREEN LED               0603
+7       8mm     330 Ohm res             0603
+8       8mm     10K Ohm res             0603
+9       8mm     1K Ohm res              0603
+10      8mm     Schottky diode          SOD323
+11      8mm     free                    -
+12      8mm     free                    -
+13      8mm     free                    -
+14      8mm     free                    -
+15      8mm     free                    -
+16      8mm     free                    -
+17      8mm     free                    -
+18      8mm     free                    -
+19      8mm     free                    -
+20      8mm     free                    -
+21      8mm     free                    -
+22      12mm    Oscillator              custom
+23      12mm    3.3v Regulator          SOT89
+24      12mm    Tact switch             custom
+25      24mm    Micro SD connector      custom
+26      24mm    USB Micro B connector   custom
