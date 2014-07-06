@@ -1,0 +1,1717 @@
+#usage "Generate a CSV file suitable for TM220A Pick n Place\n"
+"Created by Dangerous Prototypes.com\n"
+"Ian Lesnet (Feb. 18, 2013)\n"
+"Parts of the code from Xinort\n"
+"Modified with GUI enhancement by Jamz\n"
+"1.0j\n"
+"Fixed for reverse side mounting by TheHansson\n"
+"1.0k\n"
+// -----------------------
+int debug=0;    				 // set to one for debug: show variables
+string VERSION = "1.0k";
+
+//------------------------------------Variables ---------------------------------------------------//
+
+// modify these two variables accordingly
+
+int LinesPerTab=24;              // limit lines per tab. if lines are more than this make a new tab
+int MAXREEL=28;                  // 16 Reels for tm220a, 28 for tm240a
+
+
+int tabloop;
+int AddTab=0;
+string pcb_layers[];
+int YES= 1;
+int NO = 0;
+int found;
+int counter=0;  				// use to know how many parts (elements) are there in the board, including Logo,name etc
+int Result=0;
+string SourceFname="";         	// file name of current board 
+string StackFname;            	// Stack configuration filename
+string workdir;               	// file save directory
+string csvnametop="";        	// CSV file Top
+string csvnamebottom="";     	// CSV file Bottom
+string UserStackFname="";       // User defined Standard Stack
+real Xorigin=0.00;
+real Yorigin=0.00;
+int line = 1;
+
+int Selected = 0; 
+
+int i,j,k,l,m,n=0; 				//general purpose iteration/index variable 
+// --------------------------------------------Display clickable Picture, linked to DP ------------------------------------------ 
+string Text ="<br><br><center><a href='http://dangerousprototypes.com/2013/02/21/workshop-video-56-tm220a-table-top-pick-and-place-overview/'>"
+				          "<img src=http://dangerousprototypes.com/wp-content/media/2013/02/15Reels.jpg align='Center' /></a></center><br><br>";
+
+string Help1="<p><strong>Reel Name</strong> - Enter the Your Assigned name to the Reel"
+"<br><strong>Height</strong> - Enter the Height for the Reel. Valid values are 0.00 to 3.00."
+"<br><strong>Rate</strong> - Enter Feeding Rate. Valid values are 0 to 20."	
+"<br><strong>Rotation Correction</strong> - If Parts' placement rotation is off, select rotation value to add. a <strong>180</strong> degree rotation rotates the reel's part by 180.</p>";					  
+string Help2="<p><strong>Load Dangerous Prototype's Standard Stack</strong> - This button loads the Dangerous Prototypes' Standard Stack."
+"<br><strong>Accept</strong> - Accept the displayed values. "
+"<br>If there are reel assignments under the tabs<strong> PCB Top</strong> and<strong> PCB Bottom</strong>, it will be updated, as well as the values  in <strong>Height</strong> and <strong>Rate</strong>.</p>";
+
+						  
+						  // DP's Common Parts offset use '|' as separator 
+					  //Package|x|y|Comment	  
+string DP_Packages[]={"0402|0.00|0.05|0402",
+					  "0603|-0.40|-0.10|0603",
+					  "0805|0.05|0.00|0805",
+					  "1206|0.23|0.00|1206",
+					  "EOL|0.00|0.00|EOL"};       // EOL - End of line indicator
+                      // Reel#|Size|Part|Package|height|rate|RotationCorrection:0=0,1=90,2=180,3=270|OffSetX|OffSetY
+string DPpartlist[] = {"0|Tray|Free|IC and Chips|0|1|0|0.00|0.00",
+					   "1|8mm|Free|-|0|1|0.00|0.00",
+					   "2|8mm|BAS-16J diode|DO-323|.5|1|0.00|0.00",
+					   "3|8mm|1.5Amp ferrite bead|0603|.5|1|-0.40|-0.10",
+					   "4|8mm|3.3volt regulator|SOT-23-5|.5|1|0.00|0.00", 
+					   "5|8mm|LED Yellow|0805 (0603)|.5|1|-0.40|-0.10", 
+					   "6|8mm|18pF capacitor|0603|.5|1|-0.40|-0.10",
+					   "7|8mm|0.1uF capacitor|0603|.5|1|-0.40|-0.10",
+					   "8|8mm|1uF capacitor|0603|.5|1|-0.40|-0.10",
+					   "9|8mm|10uF capacitor|CASE A (1206)|.5|1|0.23|0.00", 
+					   "10|8mm|2K resistor|0603|.5|1|-0.40|-0.10", 
+					   "11|8mm|10K resistor|0603|.5|1|-0.40|-0.10", 
+					   "12|8mm|10K x 4 resistor array|1206|.5|1|0.23|0.00", 
+					   "13|12mm|SMD button|5.4mm|.5|1|0.00|0.00",
+					   "14|12mm|Free|-|0|1|0.00|0.00",
+					   "15|16mm|Free|-|0|1|0.00|0.00" };
+
+int  DP_stack_Loaded =0;     // flag 1 if dp stack is loaded
+
+
+// array for each individual parts as found in the pcb
+//struct {
+	string Ename[];             // Parts name
+	string Evalue[];            // Parts value
+	string Epackagename[];       // Package 
+	string ElibrarySource[];    // Library source
+	string EpartsX[];           // x coordinate
+	string EpartsY[];           // y coordinate
+	string Elayer[];            // layer - Top/Bottom 
+	string Eangle[];               // angle of placement
+	int Efeeder[];
+	real Eheight[];
+	string Eheadline[];
+	int  Eptr[];                 //Line number, fills in number to track line an index ptr
+// }
+
+
+// Array to Hold for display by grouping 
+// struct {
+    int g_class[];                // Used to group parts use variable grouping
+	int g_ptr[];                 // pointer to array # of this structure
+	string g_Ename[];            //Parts name e.g. c1,c2,c3
+	string g_EnameTemp[];        // used temporarily to store first part   
+	string g_Evalue[];           // parts value e.g 1uf
+	string g_Epackagename[];     // Package name like C0603
+	string g_ElibrarySource[];    // library 
+	string g_EpartsX[];          // x coordinate of parts
+	string g_EpartsY[];          // y coordinate of parts 
+	string g_Elayer[];           // PCB layer - Top, Bottom
+	int g_Head[];                // Head - 1 or 2  used by tm220a
+	real g_Eheight[];            // height of parts used bu tm220, set to 0 as default
+	int g_Equantity[];           // count of parts with same value
+	int g_Erate[];               // feeder Rate  used by tm220a ( 0,1,2 .. 20?)
+	string g_Eangle[];              // Angle of rotation of pats
+	int g_TapeSkip[];            // Tape skip  used by tm220a
+	int g_Efeeder[];             // hold feeder assignment, initially 99 for no assignment
+	string g_Eheadline[];
+	string g_backptr[];
+// }
+int grouping=0;
+int ReelNo_Top[]; 
+int ReelNo_Bottom[];                      // Reel # 0 to 15 
+int index=0;				      // counter for array the holds the group partlist
+//struct {  // used after separting the top and bottom layer
+int CT_ReelNo[];  // holds the reelno 0-15,99
+string CT_EpartsX[];
+string CT_EpartsY[];
+string CT_Epackagename[];
+string CT_Evalue[];				
+string CT_Elayer[];
+real CT_Eheight[];
+int CT_Ehead[];
+int CT_Skip[];
+int CT_Rate[];
+int CT_class[];
+string CT_backptr[];   
+// }
+
+// struct {
+int CB_ReelNo[];  // holds the reelno 0-15
+string CB_EpartsX[];
+string CB_EpartsY[];
+string CB_Epackagename[];
+string CB_Evalue[];				
+string CB_Elayer[];
+real CB_Eheight[];
+int CB_Ehead[];
+int CB_Skip[];
+int CB_Rate[];
+int CB_class[]; 
+string CB_backptr[];  
+// }
+
+// struct {
+int CM_ReelNo[];  // holds the reelno 0-15
+string CM_EpartsX[];
+string CM_EpartsY[];
+string CM_Epackagename[];
+string CM_Evalue[];				
+string CM_Elayer[];
+real CM_Eheight[];
+int CM_Ehead[];
+int CM_Skip[];
+int CM_Rate[];
+int CM_class[]; 
+string CM_backptr[];  
+// }
+//struct {  // Top - variables f
+int g_Efeeder_Top[];
+int g_Head_Top[];          		
+real g_Eheight_Top[];	 
+int g_TapeSkip_Top[];	
+int g_Erate_Top[]; 
+// }
+//struct {   // bottom
+int g_Efeeder_Bottom[];
+int g_Head_Bottom[];          		
+real g_Eheight_Bottom[];	 
+int g_TapeSkip_Bottom[];	
+int g_Erate_Bottom[]; 
+// }
+//struct {   //Mid
+int g_Efeeder_Mid[];
+int g_Head_Mid[];          		
+real g_Eheight_Mid[];	 
+int g_TapeSkip_Mid[];	
+int g_Erate_Mid[]; 
+// }
+
+real BoardX =0.00;   			  // size of pcb board in x axis  (lower left)
+real BoardY =0.00;    			 // size of pcb board in y axis  (lower left) 
+int nBoardsinX=0;  				 // no. of boards in x direction
+int nBoardsinY=0; 				 // no. of Boards in Y direction
+real GapBoardX =0.00; 			 // gap between boards
+real GapBoardY =0.00;  			 // gap between boards
+
+string components_Top[];     	 //  concatenation of variables for top layer: g_name+value+package use in combobox
+string grp_components_Top[];     // group and format parts into c1-c10, instead of c1,c2,c3,c4c4 etc
+string component_quantity_Top[]; // version 1 update - break components_Top
+string component_value_Top[];
+string component_packagename_Top[];
+
+string components_Bottom[];   	 //  concatenation of variables for bottom: g_name+value+package use in combobox
+string grp_components_Bottom[];     // group and format parts into c1-c10, instead of c1,c2,c3,c4c4 etc
+string component_quantity_Bottom[];
+string component_value_Bottom[];
+string component_packagename_Bottom[];
+
+string components_Mid[];   	 //  concatenation of variables for bottom: g_name+value+package use in combobox
+string grp_components_Mid[];     // group and format parts into c1-c10, instead of c1,c2,c3,c4c4 etc
+string component_quantity_Mid[];
+string component_value_Mid[];
+string component_packagename_Mid[];
+
+int comboSelected_Top[],comboSelected_Bottom[],comboSelected_Mid[];         	 //  ptr to array of grouped components for above used as combobox selector
+   
+int components_Bottom_ptr[],components_Top_ptr[],components_Mid_ptr[]; 	 //  will hold the pointer to the array for  components_Bottom[];
+    
+
+int TopCounter=0,BottomCounter=0,MidCounter=0; // Top components counter and Bottom component Counter, + in between layers
+int len;
+string dummy_grouping;
+string g_Ename_group[];    // storage for grouped partslist
+string partslist[];
+string partsX; 
+string partsY; 
+string partsRotation;
+string layer;
+string Reel[];
+string ReelAlias[];     // user defined names for reels
+real ReelHeight[];
+real ReelOffSetX[];
+real ReelOffSetY[];
+int ReelRate[];
+string RotationOffset[];    // 0,90,180,270 - adds angle
+int RotationOffsetSelected[];   // 0-3    , 
+int xmax =-2147483648;             
+int xmin = 2147483647;
+int maxComboLen_Top = -1, maxComboLen_Bottom = -1, maxComboLen_Mid = -1;   // maximum lenght of string in the combobox
+int boardRightEdge = 0;
+
+//-------------------------------------------------------------------------------------------------------
+//  convert num to string
+string Num2Str(int i)   { 
+	string str;
+	sprintf(str, "%d", i);
+ return str; }
+
+//trim leading and trailing spaces
+
+string alltrim(string s)
+{
+  while (s && isspace(s[0])) {
+		s = strsub(s, 1);
+	}
+  while (s && isspace(s[strlen(s) - 1])) {
+		s = strsub(s, 0, strlen(s) - 1);
+	}
+  if (strlen(s)==0) s=" ";	
+  
+  return s;
+}
+string pad_all(string text,int size,string chr) {
+	int len=strlen(text);
+	int lr=(size-len)/2;
+	int z;
+	string ret;
+	string xl;
+	for (z=0;z <lr;z++) {
+	  xl+=chr;
+	}
+	ret=xl+text+xl;
+    return ret;
+}
+
+void Load_Stack(string who) {
+    string a[];    // use for spliting the line
+	int i;
+	for (i=0; i < MAXREEL;i++) {
+	//	Reel[i+1]="Reel# "+Num2Str(i);     // remember to subtract 1, Reel[0]="--------";
+	//	ReelAlias[i+1]=Reel[i+1];
+	   if (who=="DP") {
+			n = strsplit(a,DPpartlist[i], '|'); 
+			if( strtol(alltrim(a[0]))==i ) {
+			   ReelAlias[i+1]= alltrim(a[2])+" ("+alltrim(a[3])+")";			  
+			   ReelHeight[i+1]= strtod(alltrim(a[4]));
+			   ReelRate[i+1]=strtol(alltrim(a[5]));			  
+			   ReelOffSetX[i+1]=strtod(alltrim(a[6]));
+			   ReelOffSetY[i+1]=strtod(alltrim(a[7]));
+			   
+			}
+		} else {		 
+			
+			string lines[];
+			int n;				
+			int tr=0;
+			int nLines = fileread(lines, UserStackFname);  // returns # of lines read
+			
+			for(i=0;i < nLines;i++) {  
+				string a[];    // use for spliting the line
+				n = strsplit(a,lines[i], '|'); 
+				if( alltrim(a[0])=="[REEL]" ) {	
+					if(tr==strtol(alltrim(a[1]))) {
+						ReelAlias[tr+1]=alltrim(a[2]);
+						ReelHeight[tr+1]=strtod(alltrim(a[3]));
+						ReelRate[tr+1]=strtol(alltrim(a[4]));
+						RotationOffsetSelected[tr+1]=strtol(alltrim(a[5]));	
+						ReelOffSetX[tr+1]=strtod(alltrim(a[6]));
+			            ReelOffSetY[tr+1]=strtod(alltrim(a[7]));
+						tr++;
+					}
+					
+				}		
+				
+			}	
+			// Load ReelAlias Reel[]
+			for (j=0; j < MAXREEL;j++) {
+				Reel[j+1]=ReelAlias[j+1];				
+			}
+			
+		}
+	}
+
+}
+	
+string Group_Parts(string Enamex) {
+
+	int YES= 1;
+	int NO = 0;
+	string dummy,leftopr,rightopr,cmdx,slastseq,lasttoken;
+    int dummy_written,nlastseq;
+	string a[];
+	int k,m,nrightopr;
+	int startOfseq,prevseq;
+			
+	startOfseq=YES;
+	dummy="";
+	dummy_written=NO;
+	lasttoken="";
+	n = strsplit(a, Enamex, ','); 
+	if (n !=0) {
+		dummy+=a[0];
+		for (k=1;k < n;k++){
+			// cmdx+=" Token: "+a[k]+" \n";
+			len=strlen(a[k]);
+			string temp=a[k];
+			for (m=0;m < len;m++) {  //find first occurance of a digit
+			
+				if(isdigit(temp[m])!=0) {									
+					break;
+				}										
+			}
+			// m got the first digit position
+			//split characters and numbers
+			leftopr= strsub(a[k], 0, m);
+			rightopr=strsub(a[k], m);
+			
+			
+			nrightopr=strtol(rightopr);  //sequence 
+			
+			if (startOfseq==YES) {
+				if (dummy_written=NO) {
+					 if (strlen(dummy) !=0) {
+						dummy+="-";
+					 }
+					 dummy+=leftopr+rightopr;
+				} 
+				
+				 prevseq=nrightopr;
+				 startOfseq=NO;
+			} else {
+				
+				if(nrightopr==prevseq+1) {  //got a sequence.
+				
+					nlastseq=nrightopr;   // store it for reference
+					slastseq=rightopr;  
+					prevseq=nrightopr;
+					lasttoken="-"+leftopr+slastseq;  // write at end of loop
+					
+					startOfseq=NO;	
+					
+					
+				 } else {  // not sequence, write the previous one
+					dummy+="-";
+					dummy+=leftopr+slastseq;     
+					startOfseq=YES;   //start the sequence again
+					lasttoken=","+leftopr+rightopr; 
+					dummy+=lasttoken;
+					dummy_written=YES; // dummy variables was written as last token
+					
+					   
+				 }
+				 
+			
+			} 								
+												
+		}
+	}
+	dummy+= lasttoken;
+	return dummy;
+	
+}	
+
+void ReelConfig_ColumnDesc(void)
+{
+	dlgCell(0, 0) {
+		dlgVBoxLayout {
+			dlgLabel("Reel Assignments");
+			dlgStretch(1);
+		}
+	}
+	dlgCell(0, 1) {
+		dlgVBoxLayout {
+			dlgLabel("Reel Name");
+			dlgStretch(1);
+		}
+	}
+	dlgCell(0, 2) {
+		dlgVBoxLayout {
+			dlgLabel("OffSet X");
+			dlgStretch(1);
+		}
+	}
+	dlgCell(0, 3) {
+		dlgVBoxLayout {
+			dlgLabel("OffSet Y");
+			dlgStretch(1);
+		}
+	}
+	dlgCell(0, 4) {
+		dlgVBoxLayout {
+			dlgLabel("Height");
+			dlgStretch(1);
+		}
+	}
+	dlgCell(0, 5) {
+		dlgVBoxLayout {
+			dlgLabel("Rate");
+			dlgStretch(1);
+		}
+	}
+	dlgCell(0, 6) {
+		dlgVBoxLayout {
+			dlgLabel("Rotation Correction");
+			dlgStretch(1);
+		}
+	}
+}						
+
+// Initialize variables
+Reel[0]="--------";
+ReelAlias[0]=Reel[0];
+
+for (i=0; i < MAXREEL ;i++) {
+  g_Efeeder_Top[i]=99;
+  g_Efeeder_Bottom[i]=99;
+  comboSelected_Top[i]=0;
+  comboSelected_Bottom[i]=0;
+  RotationOffsetSelected[i]=0;
+  Reel[i+1]="Reel# "+Num2Str(i); 
+  ReelAlias[i+1]=Reel[i+1];
+  g_Head_Top[i]=1; 
+  g_Head_Bottom[i]=1;   
+  g_Eheight_Top[i]=0.00;
+  g_Eheight_Bottom[i]=0.00;  
+  g_TapeSkip_Top[i]=0;	
+  g_TapeSkip_Bottom[i]=0;	
+  g_Erate_Top[i]=0; 
+  g_Erate_Bottom[i]=0; 
+}
+
+// Find the right edge of the board outline so we can calculate where the components on the back goes
+board(B) {
+  B.wires(W) { // board outline as wires in board
+    if (W.layer == LAYER_DIMENSION) {  // Only worry about the dimension layer
+        if(boardRightEdge < W.x2)  
+          boardRightEdge = W.x2;   // Find the rightmost edge
+      }
+  }
+}
+
+
+for (i=0; i< 4;i++) {
+    RotationOffset[i]=Num2Str(i*90);
+}
+
+if (project.board) project.board(B) {
+	workdir=filedir(B.name);
+	SourceFname=filename(B.name);
+	// remove extension
+	string s = SourceFname;
+	char c = '.';
+	int pos = strrchr(s, c);
+	if (pos >= 0) {
+		s[pos]='\0';
+		SourceFname=s;
+	} 
+    StackFname=workdir+SourceFname+".PnP";   // same filename with the board
+
+	//---- try to get all parts in the board loaded to memory
+	//     Ename[j],Equantity[j],Evalue[j],Epackagename[j] etc
+		
+		
+	B.elements(E) {
+	
+		E.package.contacts(C) {
+		  int wasSmd;	
+		  
+         if (C.smd && C.smd.layer == 1) {           
+		       wasSmd = 1;
+               layer = "Top";	
+         } else {
+				 if (C.smd && C.smd.layer == 16) {           
+					 wasSmd = 1;
+					 layer = "Bottom";	
+				 } else {
+				   layer="???";     // layer was not defined to be top or bottom
+				   }
+				}
+		}
+ 	
+      sprintf(partsX, "%.2f", u2mm(E.x));
+      sprintf(partsY, "%.2f", u2mm(E.y));
+	  sprintf(partsRotation,"%.2f",E.angle);
+	  Ename[counter]=E.name;
+	  Evalue[counter]=E.value;
+	  Epackagename[counter]=E.package.name;
+	  ElibrarySource[counter]=E.package.library;
+	  EpartsX[counter]=partsX;
+	  EpartsY[counter]=partsY;
+	  Elayer[counter]=layer;	
+	  Eangle[counter]=partsRotation; 
+	  Eheadline[counter]=E.package.headline;
+      Eptr[counter]=counter;   //  line numbers, when Eptr[0] ,value is 0  
+	  counter++;							
+	}
+	
+	  // then group contents according to values and package, must create a group 
+	   // index holds all the unique elements after grouping.
+	found=0;
+	
+	for (j=0;j<counter;j++) {
+	    if (index==0) {     // initial content 
+			g_Ename[index]=alltrim(Ename[j]);
+			g_EnameTemp[index]=alltrim(Ename[j]);
+			g_Evalue[index]=alltrim(Evalue[j]);
+			g_Epackagename[index]=alltrim(Epackagename[j]);
+	        g_ElibrarySource[index]=ElibrarySource[j];
+			g_EpartsX[index]="";     // EpartsX[j];     //coordinates parts-do not use
+			g_EpartsY[index]="";     // EpartsY[j];
+			g_Elayer[index]=Elayer[j];
+			g_Efeeder[index]= 99;   // to be filled up- reel assignment
+			g_Head[index]=1;     // valid values are 1 and 2 only
+ 			g_Equantity[index]=1;   // always 1
+			g_Erate[index]=0;      // to be filled up
+			g_Eangle[index]="";     
+			g_Eheight[index]=0.0;     // to be filled up
+			g_ptr[index]=index;        // each line must have a number
+            g_class[index]=grouping;			
+			g_backptr[index]= alltrim(Num2Str(Eptr[j]));
+			g_Eheadline[index]= Eheadline[j];
+            index++;			
+		} else {
+		    // locate the part and group(package, value, layer)
+			found=0;   // not found yet
+			
+			for(i=0;i < index;i++) {
+			    if ( strupr(alltrim(Epackagename[j])) == strupr(g_Epackagename[i]) ) {			
+				    if ( strupr(alltrim(Evalue[j]))==strupr(g_Evalue[i]) )  {				
+						if (Elayer[j] == g_Elayer[i]) {     // group
+							g_Equantity[i]++;
+							g_Ename[i] +=","+alltrim(Ename[j]);   // append so that parts name will be c1,c2,c3 etc
+													
+							g_class[i]=grouping;
+							g_backptr[i]+="|"+alltrim(Num2Str(Eptr[j]));           // points back 5|12|13|16|22
+							found=1; // found one
+						}	 
+					}
+				}
+			}
+		    if (found==0) {   // found nothing, create new entry, index was incremented before			  
+				g_Ename[index]=alltrim(Ename[j]);
+				g_EnameTemp[index]=alltrim(Ename[j]);
+				g_Evalue[index]=alltrim(Evalue[j]);
+				g_Epackagename[index]=alltrim(Epackagename[j]);
+				g_ElibrarySource[index]=ElibrarySource[j];
+				g_EpartsX[index]="";      //EpartsX[j];     //coordinates parts-Do not use
+				g_EpartsY[index]="";      //EpartsY[j];
+				g_Elayer[index]=Elayer[j];
+				g_Efeeder[index]=99;   // to be filled up- reel assignment
+				g_Head[index]=1;       // initially assigne head # 1
+				g_Equantity[index]=1;   // always 1
+				g_Erate[index]=0;      // to be filled up
+				g_Eangle[index]="";     
+				g_Eheight[index]=0.0;     // to be filled up
+                g_Eheadline[index]= Eheadline[j];
+				g_ptr[index]=index; 
+				g_class[index]=grouping;
+				
+				g_backptr[i]=alltrim(Num2Str(Eptr[j]));   
+				
+	            grouping++;				
+				index++;
+			}
+		    
+		}
+	  
+	   
+	}
+	
+	int teststring;	
+	
+	
+	for (j=0;j< index;j++) {	   //load for display		    
+		string equant=Num2Str(g_Equantity[j]); 			 
+		string gptr=Num2Str(g_ptr[j]);	
+		if (g_Equantity[j] > 3) {
+			dummy_grouping= Group_Parts(g_Ename[j]);
+			g_Ename_group[j]=dummy_grouping;		
+		} else {	
+		   g_Ename_group[j]=g_Ename[j]	;	
+		}
+		partslist[j] = g_Ename_group[j] + " \t" +equant+" \t"+ g_Evalue[j] + " \t" + g_Epackagename[j] + " \t" + g_ElibrarySource[j] + " \t" + g_Eheadline[j]+" \t" +g_Elayer[j];
+				
+		if (g_Elayer[j]=="Top")	{	
+			components_Top_ptr[TopCounter]=j;   // keep track of component
+			string gxname;		
+			
+			components_Top[TopCounter]=alltrim(g_Ename[j]);
+			grp_components_Top[TopCounter]=g_Ename_group[j];
+			component_quantity_Top[TopCounter]=alltrim(equant);
+			component_value_Top[TopCounter]=alltrim(g_Evalue[j]);
+			component_packagename_Top[TopCounter]=alltrim(g_Epackagename[j]);
+			CT_Eheight[TopCounter]=0.00;
+			CT_Ehead[TopCounter]=1;
+			CT_Skip[TopCounter]=0;
+			CT_Rate[TopCounter]=0;
+	      
+			int combolen_Top=strlen(components_Top[TopCounter]);			
+			if ( combolen_Top> maxComboLen_Top) {
+			       maxComboLen_Top=combolen_Top;
+			}
+					
+			CT_ReelNo[TopCounter]=0;  // used as selections, will contains reel # selected
+			CT_EpartsX[TopCounter]=g_EpartsX[j];
+			CT_EpartsY[TopCounter]=g_EpartsX[j];			
+			CT_Epackagename[TopCounter]=g_Epackagename[j];				
+			CT_Evalue[TopCounter]=g_Evalue[j];				
+			CT_Elayer[TopCounter]=g_Elayer[j];
+			CT_class[TopCounter]= g_class[j]; 
+            CT_backptr[TopCounter]=g_backptr[j];		
+			TopCounter++;
+			
+        } else { 
+				if (g_Elayer[j]=="Bottom")	{
+					string gxname;	
+					components_Bottom_ptr[BottomCounter]=j;
+					components_Bottom[BottomCounter]=alltrim(g_Ename[j]);
+					grp_components_Bottom[BottomCounter]=g_Ename_group[j];
+					component_quantity_Bottom[BottomCounter]=alltrim(equant);
+					component_value_Bottom[BottomCounter]=alltrim(g_Evalue[j]);
+					component_packagename_Bottom[BottomCounter]=alltrim(g_Epackagename[j]);
+					CB_Eheight[BottomCounter]=0.00;
+					CB_Ehead[BottomCounter]=1;
+					CB_Skip[BottomCounter]=0;
+					CB_Rate[BottomCounter]=0;			   
+					int combolen_Bottom=strlen(components_Bottom[BottomCounter]);			
+					if ( combolen_Bottom> maxComboLen_Bottom) {
+						   maxComboLen_Bottom=combolen_Bottom;
+					}
+					
+					CB_ReelNo[BottomCounter]=0;  // initially select reel 0
+					CB_EpartsX[BottomCounter]=g_EpartsX[j];
+					CB_EpartsY[BottomCounter]=g_EpartsX[j];
+					CB_Epackagename[BottomCounter]=g_Epackagename[j];
+					CB_Evalue[BottomCounter]=g_Evalue[j];				
+					CB_Elayer[BottomCounter]=g_Elayer[j];
+					CB_class[BottomCounter]= g_class[j];    //grouping
+					CB_backptr[BottomCounter]=g_backptr[j];	
+					BottomCounter++;
+				} else {
+					string gxname;	
+					components_Mid_ptr[MidCounter]=j;
+					components_Mid[MidCounter]=alltrim(g_Ename[j]);
+					grp_components_Mid[MidCounter]=g_Ename_group[j];
+					component_quantity_Mid[MidCounter]=alltrim(equant);
+					component_value_Mid[MidCounter]=alltrim(g_Evalue[j]);
+					component_packagename_Mid[MidCounter]=alltrim(g_Epackagename[j]);
+					CM_Eheight[MidCounter]=0.00;
+					CM_Ehead[MidCounter]=1;
+					CM_Skip[MidCounter]=0;
+					CM_Rate[MidCounter]=0;			   
+					int combolen_Mid=strlen(components_Mid[MidCounter]);			
+					if ( combolen_Mid> maxComboLen_Mid) {
+						   maxComboLen_Mid=combolen_Mid;
+					}
+					
+					CM_ReelNo[MidCounter]=0;  // initially select reel 0
+					CM_EpartsX[MidCounter]=g_EpartsX[j];
+					CM_EpartsY[MidCounter]=g_EpartsX[j];
+					CM_Epackagename[MidCounter]=g_Epackagename[j];
+					CM_Evalue[MidCounter]=g_Evalue[j];				
+					CM_Elayer[MidCounter]=g_Elayer[j];
+					CM_class[MidCounter]= g_class[j];    //grouping
+					CM_backptr[MidCounter]=g_backptr[j];	
+					MidCounter++;
+		
+				}
+		}
+	}
+	
+	// load values from stack file
+	
+	if (filesize(StackFname)> 0) {
+	    string lines[];
+		int tc=0;
+		int tb=0;
+		int tm=0;
+		int tr=0;
+	    int nLines = fileread(lines, StackFname);  // returns # of lines read
+		
+			for(i=0;i < nLines;i++) {  
+				string a[];    // use for spliting the line
+				n = strsplit(a,lines[i], '|'); 
+				if( alltrim(a[0])=="[TOP]" ) {				
+					
+					if ( components_Top[tc]==alltrim(a[1])) {				
+						CT_ReelNo[tc]=strtol(alltrim(a[2]));
+						CT_Ehead[tc]=strtol(alltrim(a[3]));
+						CT_Eheight[tc]=strtod(alltrim(a[4]));	
+						CT_Skip[tc]=strtol(alltrim(a[5])); 
+						CT_Rate[tc]=strtol(alltrim(a[6])); 
+					}
+					
+					tc++;
+				}
+				if(alltrim(a[0])=="[BOTTOM]") {						
+				
+						if (components_Bottom[tb]==alltrim(a[1])) {
+							CB_ReelNo[tb]=strtol(alltrim(a[2]));
+							CB_Ehead[tb]=strtol(alltrim(a[3]));
+							CB_Eheight[tb]=strtod(alltrim(a[4]));	
+							CB_Skip[tb]=strtol(alltrim(a[5])); 
+							CB_Rate[tb]=strtol(alltrim(a[6])); 
+						}	
+					
+					tb++;
+				}
+				if(alltrim(a[0])=="[???]") {	
+						if (components_Mid[tm]==alltrim(a[1])) {
+							CM_ReelNo[tm]=strtol(alltrim(a[2]));
+							CM_Ehead[tm]=strtol(alltrim(a[3]));
+							CM_Eheight[tm]=strtod(alltrim(a[4]));	
+							CM_Skip[tm]=strtol(alltrim(a[5])); 
+							CM_Rate[tm]=strtol(alltrim(a[6])); 
+						}	
+					
+					tm++;
+				}
+				if(alltrim(a[0])=="[REEL]") {
+					
+						if(tr==strtol(alltrim(a[1]))) {
+							ReelAlias[tr+1]=alltrim(a[2]);
+							ReelHeight[tr+1]=strtod(alltrim(a[3]));
+							ReelRate[tr+1]=strtol(alltrim(a[4]));
+							RotationOffsetSelected[tr+1]=strtol(alltrim(a[5])); 
+							ReelOffSetX[tr+1]=strtod(alltrim(a[6]));
+			                ReelOffSetY[tr+1]=strtod(alltrim(a[7]));
+							
+						  
+						}
+						
+					tr++;
+				}	
+				// Load ReelAlias Reel[]
+				for (j=0; j < MAXREEL;j++) {
+					Reel[j+1]=ReelAlias[j+1];				
+				}
+				
+	
+			
+			}
+				//dlgMessageBox("!Final: comboSelected_Bottom[0]= "+Num2Str(comboSelected_Bottom[0])+"\n","&OK"); 
+	
+	}
+	Result=5;
+while (Result == 5)
+	Result = dlgDialog("DP TM220A Pick and Place ") {
+		dlgTabWidget {
+			dlgTabPage("CSV Export") {
+				
+				dlgHBoxLayout {
+					dlgStretch(1);
+					dlgLabel("Dangerous Prototypes TM220A Pick n Place\n                     Version "+VERSION);
+					dlgStretch(1);
+				}
+				
+				dlgHBoxLayout {			   
+				
+		        
+			     dlgTextView(Text); 		 
+		
+				
+					
+				}
+				
+				// dlgHBoxLayout {
+				// dlgLabel("Home: X and Y origin:           ");
+				// dlgRealEdit(Xorigin, 0.00, 280.00);
+				// dlgRealEdit(Yorigin, 0.00, 280.00);
+				// dlgSpacing(700);
+				// dlgStretch(1);	
+					
+				// }
+				// dlgHBoxLayout {
+					// dlgLabel("Size of PCB Board:              ");
+					// dlgRealEdit(BoardX, 20.00, 220.00);
+					// dlgRealEdit(BoardY, 20.00, 200.00);
+					// dlgSpacing(700);
+					// dlgStretch(1);
+					
+				// }
+				// dlgHBoxLayout {
+					// dlgLabel("Number of Boards in X direction:");
+					// dlgIntEdit(nBoardsinX,0,20);
+						// dlgSpacing(700);
+					// dlgStretch(1);
+					
+				// }
+				// dlgHBoxLayout {
+					// dlgLabel("Number of Boards in Y direction:");
+					// dlgIntEdit(nBoardsinY,0,20);
+						// dlgSpacing(700);
+					// dlgStretch(1);
+					
+				// }
+				// dlgHBoxLayout {
+					// dlgLabel("Gap in mm between Boards in X direction:");
+					// dlgRealEdit(GapBoardX, -100.00, 300.00);
+						// dlgSpacing(700);
+					// dlgStretch(1);
+					
+				// }
+				// dlgHBoxLayout {
+					// dlgLabel("Gap in mm between Boards in Y direction:");
+					// dlgRealEdit(GapBoardY, -100.00, 300.00);
+						// dlgSpacing(700);
+					// dlgStretch(1);
+					
+				// }
+				dlgHBoxLayout {
+					dlgLabel("Enter CSV Export File (TOP):");					
+					csvnametop=workdir+SourceFname+"_Top.csv";				
+					dlgStringEdit(csvnametop);					
+					dlgPushButton("Browse") {					 
+						csvnametop= dlgFileSave("Save Exported CSV", filesetext(B.name, ".csv"), "*.csv");
+					}
+				}
+				dlgHBoxLayout {
+					dlgLabel("Enter CSV Export File (Bottom):");					
+					csvnamebottom=workdir+SourceFname+"_Bottom.csv";				
+					dlgStringEdit(csvnamebottom);					
+					dlgPushButton("Browse") {					 
+						csvnamebottom= dlgFileSave("Save Exported CSV", filesetext(B.name, ".csv"), "*.csv");
+					}
+				}
+				dlgHBoxLayout {	
+					dlgLabel("Save PNP stack setup file:");
+					// StackFname=workdir+SourceFname+".PnP";
+					dlgStringEdit(StackFname);										
+					dlgPushButton("browse") {						
+						StackFname = dlgFileSave("Save TM220a Stack Setup", filesetext(B.name, ".PnP"), "*.PnP");
+					}
+				}
+				
+				dlgSpacing(10);
+				dlgHBoxLayout {
+					dlgStretch(1);
+					dlgPushButton("+OK")    dlgAccept();
+					dlgPushButton("Cancel") dlgReject();
+				}
+				dlgHBoxLayout {
+					dlgStretch(1);
+					
+				}
+			}
+			
+			dlgTabPage("Parts list") {
+				dlgHBoxLayout {
+					dlgStretch(1);
+					dlgLabel("Parts in the Board");
+					dlgStretch(1);
+				}
+				dlgHBoxLayout {		
+					Selected= -1;
+					dlgListView("Part\tQuantity\tValue\tPackage\tLibrary\tDescription\tLayer", partslist,Selected) {
+					// dlgMessageBox("You have selected " + partslist[Selected]); 
+					
+					};
+				
+				}
+				
+			
+			}
+		    int pagex=0;
+			int pagey=0;
+			int pagez=0;
+			int var1;
+			int MyLayer;
+			tabloop=0;    // tab
+			int TopAddLine[],BottomAddLine[],MidAddLine[];
+			
+			int TopXcounter[];  // handles counter per tab containts topcounter, bottomcounter
+			int BottomXcounter[];  // handles counter per tab containts topcounter, bottomcounter
+			int MidXcounter[];  // handles counter per tab containts topcounter, bottomcounter	
+			
+			AddTab=0;
+		  	int temp;
+			pcb_layers[AddTab]="PCB Top Layer";
+		    temp=TopCounter;
+			TopAddLine[pagex]=0;   // # of line per page to add , when pagex=0, 
+			while (temp > 0) {
+			    if (temp > LinesPerTab) {
+				     TopXcounter[pagex]=LinesPerTab;
+					 pcb_layers[AddTab++]="PCB Top Layer "+Num2Str(pagex);
+					 temp=temp-LinesPerTab;
+					
+					 TopAddLine[pagex+1]=LinesPerTab+ TopAddLine[pagex];
+					
+					 pagex++;
+				}  else {
+					 TopXcounter[pagex]=temp;
+					 if (pagex !=0) {						
+						 pcb_layers[AddTab++]="PCB Top Layer "+Num2Str(pagex++);
+					 }  else {
+						AddTab++;
+					 }
+									 
+					temp=0;
+						 
+				} 
+			
+			}
+		
+			pagey=0;
+		   
+			
+			pcb_layers[AddTab]="PCB Bottom Layer";
+			temp=BottomCounter;
+			BottomAddLine[pagey]=0;     // lines to add in this page
+			while (temp > 0) {
+			    if (temp > LinesPerTab) {
+				     BottomXcounter[pagey]=LinesPerTab;
+					 pcb_layers[AddTab++]="PCB Bottom Layer "+Num2Str(pagey);
+					 temp=temp-LinesPerTab;
+					
+					 BottomAddLine[pagey+1]=LinesPerTab+ BottomAddLine[pagey];   // line to add in this page + accumulated lines, to track array
+					
+					pagey++;
+				}  else {
+					 BottomXcounter[pagey]=temp;
+				     if (pagey !=0) {						
+						 pcb_layers[AddTab++]="PCB Bottom Layer "+Num2Str(pagey++);
+                     }  else {
+					    AddTab++;
+					 }
+									 
+					temp=0;
+					 
+				} 
+			
+			}
+		
+			pagez=0;
+			pcb_layers[AddTab]="PCB X Layer" ;
+			temp=MidCounter;
+			MidAddLine[pagez]=0;
+			while (temp > 0) {
+			    if (temp > LinesPerTab) {
+				     MidXcounter[pagez]=LinesPerTab;
+					 pcb_layers[AddTab++]="PCB X Layer "+Num2Str(pagez);
+					 temp=temp-LinesPerTab;
+					 MidAddLine[pagez+1]=LinesPerTab+ MidAddLine[pagez];
+					 pagez++;
+				}  else {
+					 MidXcounter[pagez]=temp;
+				     if (pagez !=0) {						
+						 pcb_layers[AddTab++]="PCB X Layer "+Num2Str(pagez++);
+                     }  else {
+					    AddTab++;
+					 }
+									 
+					temp=0;
+					 
+				} 
+			
+			}
+			pagex=0;
+			pagey=0;
+			pagez=0;
+			for (tabloop=0;tabloop < AddTab;tabloop++) {
+			    string pcb_layer=pcb_layers[tabloop];				
+				int localcounter;
+				int pos;
+				pos = strstr(pcb_layer, "Top");
+				if (pos >= 0) {
+					localcounter=TopXcounter[pagex];
+					MyLayer=0;
+				} else {
+					pos = strstr(pcb_layer, "Bottom");
+					
+					if (pos >= 0) {
+						localcounter=BottomXcounter[pagey];
+						MyLayer=1;
+					} else {
+						
+						localcounter=MidXcounter[pagez];	
+						MyLayer=2;	
+					}	
+				}
+  				
+				dlgTabPage(pcb_layer) {
+					dlgRedisplay();		 
+				  
+						dlgVBoxLayout {
+							dlgGridLayout {
+								int celly=0;
+								int cellx=0;
+								for (cellx=0;cellx <= localcounter;cellx++) { 
+									celly=0;
+									dlgCell(cellx, celly++) {
+										dlgVBoxLayout {
+											if (cellx==0) {
+												dlgLabel("Parts Label            ");
+											} else {
+												dlgSpacing(3);
+												
+												switch (MyLayer) {
+													case 0 : dlgLabel(grp_components_Top[cellx-1+TopAddLine[pagex]]);	
+															break;
+													case 1 : dlgLabel(grp_components_Bottom[cellx-1+BottomAddLine[pagey]]);														        
+															break;
+													case 2 : dlgLabel(grp_components_Mid[cellx-1+MidAddLine[pagez]]);	
+															break;			
+												}				
+											}
+											dlgStretch(1);
+										}
+										
+									}
+										
+									 dlgCell(cellx, celly++) {
+										dlgVBoxLayout {
+											if (cellx==0) {
+												dlgLabel("Quantity ");
+											} else {
+												dlgSpacing(3);
+												switch (MyLayer) {
+													case 0: dlgLabel(component_quantity_Top[cellx-1+TopAddLine[pagex]]);
+															break;
+													case 1: dlgLabel(component_quantity_Bottom[cellx-1+BottomAddLine[pagey]]);
+															break;
+													case 2: dlgLabel(component_quantity_Mid[cellx-1+MidAddLine[pagez]]);
+															break;		
+															
+												}		
+											}									
+											dlgStretch(1);
+										}
+									 }	
+								
+									dlgCell(cellx, celly++) {
+										dlgVBoxLayout {
+											if (cellx==0) {
+												dlgLabel("Value    ");
+											} else {	
+												dlgSpacing(3);
+												switch (MyLayer) {
+														case 0: dlgLabel(component_value_Top[cellx-1+TopAddLine[pagex]]);
+																break;
+														case 1: dlgLabel(component_value_Bottom[cellx-1+BottomAddLine[pagey]]);
+																break;
+														case 2: dlgLabel(component_value_Mid[cellx-1+MidAddLine[pagez]]);
+																break;			
+												}		
+											}										
+											dlgStretch(1);
+										}	
+									}
+									
+									
+									dlgCell(cellx, celly++) {
+										dlgVBoxLayout {
+											if (cellx==0) {
+												dlgLabel("Package");
+											} else {
+												dlgSpacing(3);
+												switch (MyLayer) {
+													case 0: dlgLabel(component_packagename_Top[cellx-1+TopAddLine[pagex]]);	
+															break;
+													case 1: dlgLabel(component_packagename_Bottom[cellx-1+BottomAddLine[pagey]]);	
+															break;
+													case 2: dlgLabel(component_packagename_Mid[cellx-1+MidAddLine[pagez]]);	
+															break;			
+												}		
+											}
+											dlgStretch(1);
+										}	
+									}
+																	
+									 dlgCell(cellx,celly++) {
+										dlgVBoxLayout {
+											if (cellx==0) {
+												dlgLabel("Reel Assignment");
+											} else {	
+												switch (MyLayer) {
+													case 0: dlgComboBox(Reel, CT_ReelNo[cellx-1+TopAddLine[pagex]]); 									
+															break;
+													case 1: dlgComboBox(Reel, CB_ReelNo[cellx-1+BottomAddLine[pagey]]); 								
+															break;
+													case 2: dlgComboBox(Reel, CM_ReelNo[cellx-1+MidAddLine[pagez]]);								
+															break;			
+												}	
+											}
+											
+											dlgStretch(1);
+										}	 
+									 }
+									 dlgCell(cellx, celly++) {
+										dlgVBoxLayout {
+											if (cellx==0) {
+												dlgLabel("Head");
+											} else {
+												switch (MyLayer) {
+													case 0: dlgSpinBox(CT_Ehead[cellx-1+TopAddLine[pagex]], 1, 2);
+															break;
+													case 1: dlgSpinBox(CB_Ehead[cellx-1+BottomAddLine[pagey]], 1, 2);
+															break;
+													case 2: dlgSpinBox(CM_Ehead[cellx-1+MidAddLine[pagez]], 1, 2);
+															break;			
+												}		
+											}
+										
+											dlgStretch(1);
+										}	
+										
+									}	
+									dlgCell(cellx, celly++) {
+										dlgVBoxLayout {
+											if (cellx==0) {
+												dlgLabel("Height");
+											} else {
+												switch (MyLayer) {
+													case 0: dlgRealEdit(CT_Eheight[cellx-1+TopAddLine[pagex]], 0.00, 3.00);
+															break;
+													case 1: dlgRealEdit(CB_Eheight[cellx-1+BottomAddLine[pagey]], 0.00, 3.00);
+															break;
+													case 2: dlgRealEdit(CM_Eheight[cellx-1+MidAddLine[pagez]], 0.00, 3.00);
+															break;		
+												}												
+											}
+										
+											dlgStretch(1);
+										}	
+									}	
+									
+									dlgCell(cellx, celly++) {
+										dlgVBoxLayout {		
+											if (cellx==0) {
+												dlgLabel("Skip");
+											} else {	
+												switch (MyLayer) {
+													case 0: dlgSpinBox(CT_Skip[cellx-1+TopAddLine[pagex]], 0, 1);	
+															break;
+													case 1: dlgSpinBox(CB_Skip[cellx-1+BottomAddLine[pagey]], 0, 1);	
+															break;
+													case 2: dlgSpinBox(CM_Skip[cellx-1+MidAddLine[pagez]], 0, 1);	
+															break;			
+												}	
+											}
+									
+											dlgStretch(1);
+										}
+									}
+									
+									 dlgCell(cellx, celly++) {
+										dlgVBoxLayout {
+											dlgLabel(" ");
+											
+											dlgStretch(1);
+										}	
+																						
+									 }
+								}
+							}
+							dlgStretch(1);
+						}
+						dlgVBoxLayout {
+							dlgStretch(1);
+						}
+						
+						
+					
+					
+								
+				}	
+				switch (MyLayer) {
+					case 0: pagex++;	
+						break;
+					case 1: pagey++;	
+						break;
+					case 2: pagez++;	
+						break;			
+					}		
+			}
+						
+			// 1. load default values if new
+			// 2. Load save values if settings file exist
+			//
+			int reel=0;
+			int page=1;
+			string reelPageTitle= "Reel Configuration";
+			
+			if(MAXREEL>LinesPerTab) reelPageTitle= "Reel Configuration 1";
+			while( reel<MAXREEL)
+			{
+				dlgTabPage(reelPageTitle) {
+					dlgVBoxLayout {
+						dlgGridLayout {
+						    int cellx=0;
+							int celly=0;
+							int startReel=reel;
+							int numReels = MAXREEL-startReel;
+							if(numReels>LinesPerTab) numReels=LinesPerTab;
+							
+							ReelConfig_ColumnDesc();
+							while(numReels--) {
+									reel++;
+									celly=0;
+									cellx++;
+									dlgCell(cellx, celly++) {
+										dlgVBoxLayout {										
+											dlgSpacing(3);
+											dlgLabel("Reel # "+Num2Str(reel-1));										
+											dlgStretch(1);
+										}
+										
+									}
+									dlgCell(cellx, celly++) {
+										dlgVBoxLayout {									
+											dlgStringEdit(ReelAlias[reel]);			
+											dlgStretch(1);
+										}
+										
+									}
+									dlgCell(cellx, celly++) {
+										dlgVBoxLayout {									
+											dlgRealEdit(ReelOffSetX[reel]);			
+											dlgStretch(1);
+										}
+										
+									}
+									dlgCell(cellx, celly++) {
+										dlgVBoxLayout {									
+											dlgRealEdit(ReelOffSetY[reel]);			
+											dlgStretch(1);
+										}
+										
+									}
+									dlgCell(cellx, celly++) {
+										dlgVBoxLayout {
+											dlgRealEdit(ReelHeight[reel],0.00,3);
+											dlgStretch(1);
+										}
+										
+									}
+									dlgCell(cellx, celly++) {
+										dlgVBoxLayout {
+											dlgSpinBox(ReelRate[reel],0,20);
+											dlgStretch(1);
+										}
+										
+									}
+									dlgCell(cellx, celly++) {
+										dlgVBoxLayout {
+											dlgComboBox(RotationOffset,RotationOffsetSelected[reel]);
+											dlgStretch(1);
+										}
+										
+									}
+									dlgCell(cellx, celly++) {
+										dlgVBoxLayout {									
+											dlgLabel("     ");
+											dlgStretch(1);
+										}									
+									}
+									
+							}
+						}
+//-------------------
+						if(reel>=MAXREEL) {
+							dlgGridLayout {
+								int celly=0;
+								dlgCell(1, celly++) {
+									dlgLabel(" ");  
+									dlgStretch(1);							 
+								}
+								dlgCell(1, celly++) {
+								   
+									dlgPushButton("Load Dangerous Prototypes's Standard Stack") {	
+									Load_Stack("DP");							   
+									dlgRedisplay();
+									DP_stack_Loaded=1;
+									dlgMessageBox("!Dangerous Prototypes's Standard Stack Loaded\n", "&OK");  	
+									}
+									dlgStretch(1);							 
+								}
+								dlgCell(1, celly++) {						   
+									dlgPushButton("Load User's Standard Stack") {
+										UserStackFname = dlgFileOpen("Save User Standard Stack", filesetext(B.name, ".USS"), "*.USS");
+										if (UserStackFname!="") {
+											Load_Stack("USER");							   
+											dlgRedisplay();
+											dlgMessageBox("!User Standard Stack Loaded\n", "&OK");  	
+										}
+										dlgStretch(1);							 
+									}
+								}
+								dlgCell(1, celly++) {
+								   
+									 dlgPushButton("Save User's Standard Stack") {	
+										 UserStackFname = dlgFileSave("Save User Standard Stack", filesetext(B.name, ".USS"), "*.USS");
+										 if (UserStackFname !="") {
+											output(UserStackFname) {
+												for(j=0;j < MAXREEL;j++){
+													printf("[REEL]|%d|%s|%.2f|%d|%d|%.2f|%.2f\n",j,ReelAlias[j+1],ReelHeight[j+1],ReelRate[j+1],RotationOffsetSelected[j+1],ReelOffSetX[j+1],ReelOffSetY[j+1]);
+												}
+											 
+											 }
+											 dlgMessageBox("!User Standard Stack saved\n", "&OK");  
+										 }	
+									 }
+									dlgStretch(1);							 
+								}
+								dlgCell(1, celly++) {
+									dlgLabel(" ");  
+									dlgStretch(1);							 
+								}
+								
+								dlgCell(1, celly++) {
+									dlgStretch(1);	
+									 dlgPushButton("+&Accept") {
+										for(i=1;i<=MAXREEL;i++) {	
+											// Reel[0]="--------";		
+											Reel[i]=ReelAlias[i];									
+											for (j=0;j < TopCounter;j++) {
+												 if (CT_ReelNo[j]==i) { 
+													CT_Eheight[j]  =ReelHeight[i];
+													CT_Rate[j]  =ReelRate[i];
+												  }
+											}	
+											for (j=0;j < BottomCounter;j++) {
+												 if (CB_ReelNo[j]==i) {
+													CB_Eheight[j]  =ReelHeight[i];
+													CB_Rate[j]  =ReelRate[i];
+												  }
+											}	
+										
+											
+											
+										}
+										if (DP_stack_Loaded==1) {
+												DP_stack_Loaded=2;
+										}		
+										dlgMessageBox("!New Reel Configuration Accepted \n PCB top and PCB Bottom Height values are updated too ", "&OK");  						
+										
+									}	
+									  dlgPushButton("Cancel") {    
+										 dlgReset();
+										 dlgMessageBox("!Changes Cancelled", "&OK");								
+										 };
+									dlgStretch(1);							 
+								}
+								
+								dlgCell(1, celly++) {
+									dlgVBoxLayout {
+										dlgLabel("                                     ");
+										dlgStretch(1);
+									}
+								}			
+									  
+							}
+							dlgGridLayout {
+								
+								dlgCell(0, 0) {
+									dlgHBoxLayout {		
+										dlgLabel(Help1);  
+										//dlgStretch(1);
+									}		
+								}
+								dlgCell(1, 0) {
+									dlgHBoxLayout {	  
+										
+										dlgLabel(Help2);  
+										//dlgStretch(1);
+									}		
+								}
+							}
+						}
+//----------------					
+					}	
+					dlgVBoxLayout {
+							dlgLabel("   ");
+							dlgStretch(1);
+					}
+				}
+				reelPageTitle= "Reel Configuration " + Num2Str(++page);;
+			}		
+		} 
+	};
+	
+	
+	if (Result==1){
+		
+			
+		fileerror();
+				
+		string csvfilename;
+	
+		int csv;
+		for(csv=0;csv < 2 ; csv++) {
+		    if (csv==0) {
+				csvfilename=csvnametop;
+			} else {
+				csvfilename=csvnamebottom;
+			}
+			
+			output(csvfilename) {
+				line=1;
+				if (debug==1) {
+					printf("Partlist values\n");
+					printf("Part,Value,Package,Library,CenterPointX,CenterPointY,Rotation\n");
+
+					for (i=0;i<counter; i++) {
+						 printf("%s,%s,%s,%s,%s,%s,%s\n",Ename[i],Evalue[i],Epackagename[i],ElibrarySource[i],EpartsX[i],EpartsY[i],Eangle[i]);
+					}
+					printf("\n\n");
+				}
+		
+				// Board Origin		
+				printf("%%,Origin,Offset,X,Y,,\n");
+				printf("65535,0,%.2f,%.2f,,\n",Xorigin,Yorigin);
+				printf("\n");
+				
+				// REEL Assignment
+				real offsetx,offsety;
+				string comment;
+				int ReelNo_G;
+				printf("%%,Stack,Offset,Stack,X,Y,\n");
+								
+				for (j=0;j<MAXREEL;j++) {				
+					
+						int inc=0;								 
+						offsetx=ReelOffSetX[j+1];
+						offsety=ReelOffSetY[j+1];						
+						comment=ReelAlias[j+1];
+						printf("65535,1,%d,%.2f,%.2f,%s,\n",j,offsetx,offsety,comment );	
+					
+				
+				}
+				printf("\n");
+			
+			
+				int gx_rate=0;
+				printf("%%,Feeding,Set,Stack,Feed Rate,\n");
+				for (j=0;j<MAXREEL;j++) {				
+							   
+					if (csv==0) {
+						for (i=0;i<TopCounter;i++) {  // scan to find feedrate
+							if (CT_ReelNo[i] ==j+1) { 
+							
+							  gx_rate= CT_Rate[i];	
+								break;
+							}		
+							
+						}
+					}else {
+						for (i=0;i<BottomCounter;i++) {  // scan to find feedrate
+							if (CB_ReelNo[i] ==j+1) { 
+							   gx_rate= CB_Rate[i];	
+								break;
+							}		
+							
+						}
+				
+					}
+					gx_rate=ReelRate[j+1];	
+					
+					printf("65535,2,%d,%d,\n",j, gx_rate);
+					gx_rate=0;
+				}
+			
+			
+				printf("\n");
+				//%,JointedBoardCommand,X,Y
+				// 65535,3,1,0,0,0,0,0,
+				printf("%%,Jointed,Board,X,Y\n");			
+				printf("%%65535,3,0,0,0,0,0,0,\n\n");
+				
+				if ((nBoardsinX != 0) || (nBoardsinY != 0)) {
+				// todo: Multiple boards 
+				
+				}
+						
+				// Part placement setup
+				// Part placement
+				// Part		Pickup 	Stack	X		Y		Rotation	Height	Skip	Reference	Comment
+				// number 	head
+				// 1		1		1	    4.00	22.00	-45			1		0		LED7	LED-805
+				// 2		1		1		4.00	19.00	-45			1		0		LED8	LED-805
+				// 3		1		1		4.00	16.00	-45			1		0		LED9	LED-805
+
+				
+				printf("%%,Head,Stack,X,Y,R,H,skip,Ref,Comment,\n");
+				
+						
+				B.elements(E) {		
+					int wasSmd,				
+					xmax =-2147483648,
+					xmin = 2147483647,
+					ymax = xmax,
+					ymin = xmin;
+					string smdlayer="";
+					real angle = 0;
+
+					wasSmd = 0;
+
+					E.package.contacts(C) {
+						if (C.smd && C.smd.layer == 1) {
+							smdlayer="Top";
+							wasSmd = 1;
+						} else {
+							if (C.smd && C.smd.layer == 16) {
+								smdlayer="Bottom";
+								wasSmd = 1;
+							} else {
+								smdlayer="???";
+								wasSmd = 1;
+							}
+						
+						}  
+							if (C.x > xmax) xmax = C.x;
+							if (C.y > ymax) ymax = C.y;
+							if (C.x < xmin) xmin = C.x;
+							if (C.y < ymin) ymin = C.y;
+						
+					}
+
+
+
+					if (wasSmd){				
+					
+						real partsheight;
+						int skip,head;
+						int stack;
+						found=0;
+						int i_got_it=0;
+						int E_ptr;
+						int Counterx;
+						stack=99;
+						if (csv==0) { 
+							Counterx=TopCounter;
+						} else {
+							Counterx=BottomCounter;
+						}
+						if (debug==1) {
+							for (j=0;j<Counterx;j++) { 
+							   printf("Value of CT_ReelNo[%d]=%d Selected: %s\n",j,CT_ReelNo[j],Reel[CT_ReelNo[j]]);
+							}
+						}	
+						for (j=0;j<Counterx;j++) { 					
+						
+							string a[];
+							int i_got_it=0;
+							if(csv==0) {
+								n = strsplit(a, components_Top[j], ','); 
+							} else {
+								n = strsplit(a, components_Bottom[j], ','); 
+							}
+							for(l=0;l < n;l++) {
+								if (alltrim(E.name)==alltrim(a[l])) {
+									i_got_it=1;
+									break;
+								} else {
+									i_got_it=0;
+								}
+							}
+							
+							if (debug==1) {
+									printf("Looking for %s seen component_Top[%d]= %s\n",E.name,j,components_Top[j]);
+									
+							}
+						
+							if (i_got_it==1) {								
+								if (csv==0) {
+									if (debug==2) {
+									printf("Found component_Top[%d]= %s\n",j,components_Top[j]);
+								}
+						
+								if (CT_ReelNo[j] !=0) {
+									stack= CT_ReelNo[j]-1;   // contains reel#
+								} else {
+									stack=99;
+								}
+								
+								partsheight=CT_Eheight[j];
+								skip=CT_Skip[j];
+								head=CT_Ehead[j];
+									
+								} else {
+									if (debug==2) {
+											printf("Found component_Bottom[%d]= %s\n",j,components_Bottom[j]);
+									}
+									if (CB_ReelNo[j] !=0) {
+										stack= CB_ReelNo[j]-1;   // contains reel#
+									} else {
+										stack=99;
+									}
+									partsheight=CB_Eheight[j];
+									skip=CB_Skip[j];
+									head=CB_Ehead[j];
+									// This is the back side, so all x-coords need to invert..
+							    xmin = boardRightEdge - xmin;
+							    xmax = boardRightEdge - xmax;
+								}
+								if (debug==2) {
+									   printf("Got it: stack= %d, height= %.2f, skip= %d, head = %d\n",stack,partsheight,skip,head);
+								}
+								i_got_it=0;
+								break;
+							}					
+						}
+						real PartsRotation=E.angle+(RotationOffsetSelected[stack+1]*90);
+						int quotient;
+						
+						//Fix zero angle
+						PartsRotation+= 90;
+						
+						//Avoid negative angles
+						PartsRotation+=360; 
+						
+						//PartsRotation MOD 360°
+						quotient= PartsRotation/360;
+						PartsRotation-= quotient*360;
+						
+						//Translate into -180°,180° range (the only range accepted by the machine)
+						angle= PartsRotation - 180;			
+						
+						// If we're doing the back side, the rotation needs to be flipped along the vertical axis
+						if(csv == 1)
+                angle = -angle;
+						
+						if (debug==2) {
+							if (RotationOffsetSelected[stack+1]!=0) {
+								printf("E.angle= %.2f, Offsetangle=%.2f, TM angle=%.2f  \n",E.angle,RotationOffsetSelected[stack+1]*90.0,angle);
+							}
+						}
+				
+						if (stack != 99) {				
+							printf("%d,%d,%d,%.2f,%.2f,%.0f,%.2f,%d,%s,%s-%s\n",line++,head,stack,u2mm((xmin + xmax)/2), u2mm((ymin + ymax)/2),angle,partsheight,skip, E.name,E.value,E.package.name);
+						} else { 
+							// no assigned stack
+							if (debug==1) {
+								printf("%d,%d,,%.2f,%.2f,%.0f,%.2f,%d,%s,%s-%s\n",line++,head,u2mm((xmin + xmax)/2), u2mm((ymin + ymax)/2),angle,partsheight,skip, E.name,E.value,E.package.name);
+							}
+						}				
+					} 			
+				}			
+			}
+		}
+		
+		output(StackFname) {		       
+		  
+			for(j=0; j < TopCounter;j++) {
+				  printf("[TOP]|%s|%d|%d|%.2f|%d|%d\n",components_Top[j],CT_ReelNo[j],CT_Ehead[j],CT_Eheight[j],CT_Skip[j],CT_Rate[j]);
+			}
+			for(j=0; j < BottomCounter;j++) {
+			  printf("[BOTTOM]|%s|%d|%d|%.2f|%d|%d\n",components_Bottom[j],CB_ReelNo[j],CB_Ehead[j],CB_Eheight[j],CB_Skip[j],CB_Rate[j]);
+			
+			}
+			for(j=0; j < MidCounter;j++) {
+			  printf("[???]|%s|%d|%d|%.2f|%d|%d\n",components_Mid[j],CM_ReelNo[j],CM_Ehead[j],CM_Eheight[j],CM_Skip[j],CM_Rate[j]);
+			
+			}
+			
+			for(j=0;j < MAXREEL;j++){				
+			  printf("[REEL]|%d|%s|%.2f|%d|%d|%.2f|%.2f\n",j,ReelAlias[j+1],ReelHeight[j+1],ReelRate[j+1],RotationOffsetSelected[j+1],ReelOffSetX[j+1],ReelOffSetY[j+1]);
+			}		
+		}
+		// csv exported
+		if (fileerror()) {
+			dlgMessageBox(";Files are Open. CSV export Failed. \n", "&OK"); 
+		   exit(1);
+		} else {   
+				dlgMessageBox(";CSV and PnP file export Success: \n "+csvnametop+"\n"+csvnamebottom+"\n"+StackFname+"\n", "&OK");  
+		}	
+       	
+	}
+} else {
+	int ok= dlgMessageBox("!Board  must be open", "&OK");    
+	
+}   //  (project.board) project.board(B)
+//dlgMessageBox("Value of Result"+ Num2Str(Result), "&OK"); 
+exit(0);
+
