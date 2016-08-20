@@ -26,9 +26,9 @@ The chipKIT Fubarino SD hardware is licensed under the Solderpad Hardware Licens
 
 Availability:
 ========
-These boards are Open Hardware and all the files are management in this project, and are licensed as OpenSource.
-They can be created from the Eagle files right away.
-Purchase version 1.5 at [MicroChip Direct](http://www.microchipdirect.com/ProductSearch.aspx?Keywords=TCHIP010)
-Purchased version 1.4 at [Seeed Studio](http://www.seeedstudio.com/depot/fubarino-sd-p-1265.html?cPath=132_133).
+These boards are Open Source Hardware and all the files are managed in this project, and are licensed as OpenSource.
 
+* Purchase Fubarino SD version 1.5 at [microchipDIRECT](http://www.microchipdirect.com/ProductSearch.aspx?Keywords=TCHIP010)
+* Purchase Fubarino SD version 1.4 at [Seeed Studio](http://www.seeedstudio.com/depot/fubarino-sd-p-1265.html?cPath=132_133)
+* Purchase Fubarino Mini version 1.5 at [microchipDIRECT](http://www.microchipdirect.com/ProductSearch.aspx?Keywords=TCHIP011)
 
