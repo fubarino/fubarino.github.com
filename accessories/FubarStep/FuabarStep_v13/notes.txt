@@ -29,3 +29,4 @@ Problems to fix for v1.3:
 * Move voltage regulator away from USB connection a bit.
 * Make silk text thicker
 * Update BOM so it's accurate
+* (From Rick) Add heat shrink around the switcher to protect it from wires

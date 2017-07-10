@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.4">
+<eagle version="7.7.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -7955,7 +7955,7 @@ or 5V DC in</text>
 <wire x1="381" y1="248.92" x2="381" y2="139.7" width="0.1524" layer="98"/>
 <wire x1="381" y1="139.7" x2="335.28" y2="139.7" width="0.1524" layer="98"/>
 <text x="337.82" y="246.38" size="1.778" layer="98">Pull Downs</text>
-<text x="266.7" y="86.36" size="1.778" layer="98">v1.3 : 02/01/2014
+<text x="266.7" y="83.82" size="1.778" layer="98">v1.3 : 02/01/2014
   Added pull down resistors
   Separated servo headers
   Moved all motor screw terminals together
