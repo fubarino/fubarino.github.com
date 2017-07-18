@@ -30,3 +30,19 @@ Problems to fix for v1.3:
 * Make silk text thicker
 * Update BOM so it's accurate
 * (From Rick) Add heat shrink around the switcher to protect it from wires
+
+Problems with v1.3:
+* The voltage regulator is too close to the voltage jumper. They need to be moved apart more.
+* Make the + and - on the power input screw terminal bigger/thicker
+* Could separate each of the 3-pin servo headers even a bit more (now grouped in groups of 4)
+
+Assembly Notes:
+  Assemble in the following (height) order:
+  1) .1uf caps
+  2) resistor packs
+  3) chip sockets
+  4) Female Headers (make sure to use FBMini and FBSD or male headers to get spacing correct)
+  5) Male Headers (make sure to use separate 3-pin headers for servos)
+  6) Screw Terminals, barrel jack
+  7) Electrolytic caps
+  8) Switching regulator
