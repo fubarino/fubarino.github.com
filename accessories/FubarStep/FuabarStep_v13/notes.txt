@@ -35,6 +35,7 @@ Problems with v1.3:
 * The voltage regulator is too close to the voltage jumper. They need to be moved apart more.
 * Make the + and - on the power input screw terminal bigger/thicker
 * Could separate each of the 3-pin servo headers even a bit more (now grouped in groups of 4)
+* Forgot to change the version number on the silk screen!! Should be v1.3, is v1.2
 
 Assembly Notes:
   Assemble in the following (height) order:
