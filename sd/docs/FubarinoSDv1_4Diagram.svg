@@ -14,7 +14,7 @@
    height="1052.3622047"
    id="svg2"
    version="1.1"
-   inkscape:version="0.48.0 r9654"
+   inkscape:version="0.48.1 "
    sodipodi:docname="FubarinoSDv1_4Diagram.svg"
    inkscape:export-filename="D:\Projects\fubarino.github.com\sd\docs\FubarinoSDv1_4Diagram.png"
    inkscape:export-xdpi="360.02896"
@@ -139,16 +139,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1"
-     inkscape:cx="601.07788"
-     inkscape:cy="671.76442"
+     inkscape:zoom="5.6568542"
+     inkscape:cx="471.2331"
+     inkscape:cy="581.13739"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1366"
-     inkscape:window-height="716"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
+     inkscape:window-height="721"
+     inkscape:window-x="-4"
+     inkscape:window-y="-4"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata7">
@@ -158,7 +158,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -753,7 +753,7 @@
          y="458.30576"
          x="443.20364"
          id="tspan3038-6-2"
-         sodipodi:role="line">37/A8</tspan></text>
+         sodipodi:role="line">37/A7</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text3036-85-6"
