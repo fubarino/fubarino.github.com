@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.0.0">
+<eagle version="8.7.1">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -34958,7 +34958,7 @@ Source: http://ww1.microchip.com/downloads/en/DeviceDoc/22049b.pdf</description>
 <part name="J1" library="SchmalzHaus" deviceset="M20" device=""/>
 <part name="J2" library="SchmalzHaus" deviceset="M20" device=""/>
 <part name="ICSP" library="SchmalzHaus" deviceset="M05" device="NOSLILK" value="J3"/>
-<part name="IC1" library="linear" deviceset="MCP1703*" device="MB" technology="33" value="AP7215-33YG-13"/>
+<part name="IC1" library="linear" deviceset="MCP1703*" device="MB" technology="33" value="AZ1117CR2-3.3TRG1"/>
 <part name="GND1" library="SparkFun02-20-08" deviceset="GND" device=""/>
 <part name="U1" library="SchmalzHaus" deviceset="PIC32MX2XX_44" device="QFN44" value="PIC32MX270F256D_44QFN_44"/>
 <part name="P+1" library="SparkFun02-20-08" deviceset="3.3V" device=""/>
