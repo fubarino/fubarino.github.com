@@ -35030,7 +35030,7 @@ Source: http://ww1.microchip.com/downloads/en/DeviceDoc/22049b.pdf</description>
 <text x="8.128" y="216.154" size="1.778" layer="98">v1.1 4/4/2012</text>
 <text x="10.668" y="213.614" size="1.778" layer="98">Switched green LED to sink to GND</text>
 <text x="10.668" y="211.074" size="1.778" layer="98">Rotated 32KHz crystal so it lies flatter</text>
-<text x="315.976" y="204.216" size="1.778" layer="98" rot="R180">GND</text>
+<text x="315.976" y="204.216" size="1.778" layer="98" rot="R180">RESET</text>
 <text x="10.668" y="208.534" size="1.778" layer="98">Removed 32KHz crystal and caps from BOM</text>
 <text x="10.668" y="205.994" size="1.778" layer="98">Added some pin numbers on top silk</text>
 <wire x1="203.2" y1="127" x2="241.3" y2="127" width="0.1524" layer="98" style="longdash"/>
