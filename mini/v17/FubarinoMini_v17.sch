@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="9.0.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
+<setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
@@ -34916,7 +34917,7 @@ Source: http://ww1.microchip.com/downloads/en/DeviceDoc/22049b.pdf</description>
 <part name="C10" library="SparkFun02-20-08" deviceset="CAP" device="0603" value="0.1uF"/>
 <part name="GND5" library="SparkFun02-20-08" deviceset="GND" device=""/>
 <part name="P+4" library="SparkFun02-20-08" deviceset="3.3V" device=""/>
-<part name="R8" library="SparkFun" deviceset="RESISTOR" device="0603-RES" value="330"/>
+<part name="R8" library="SparkFun" deviceset="RESISTOR" device="0603-RES" value="820"/>
 <part name="LED2" library="SparkFun" deviceset="LED" device="0603" value="GREEN"/>
 <part name="GND19" library="SparkFun02-20-08" deviceset="GND" device=""/>
 <part name="GND2" library="SparkFun02-20-08" deviceset="GND" device=""/>
@@ -34925,7 +34926,7 @@ Source: http://ww1.microchip.com/downloads/en/DeviceDoc/22049b.pdf</description>
 <part name="R9" library="SparkFun" deviceset="RESISTOR" device="0603-RES" value="10K"/>
 <part name="RESET" library="SparkFun02-20-08" deviceset="TAC_SWITCH" device="SND"/>
 <part name="R10" library="SparkFun" deviceset="RESISTOR" device="0603-RES" value="10K"/>
-<part name="R11" library="SparkFun" deviceset="RESISTOR" device="0603-RES" value="330"/>
+<part name="R11" library="SparkFun" deviceset="RESISTOR" device="0603-RES" value="820"/>
 <part name="LED1" library="SparkFun" deviceset="LED" device="0603" value="RED"/>
 <part name="GND4" library="SparkFun02-20-08" deviceset="GND" device=""/>
 <part name="GND6" library="SparkFun02-20-08" deviceset="GND" device=""/>
@@ -34957,9 +34958,9 @@ Source: http://ww1.microchip.com/downloads/en/DeviceDoc/22049b.pdf</description>
 <part name="J1" library="SchmalzHaus" deviceset="M20" device=""/>
 <part name="J2" library="SchmalzHaus" deviceset="M20" device=""/>
 <part name="ICSP" library="SchmalzHaus" deviceset="M05" device="NOSLILK" value="J3"/>
-<part name="IC1" library="linear" deviceset="MCP1703*" device="MB" technology="33" value="MCP1702T-3302E/MB"/>
+<part name="IC1" library="linear" deviceset="MCP1703*" device="MB" technology="33" value="AP7215-33YG-13"/>
 <part name="GND1" library="SparkFun02-20-08" deviceset="GND" device=""/>
-<part name="U1" library="SchmalzHaus" deviceset="PIC32MX2XX_44" device="QFN44" value="PIC32MX250F128D_44VTLA_44"/>
+<part name="U1" library="SchmalzHaus" deviceset="PIC32MX2XX_44" device="QFN44" value="PIC32MX270F256D_44QFN_44"/>
 <part name="P+1" library="SparkFun02-20-08" deviceset="3.3V" device=""/>
 <part name="PROGRAM" library="SparkFun02-20-08" deviceset="TAC_SWITCH" device="SND"/>
 <part name="R1" library="SparkFun" deviceset="RESISTOR" device="0603-RES" value="10K"/>
@@ -34967,8 +34968,8 @@ Source: http://ww1.microchip.com/downloads/en/DeviceDoc/22049b.pdf</description>
 <part name="GND13" library="SparkFun02-20-08" deviceset="GND" device=""/>
 <part name="C5" library="SchmalzHaus" deviceset="CAP" device="0805" value="10uF"/>
 <part name="GND9" library="SparkFun02-20-08" deviceset="GND" device=""/>
-<part name="D1" library="SparkFun" deviceset="DIODE" device="SOD" value="B0540WS-7"/>
-<part name="D2" library="SparkFun" deviceset="DIODE" device="SOD" value="B0540WS-7"/>
+<part name="D1" library="SparkFun" deviceset="DIODE" device="SOD" value="CUS15S40,H3F"/>
+<part name="D2" library="SparkFun" deviceset="DIODE" device="SOD" value="CUS15S40,H3F"/>
 <part name="U$2" library="SchmalzHausPublic" deviceset="CE_MARK" device="5MM"/>
 <part name="U$3" library="SchmalzHausPublic" deviceset="ROSH_GARBAGE" device=""/>
 <part name="U$4" library="SchmalzHausPublic" deviceset="CHIPKIT" device="2MM"/>
@@ -35051,12 +35052,13 @@ Source: http://ww1.microchip.com/downloads/en/DeviceDoc/22049b.pdf</description>
 <text x="10.668" y="175.514" size="1.778" layer="98">Changed USB connector to Microchip standard</text>
 <text x="10.668" y="172.974" size="1.778" layer="98">Added CE, RoSH, and chipKIT graphics to silk on back</text>
 <text x="8.89" y="242.062" size="2.54" layer="98" ratio="15">A DIP form factor chipKIT® compatible board</text>
-<text x="5.08" y="12.7" size="1.778" layer="98">Copyright 2013 Brian Schmalz and Rick Anderson. Copyright and related rights are licensed under the Solderpad Hardware License, Version 0.51 (the “License”); </text>
+<text x="5.08" y="12.7" size="1.778" layer="98">Copyright 2013-2018 Brian Schmalz and Rick Anderson. Copyright and related rights are licensed under the Solderpad Hardware License, Version 0.51 (the “License”); </text>
 <text x="5.08" y="10.16" size="1.778" layer="98">you may not use this file except in compliance with the License. You may obtain a copy of the License at http://solderpad.org/licenses/SHL-0.51. Unless required by applicable law or agreed to in writing,</text>
 <text x="5.08" y="7.62" size="1.778" layer="98"> software, hardware and materials distributed under this License is distributed on an “AS IS” BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. </text>
 <text x="5.08" y="5.08" size="1.778" layer="98"> See the License for the specific language governing permissions and limitations under the License.</text>
 <text x="8.128" y="170.434" size="1.778" layer="98">v1.6   03/14/2013 - Microchip version</text>
-<text x="10.668" y="167.894" size="1.778" layer="98">J2 pin 17 is now RESET rather than GND. This allows for external RESET without using J3</text>
+<text x="10.668" y="165.354" size="1.778" layer="98">J2 pin 17 is now RESET rather than GND. This allows for external RESET without using J3
+R8 and R11 changed to 820 ohms to dim the super bright LEDs</text>
 <wire x1="243.84" y1="241.3" x2="363.22" y2="241.3" width="0.1524" layer="98"/>
 <wire x1="363.22" y1="241.3" x2="363.22" y2="129.54" width="0.1524" layer="98"/>
 <wire x1="363.22" y1="129.54" x2="243.84" y2="129.54" width="0.1524" layer="98"/>
@@ -35067,8 +35069,11 @@ Source: http://ww1.microchip.com/downloads/en/DeviceDoc/22049b.pdf</description>
 <wire x1="292.1" y1="215.9" x2="292.1" y2="233.68" width="0.1524" layer="98"/>
 <text x="297.18" y="223.52" size="1.778" layer="98">USB</text>
 <text x="246.38" y="238.76" size="1.778" layer="98">Fubarino Mini footprint</text>
-<text x="8.128" y="165.354" size="1.778" layer="98">V1.7  09/13/2015</text>
-<text x="10.668" y="162.814" size="1.778" layer="98">Switched VBUS (pin 42) on micro to VBUS signal rather than 5V.</text>
+<text x="8.128" y="162.814" size="1.778" layer="98">V1.7  05/02/2018</text>
+<text x="10.668" y="155.194" size="1.778" layer="98">Switched VBUS (pin 42) on micro to VBUS signal rather than 5V.
+Diodes switched to 1.5A max current
+LDO Reg switched to 600mA output, 5.5V max input</text>
+<text x="335.788" y="211.582" size="1.778" layer="98">Max 5.5V</text>
 </plain>
 <instances>
 <instance part="GND14" gate="1" x="195.58" y="121.92" rot="R90"/>
@@ -35144,8 +35149,14 @@ Source: http://ww1.microchip.com/downloads/en/DeviceDoc/22049b.pdf</description>
 <instance part="GND13" gate="1" x="292.1" y="66.04"/>
 <instance part="C5" gate="G$1" x="223.52" y="152.4"/>
 <instance part="GND9" gate="1" x="330.2" y="99.06"/>
-<instance part="D1" gate="G$1" x="35.56" y="60.96"/>
-<instance part="D2" gate="G$1" x="35.56" y="48.26"/>
+<instance part="D1" gate="G$1" x="35.56" y="60.96" smashed="yes">
+<attribute name="NAME" x="37.338" y="62.2046" size="1.778" layer="95"/>
+<attribute name="VALUE" x="29.718" y="57.3786" size="1.778" layer="96"/>
+</instance>
+<instance part="D2" gate="G$1" x="35.56" y="48.26" smashed="yes">
+<attribute name="NAME" x="37.592" y="49.2506" size="1.778" layer="95"/>
+<attribute name="VALUE" x="29.972" y="44.4246" size="1.778" layer="96"/>
+</instance>
 <instance part="U$2" gate="G$1" x="236.22" y="17.78"/>
 <instance part="U$3" gate="G$1" x="236.22" y="20.32"/>
 <instance part="U$4" gate="G$1" x="236.22" y="22.86"/>
@@ -35967,4 +35978,10 @@ Source: http://ww1.microchip.com/downloads/en/DeviceDoc/22049b.pdf</description>
 </sheets>
 </schematic>
 </drawing>
+<compatibility>
+<note version="6.3" minversion="6.2.2" severity="warning">
+Since Version 6.2.2 text objects can contain more than one line,
+which will not be processed correctly with this version.
+</note>
+</compatibility>
 </eagle>
