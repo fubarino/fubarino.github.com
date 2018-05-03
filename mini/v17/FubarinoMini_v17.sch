@@ -35070,9 +35070,10 @@ R8 and R11 changed to 820 ohms to dim the super bright LEDs</text>
 <text x="297.18" y="223.52" size="1.778" layer="98">USB</text>
 <text x="246.38" y="238.76" size="1.778" layer="98">Fubarino Mini footprint</text>
 <text x="8.128" y="162.814" size="1.778" layer="98">V1.7  05/02/2018</text>
-<text x="10.668" y="155.194" size="1.778" layer="98">Switched VBUS (pin 42) on micro to VBUS signal rather than 5V.
+<text x="10.668" y="152.654" size="1.778" layer="98">Switched VBUS (pin 42) on micro to VBUS signal rather than 5V.
 Diodes switched to 1.5A max current
-LDO Reg switched to 600mA output, 5.5V max input</text>
+LDO Reg switched to 600mA output, 5.5V max input
+CPU change to PIC32MX270F256D to get twice the Flash and RAM</text>
 <text x="335.788" y="211.582" size="1.778" layer="98">Max 5.5V</text>
 </plain>
 <instances>
