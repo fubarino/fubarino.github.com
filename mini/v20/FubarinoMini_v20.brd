@@ -306,10 +306,11 @@
 7. THESE COMPONENTS REQUIRE SOCKETS: NONE.
 8. UNPOPULATED COMPONENTS: SEE BILL OF MATERIALS
 9. FINISHED BOARD SHALL BE FREE FO ALL RESIDUES</text>
-<text x="1.27" y="-46.99" size="1.5" layer="51">TITLE: FUBARINO MINI
-VERSION: 1.7
-DATE: 5/02/2018
+<text x="1.0922" y="-47.7774" size="1.5" layer="51">TITLE: FUBARINO MINI
+VERSION: 2.0
+DATE: 7/18/2018
 PCB DESIGNER: BRIAN SCHMALZ
+brian@schmalzhaus.com
 ENGINEER: BRIAN SCHMALZ</text>
 <wire x1="45.466" y1="15.0368" x2="45.466" y2="14.0208" width="0.1016" layer="145"/>
 <wire x1="45.3644" y1="8.9916" x2="45.3644" y2="7.9756" width="0.1016" layer="145"/>
@@ -339,8 +340,8 @@ Cu weight external layers : 1oz
 Cu weight internal layers : 
 Finished overall thickenss : 0.062
 Finish:
-     Immersion Gold
-X   Immersion Tin
+X   Immersion Gold
+     Immersion Tin
      Soldermask over bare copper (SMOBC) with
            Hot-Air-Leveled-Solder
      If edge connector fingers are present, plate
@@ -350,7 +351,7 @@ Soldermask: Dynachem EPIC 200 LPI or equivalent.
 Soldermask Color: Green
 Silkscreen Color: White
 
-Artwork Set No. 04-10134 Rev 1.7
+Artwork Set No. 04-10134 Rev 2.0
 
 All holes to be located by the NC Drill File.
 Indicate Country where PCB was fabricated on the 
@@ -365,10 +366,10 @@ by Schmalz Haus LLC.</text>
 <wire x1="40.132" y1="2.54" x2="41.148" y2="2.54" width="0.1016" layer="145"/>
 <wire x1="46.228" y1="10.582" x2="46.228" y2="10.132" width="0.1016" layer="146"/>
 <wire x1="45.212" y1="10.132" x2="45.212" y2="10.582" width="0.1016" layer="146"/>
-<text x="1.27" y="-50.8" size="0.6096" layer="103">Copyright 2012-2018 Brian Schmalz Copyright and related rights are licensed under the Solderpad Hardware License, Version 0.51 (the “License”); </text>
-<text x="1.27" y="-52.07" size="0.6096" layer="103">you may not use this file except in compliance with the License. You may obtain a copy of the License at http://solderpad.org/licenses/SHL-0.51. Unless required by applicable law or agreed to in writing,</text>
-<text x="1.27" y="-53.34" size="0.6096" layer="103"> software, hardware and materials distributed under this License is distributed on an “AS IS” BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. </text>
-<text x="1.27" y="-54.61" size="0.6096" layer="103"> See the License for the specific language governing permissions and limitations under the License.</text>
+<text x="1.1938" y="-51.2826" size="1.016" layer="103">Copyright 2012-2018 Brian Schmalz Copyright and related rights are licensed under the Solderpad Hardware License, Version 0.51 (the “License”); </text>
+<text x="1.2446" y="-52.832" size="1.016" layer="103">you may not use this file except in compliance with the License. You may obtain a copy of the License at http://solderpad.org/licenses/SHL-0.51. Unless required by applicable law or agreed to in writing,</text>
+<text x="1.2446" y="-54.2036" size="1.016" layer="103"> software, hardware and materials distributed under this License is distributed on an “AS IS” BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. </text>
+<text x="1.1938" y="-55.5752" size="1.016" layer="103"> See the License for the specific language governing permissions and limitations under the License.</text>
 <text x="82.525834375" y="28.702" size="1.778" layer="144">LAYER-STACK</text>
 <text x="92.304834375" y="25.7683" size="1.778" layer="145">01-16</text>
 <wire x1="8.89" y1="13.97" x2="8.89" y2="12.954" width="0.1016" layer="145"/>
