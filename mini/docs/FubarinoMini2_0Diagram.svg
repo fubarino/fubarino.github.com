@@ -12,8 +12,8 @@
    id="svg2"
    version="1.1"
    inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
-   sodipodi:docname="FubarinoMini1_5Diagram.svg"
-   inkscape:export-filename="D:\Projects\fubarino.github.com\mini\docs\FubarinoMini1_5Diagram.png"
+   sodipodi:docname="FubarinoMini2_0Diagram.svg"
+   inkscape:export-filename="D:\Projects\fubarino.github.com\mini\docs\FubarinoMini2_0Diagram.png"
    inkscape:export-xdpi="600.08893"
    inkscape:export-ydpi="600.08893"
    viewBox="0 0 744.09448 1052.3622">
@@ -140,10 +140,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.6841137"
-     inkscape:cx="435.60743"
-     inkscape:cy="465.9339"
+     inkscape:cx="450.34232"
+     inkscape:cy="433.60037"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g3345"
      showgrid="false"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
@@ -161,7 +161,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -439,9 +439,10 @@
       <path
          class="l21"
          style="fill:none;stroke:#ffffff;stroke-width:0.1778;stroke-linecap:round;stroke-opacity:1"
-         d="m 20.175406,-20.085185 0.5932,0.197735 m 0,0 -0.197731,-0.5932 m 0.26604,-0.266044 -3e-6,-0.395469 m 0,0 0.593203,0.593203 m -0.197731,0.197732 0.395466,-0.395466 m 0.266043,-0.266044 -0.09887,-0.09886 m 0,0 0.09887,-0.09887 m 0,0 0.09887,0.09887 m 0,0 -0.09887,0.09886 m 0.133016,-1.319422 -0.395466,0.395469 m 0,0 0.2966,0.2966 m 0,0 0.09887,-0.2966 m 0,0 0.09887,-0.09886 m 0,0 h 0.197734 m 0,0 0.197735,0.197734 m 0,0 v 0.197731 m 0,0 -0.197735,0.197735 m 0,0 h -0.197734"
+         d="m 20.175406,-20.085185 0.5932,0.197735 m 0,0 -0.197731,-0.5932 m 1.323018,-0.532088 -0.09887,-0.09886 m 0,0 0.09887,-0.09887 m 0,0 0.09887,0.09887 m 0,0 -0.09887,0.09886"
          id="path13"
-         inkscape:connector-curvature="0" />
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cccccccccccc" />
       <path
          class="l21"
          style="fill:none;stroke:#ffffff;stroke-width:0.1778;stroke-linecap:round;stroke-opacity:1"
@@ -579,12 +580,6 @@
          style="fill:none;stroke:#ffffff;stroke-width:0.1778;stroke-linecap:round;stroke-opacity:1"
          d="m 31.967134,-18.777194 0.139819,-0.139819 m 0,0 h 0.279637 m 0,0 0.139819,0.139819 m 0,0 v 0.139822 m 0,0 -0.139819,0.139819 m 0,0 h -0.139818 m 0.139818,0 0.139819,0.139819 m 0,0 v 0.139818 m 0,0 -0.139819,0.139819 m 0,0 h -0.279637 m 0,0 -0.139819,-0.139819 m 1.494794,0.139819 h -0.559275 m 0,0 0.559275,-0.559275 m 0,0 v -0.139822 m 0,0 -0.139819,-0.139819 m 0,0 h -0.279637 m 0,0 -0.139819,0.139819"
          id="path59"
-         inkscape:connector-curvature="0" />
-      <path
-         class="l21"
-         style="fill:none;stroke:#ffffff;stroke-width:0.1778;stroke-linecap:round;stroke-opacity:1"
-         d="m 35.523609,-18.777194 -0.139819,-0.139819 m 0,0 h -0.279637 m 0,0 -0.139819,0.139819 m 0,0 v 0.559278 m 0,0 0.139819,0.139819 m 0,0 h 0.279637 m 0,0 0.139819,-0.139819 m 0,0 v -0.279637 m 0,0 h -0.279637"
-         id="path61"
          inkscape:connector-curvature="0" />
       <path
          class="l21"
@@ -3106,18 +3101,45 @@
          width="1.636786"
          id="rect6407-1-0-3-6"
          style="fill:#81842a;fill-opacity:1;stroke:none" />
+      <path
+         class="l21"
+         style="fill:none;stroke:#ffffff;stroke-width:0.1778;stroke-linecap:round;stroke-opacity:1"
+         d="m 21.648171,-20.74899 -0.39259,0.398324 m 0,0 -0.0057,-0.790914 m 0,0 -0.09958,-0.09815 m 0,0 -0.197729,0.0014 m 0,0 -0.196295,0.199162 m 0,0 0.0014,0.197728"
+         id="path49-5"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cccccccccccc" />
+      <path
+         class="l21"
+         style="fill:none;stroke:#ffffff;stroke-width:0.1778;stroke-linecap:round;stroke-opacity:1"
+         d="m 22.224475,-21.476197 -0.39521,-0.395728 m 0,0 1.29e-4,-0.197734 m 0,0 0.197865,-0.197605 m 0,0 0.197734,1.29e-4 m 0,0 0.39521,0.395728 m 0,0 -1.3e-4,0.197735 m 0,0 -0.197864,0.197605 m 0,0 -0.197734,-1.3e-4 m 0,0 5.18e-4,-0.790938"
+         id="path25-7"
+         inkscape:connector-curvature="0" />
+      <path
+         class="l21"
+         style="fill:none;stroke:#ffffff;stroke-width:0.1778;stroke-linecap:round;stroke-opacity:1"
+         d="m 34.484666,-17.847394 v -0.838916 m 0,0 h 0.419456 m 0,0 0.139819,0.139819 m 0,0 v 0.279641 m 0,0 -0.139819,0.139818 m 0,0 h -0.419456 m 0.279638,0 0.279637,0.279638"
+         id="path21-1"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cccccccccccccc" />
+      <path
+         class="l21"
+         style="fill:none;stroke:#ffffff;stroke-width:0.1778;stroke-linecap:round;stroke-opacity:1"
+         d="m 36.007192,-18.537035 -0.139819,-0.139819 m 0,0 h -0.279638 m 0,0 -0.139818,0.139819 m 0,0 v 0.139822 m 0,0 0.139818,0.139819 m 0,0 h 0.279638 m 0,0 0.139819,0.139818 m 0,0 v 0.139819 m 0,0 -0.139819,0.139819 m 0,0 h -0.279638 m 0,0 -0.139818,-0.139819"
+         id="path21-0"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cccccccccccccccccccccc" />
     </g>
     <text
        id="text3000"
-       y="282.4184"
-       x="327.9263"
+       y="282.97507"
+       x="319.01953"
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
        xml:space="preserve"><tspan
-         y="282.4184"
-         x="327.9263"
+         y="282.97507"
+         x="319.01953"
          id="tspan3002"
          sodipodi:role="line"
-         style="font-size:17.5044px;line-height:1.25;font-family:sans-serif">mini B USB</tspan></text>
+         style="font-size:17.5044px;line-height:1.25;font-family:sans-serif">micro B USB</tspan></text>
     <text
        id="text3032"
        y="616.20648"
@@ -3157,15 +3179,15 @@
          id="tspan3646">to any PPS pin, but only 8 of the possible 31.</tspan></text>
     <text
        id="text3000-5"
-       y="253.56924"
-       x="254.41806"
+       y="254.12592"
+       x="245.51129"
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
        xml:space="preserve"><tspan
-         y="253.56924"
-         x="254.41806"
+         y="254.12592"
+         x="245.51129"
          id="tspan3002-0"
          sodipodi:role="line"
-         style="font-size:24px;line-height:1.25;font-family:sans-serif">Fubarino Mini v1.5 pins</tspan></text>
+         style="font-size:24px;line-height:1.25;font-family:sans-serif">Fubarino Mini v2.0 pins</tspan></text>
     <rect
        style="fill:#f36060;fill-opacity:1;stroke:#000000;stroke-width:0.533719;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect4670"
@@ -3805,14 +3827,14 @@
        ry="1.8450078"
        rx="2.0795665" />
     <rect
-       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.533719;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.612841;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect4670-4-9-1"
-       width="27.331446"
-       height="10.940573"
-       x="436.63629"
-       y="334.0206"
-       ry="1.8450078"
-       rx="2.0795665" />
+       width="36.298252"
+       height="10.86145"
+       x="436.67584"
+       y="334.06015"
+       ry="1.8316647"
+       rx="2.7618237" />
     <rect
        style="fill:#90b1b3;fill-opacity:1;stroke:#000000;stroke-width:0.533719;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect4670-0-2-3"
@@ -3962,7 +3984,12 @@
          y="338.8288"
          x="446.40302"
          id="tspan3038-135"
-         sodipodi:role="line">N.C.</tspan></text>
+         sodipodi:role="line">MCLR</tspan><tspan
+         style="font-size:9.92091px;line-height:1.25;font-family:sans-serif"
+         y="351.22992"
+         x="446.40302"
+         sodipodi:role="line"
+         id="tspan6252">.</tspan></text>
     <text
        id="text3036-9-9"
        y="351.82819"
